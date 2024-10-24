@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Diseñar un documento válido en XML que permita estructurar la información de las recetas de cocina de un restaurante y aplicarlo a la siguiente receta de cocina. Hay que hacerlo de modo que un sistema informático pueda realizar búsquedas por ingredientes, cantidad de comensales o nombre de la receta. Esto quiere decir que los ingredientes, cantidad de comensales o nombre de la receta deben ser datos que estén aislados de otra información, es decir, deben ser elementos atómicos.-->
+<recetas>
+    <receta>
+        <nombre>Sopa de cebolla</nombre>
+        <personas>4</personas>
+        <ingredientes>
+            <ingrediente>
+                <nombre>cebollas</nombre>
+                <cantidad>1</cantidad>
+                <unidad>Kg</unidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>caldo de carne</nombre>
+                <cantidad>2</cantidad>
+                <unidad>l</unidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>mantequilla</nombre>
+                <cantidad>100</cantidad>
+                <unidad>gr</unidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>harina</nombre>
+                <cantidad>1</cantidad>
+                <unidad>cucharada</unidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>queso emmental suizo o gruyére rallado</nombre>
+                <cantidad>100</cantidad>
+                <unidad>gr</unidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>pan tostado en rebanadas</nombre>
+            </ingrediente>
+            <ingrediente>
+                <nombre>tomillo</nombre>
+            </ingrediente>
+            <ingrediente>
+                <nombre>hoja de laurel</nombre>
+                <cantidad>1</cantidad>
+                <unidad>unidad</unidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>pimienta</nombre>
+            </ingrediente>
+        </ingredientes>
+        <proceso>
+            <paso>Pelar y partir las cebollas en rodajas finas.</paso>
+            <paso>Rehogarlas con la mantequilla, sal y pimienta a fuego lento hasta que estén transparentes sin dorarse.</paso>
+            <paso>Añadir la harina sin dejar de remover.</paso>
+            <paso>Ponerlo en una cazuela con el caldo, el tomillo y el laurel.</paso>
+            <paso>Dejar cocer a fuego lento durante unos 15 minutos.</paso>
+            <paso>Poner las rebanadas de pan encima, espolvorear el queso y gratinar al horno.</paso>
+        </proceso>
+    </receta>
+</recetas>

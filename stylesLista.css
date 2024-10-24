@@ -1,0 +1,124 @@
+modulo {
+    display: block;
+    border: 2px solid #4CAF50;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+nombre {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+horas_semanales {
+	display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+fecha_inicio {
+	display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+fecha_fin {
+	display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+caracter {
+    display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+alumnos {
+    display: block;
+    margin-top: 10px;
+}
+
+alumno {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #e7f3fe;
+}
+
+nombre {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+apellidos {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+nif {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+telefono {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+email {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+direccion {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+ciudad {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+cp {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+nota {
+	display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+faltas_asistencia {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}

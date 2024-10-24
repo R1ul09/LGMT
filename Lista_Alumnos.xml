@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="stylesLista.css"?>
+<!-- Diseñar un documento XML válido que permita estructurar la información para permitir su gestión informática de los alumnos de un modulo del ciclo formativo DAM. Aplicarlo al módulo de Lenguajes de Marcas y Sistemas de Gestión de Información sabiendo que tiene asignadas 4 horas semanales y es de carácter obligatorio. El modulo se imparte entre el 15 de septiembre de 2010 y el 30 de junio de 2011.-->
+<ciclo>
+    <modulo>
+        <nombre>Lenguajes de Marcas y Sistemas de Gestión de Información</nombre>
+        <horas_semanales>4</horas_semanales>
+        <fecha_inicio>2010-09-15</fecha_inicio>
+        <fecha_fin>2011-06-30</fecha_fin>
+        <caracter>obligatorio</caracter>
+        <alumnos>
+            <alumno>
+                <nombre>Ana</nombre>
+                <apellidos>Fernández Gutiérrez</apellidos>
+                <nif>16965696L</nif>
+                <telefono>789654321</telefono>
+                <email>ana.fdezgtrrez@hotmail.com</email>
+                <direccion>C/ El Percebe, 13</direccion>
+                <ciudad>Santander</ciudad>
+                <cp>39302</cp>
+                <nota>No existe información</nota>
+                <faltas_asistencia>No existe información</faltas_asistencia>
+            </alumno>
+            <alumno>
+                <nombre>Pepito</nombre>
+                <apellidos>Grillo</apellidos>
+                <nif>98765432H</nif>
+                <telefono>656566555</telefono>
+                <email>yhyh@yahoo.com</email>
+                <direccion>Avd. El Pez, 5</direccion>
+                <ciudad>Suances</ciudad>
+                <cp>39401</cp>
+                <nota>apto</nota>
+                <faltas_asistencia>No tiene faltas de asistencia</faltas_asistencia>
+            </alumno>
+        </alumnos>
+    </modulo>
+</ciclo>
