@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="styleCatalog.css"?>
+   <catalog>
+       <book>
+           <title>Clean Code</title>
+           <author>Robert C. Martin</author>
+           <year>2008</year>
+           <publisher>Prentice Hall</publisher>
+       </book>
+       <book>
+           <title>Trono de Cristal</title>
+           <author>SARAH J. MAAS</author>
+           <year>2024</year>
+           <publisher>Hidra</publisher>
+       </book>
+       <book>
+           <title>Alas de Sangre</title>
+           <author>REBECCA YARROS</author>
+           <year>2023</year>
+           <publisher>Planeta</publisher>
+       </book>
+   </catalog>

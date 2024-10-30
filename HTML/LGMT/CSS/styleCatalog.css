@@ -1,0 +1,7 @@
+catalog{color:#333;background-color:#f2f2f2;font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;padding:20px}
+book{border: 1px solid #ccc;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 15px;padding: 15px;
+border-radius:8px; color: #fff;}
+title{font-size:20px; font-weight: bold; color: #007bff;}
+author{font-size: 18px, italic; color: #555;}
+year{font-size: 16px; color: #666;}
+publisher{font-size: 16px; color: #666;}
