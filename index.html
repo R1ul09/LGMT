@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
-        }    
+        }
 
         h1 {
             color: #f44336; 
@@ -23,13 +23,26 @@
             margin-top: 20px;
             text-transform: uppercase; 
             letter-spacing: 2px; 
+            transition: color 0.4s ease, text-shadow 0.4s ease; 
         }
+
+        h1:hover {
+            color: #ff6666; 
+            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
+        }
+
 
         h2 {
             color: #f4f4f9; 
             font-size: 1.6em;
             font-weight: normal;
             font-style: italic; 
+            transition: color 0.4s ease, text-shadow 0.4s ease; 
+        }
+
+        h2:hover {
+            color: #ff6666; 
+            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
         }
 
         h4 {
@@ -37,7 +50,12 @@
             font-size: 1.5em;
             font-weight: bold;
             margin-bottom: 10px;
-            transition: color 0.3s ease; 
+            transition: color 0.3s ease, text-shadow 0.3s ease; 
+        }
+
+        h4:hover {
+            color: #ff6666; 
+            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
         }
 
         div {
@@ -47,13 +65,13 @@
             max-width: 600px;
             border: 2px solid #f44336; 
             border-radius: 10px;
-            background-color: #222;
+            background-color: #222; 
             box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); 
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         div:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); 
             background-color: #333; 
         }
 
@@ -75,7 +93,7 @@
         }
 
         a:hover {
-            color: #ff6666; 
+            color: #ff6666;
             text-decoration: underline; 
             transform: scale(1.1); 
         }
