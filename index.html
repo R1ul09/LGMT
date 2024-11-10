@@ -8,21 +8,6 @@
 </head>
 <body>
     <style>
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px); 
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .container {
-          animation: fadeIn 1s ease-out;
-        }
-
         body {
             font-family: 'Arial', sans-serif; 
             color: #f4f4f9; 
@@ -33,6 +18,32 @@
             background: radial-gradient(circle, rgba(2,0,36,1) 80%, rgba(255,0,0,1) 100%, rgba(0,212,255,1) 100%);
         }
 
+         div:hover {
+            transform: scale(1.05); 
+            background-color: #333; 
+        }
+
+         h1:hover {
+            color: #ff6666; 
+            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
+        }
+
+         h2:hover {
+            color: #ff6666; 
+            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
+        }
+
+         h4:hover {
+            color: #ff6666; 
+            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
+        }
+
+         a:hover {
+            color: #ff6666;
+            text-decoration: underline; 
+            transform: scale(1.1); 
+        }
+
         h1 {
             color: #f44336; 
             font-size: 2.8em;
@@ -40,26 +51,13 @@
             margin-top: 20px;
             text-transform: uppercase; 
             letter-spacing: 2px; 
-            transition: color 0.4s ease, text-shadow 0.4s ease; 
         }
-
-        h1:hover {
-            color: #ff6666; 
-            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
-        }
-
 
         h2 {
             color: #f4f4f9; 
             font-size: 1.6em;
             font-weight: normal;
             font-style: italic; 
-            transition: color 0.4s ease, text-shadow 0.4s ease; 
-        }
-
-        h2:hover {
-            color: #ff6666; 
-            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
         }
 
         h4 {
@@ -67,29 +65,17 @@
             font-size: 1.5em;
             font-weight: bold;
             margin-bottom: 10px;
-            transition: color 0.3s ease, text-shadow 0.3s ease; 
-        }
-
-        h4:hover {
-            color: #ff6666; 
-            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
         }
 
         div {
             margin: 20px auto;
             padding: 20px;
-            width: 100%; 
-            max-width: 1000px; 
-            border: 2px solid #f44336;
+            width: 80%;
+            max-width: 600px;
+            border: 2px solid #f44336; 
             border-radius: 10px;
-            background-color: #222;
-            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        div:hover {
-            transform: scale(1.05); 
-            background-color: #333; 
+            background-color: #222; 
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); 
         }
 
         ul {
@@ -106,16 +92,9 @@
             color: #f44336; 
             font-size: 1.2em;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.2s ease; 
-        }
-
-        a:hover {
-            color: #ff6666;
-            text-decoration: underline; 
-            transform: scale(1.1); 
         }
     </style>
-    <div class="container">
+    <div>
         <h1>Ejemplo de index.html</h1>
         <br>
         <h1>RAÚL ZALDÚA GUTIÉRREZ</h1>
