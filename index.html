@@ -76,28 +76,15 @@
         }
 
         div {
-            position: relative; 
             margin: 20px auto;
             padding: 20px;
-            width: 80%;
-            max-width: 600px;
+            width: 100%; 
+            max-width: 1200px; 
             border: 2px solid #f44336;
             border-radius: 10px;
             background-color: #222;
             box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
             transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        div::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            bottom: -10px;
-            left: -20px; 
-            right: -20px; 
-            border: 2px solid #f44336;
-            border-radius: 12px;
-            pointer-events: none; 
         }
 
         div:hover {
