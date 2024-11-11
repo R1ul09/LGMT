@@ -8,14 +8,12 @@
 </head>
 <body>
     <style>
-        /* Animación de fondo con gradiente en movimiento */
         @keyframes backgroundAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Partículas en movimiento */
         body::before, body::after {
             content: '';
             position: fixed;
@@ -54,7 +52,6 @@
             animation: backgroundAnimation 15s ease infinite;
         }
 
-        /* Animación de entrada de los elementos */
         @keyframes fadeIn {
           from {
             opacity: 0;
