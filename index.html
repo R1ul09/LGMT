@@ -18,7 +18,8 @@
             transform: translateY(0);
           }
         }
-
+        
+        
         .container {
           animation: fadeIn 1s ease-out;
         }
@@ -31,8 +32,21 @@
             text-align: center;
             background: rgb(2,0,36);
             background: radial-gradient(circle, rgba(2,0,36,1) 80%, rgba(255,0,0,1) 100%, rgba(0,212,255,1) 100%);
+            animation: body 5s ease 0s infinite alternate both;
         }
 
+        @keyframes body {
+	        0% {
+		        background-position: center bottom;
+		        background-size: 100%;
+	        }
+
+	        100% {
+		        background-position: center bottom;
+		        background-size: 150%;
+	        }
+        }
+        
         h1 {
             color: #f44336; 
             font-size: 2.8em;
