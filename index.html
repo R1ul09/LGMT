@@ -8,106 +8,156 @@
 </head>
 <body>
     <style>
+        @keyframes textSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px); 
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        
-        .container {
-          animation: fadeIn 1s ease-out;
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes headerHover {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes borderAnimation {
+            0% { border-color: #f44336; }
+            25% { border-color: #ff0062; }
+            50% { border-color: #800080; }
+            75% { border-color: #0000FF; }
+            100% { border-color: #f44336; }
         }
 
         body {
-            font-family: 'Arial', sans-serif; 
-            color: #f4f4f9; 
+            font-family: 'Arial', sans-serif;
+            color: #f4f4f9;
             margin: 0;
             padding: 0;
             text-align: center;
-            background: rgb(2,0,36);
-            background: radial-gradient(circle, rgba(2,0,36,1) 80%, rgba(255,0,0,1) 100%, rgba(0,212,255,1) 100%);
-            animation: body 5s ease 0s infinite alternate both;
+            background: linear-gradient(-45deg, #FF0000, #ff0062, #800080, #0000FF);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        @keyframes body {
-	        0% {
-		        background-position: center bottom;
-		        background-size: 100%;
-	        }
-
-	        100% {
-		        background-position: center bottom;
-		        background-size: 150%;
-	        }
-        }
-        
-        h1 {
-            color: #f44336; 
-            font-size: 2.8em;
-            font-weight: bold;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+            max-width: 1200px;
             margin-top: 20px;
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            transition: color 0.4s ease, text-shadow 0.4s ease; 
+            position: relative;
+            padding: 20px;
         }
 
-        h1:hover {
-            color: #ff6666; 
-            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 15px;
+            border: 15px solid;
+            animation: borderAnimation 3s linear infinite;
+            z-index: -1;
         }
 
+        h1, h2 {
+            color: #f44336;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        h1:hover, h2:hover {
+            color: #ff6666;
+        }
 
         h2 {
-            color: #f4f4f9; 
-            font-size: 1.6em;
-            font-weight: normal;
-            font-style: italic; 
-            transition: color 0.4s ease, text-shadow 0.4s ease; 
+            font-size: 1.2em;
+            color: #f4f4f9;
+            font-style: italic;
         }
 
-        h2:hover {
-            color: #ff6666; 
-            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
+        .header {
+            width: 100%;
+            max-width: 900px;
+            height: 250px;
+            margin: 10px 0;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.8);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .header:hover {
+            animation: headerHover 1s ease-in-out infinite;
+        }
+
+        .title {
+            font-size: 2.8em;
+        }
+
+        .subtitle {
+            font-size: 1.6em;
+        }
+
+        .courses {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .course {
+            width: 45%;
+            min-width: 360px;
+            background-color: #333;
+            border: 2px solid #f44336;
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .title {
+            font-size: 2.8em;
+            animation-delay: 0.2s;
+        }
+
+        .course:hover {
+            transform: scale(1.05);
         }
 
         h4 {
-            color: #f44336; 
             font-size: 1.5em;
+            color: #f44336;
             font-weight: bold;
-            margin-bottom: 10px;
-            transition: color 0.3s ease, text-shadow 0.3s ease; 
-        }
-
-        h4:hover {
-            color: #ff6666; 
-            text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666; 
-        }
-
-        div {
-            margin: 20px auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 800px;
-            border: 2px solid #f44336; 
-            border-radius: 10px;
-            background-color: #222; 
-            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); 
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        div:hover {
-            transform: scale(1.05); 
-            background-color: #333; 
         }
 
         ul {
-            list-style-type: none; 
+            list-style-type: none;
             padding: 0;
         }
 
@@ -116,38 +166,41 @@
         }
 
         a {
-            text-decoration: none; 
-            color: #f44336; 
+            color: #f44336;
             font-size: 1.2em;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.2s ease; 
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
         a:hover {
             color: #ff6666;
-            text-decoration: underline; 
-            transform: scale(1.1); 
+            text-decoration: underline;
         }
     </style>
+    
     <div class="container">
-        <h1>Ejemplo de index.html</h1>
-        <br>
-        <h1>RAÚL ZALDÚA GUTIÉRREZ</h1>
-        <b><h2>Lenguaje de Marcas 1 DAW 2024/2025</h2></b>
-        <br>
-        <div>
-            <b><h4>TEMA 1: Introducción al lenguaje de marcas</h4></b>
-            <ul>
-                <li><a href="HTML/LGMT/XML/Lista_Alumnos.xml" target="_blank">Ejercicio 1</a></li>
-                <li><a href="HTML/LGMT/XML/examenRaul.xml" target="_blank">Ejercicio 2</a></li>
-            </ul>
+        <div class="header">
+            <h1 class="title">Ejemplo de index.html</h1>
+            <h1 class="title">RAÚL ZALDÚA GUTIÉRREZ</h1>
+            <h2 class="subtitle">Lenguaje de Marcas 1 DAW <b>Curso 24/25</b></h2>
         </div>
-        <div>
-            <b><h4>Tema 2: HTML</h4></b>
-            <ul>
-                <li><a href="HTML/LGMT/HTML/TEMA1/listas.html" target="_blank">Ejercicio 1: Listas</a></li>
-                <li><a href="HTML/LGMT/HTML/TEMA2/HorarioClase.html" target="_blank">Ejercicio 2: Horario</a></li>
-            </ul>
+
+        <div class="courses">
+            <div class="course">
+                <h4><a href="HTML/LGMT/HTML/TEMA1">1: Introducción al lenguaje de marcas</a></h4>
+                <ul>
+                    <li><a href="HTML/LGMT/XML/Lista_Alumnos.xml" target="_blank">Ejercicio 1</a></li>
+                    <li><a href="HTML/LGMT/XML/examenRaul.xml" target="_blank">Ejercicio 2</a></li>
+                </ul>
+            </div>
+            <div class="course">
+                <h4><a href="HTML/LGMT/HTML/TEMA2">Tema 2: HTML</a></h4>
+                <ul>
+                    <li><a href="HTML/LGMT/HTML/TEMA1/listas.html" target="_blank">Ejercicio 1: Listas</a></li>
+                    <li><a href="HTML/LGMT/HTML/TEMA2/HorarioClase.html" target="_blank">Ejercicio 2: Horario</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
