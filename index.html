@@ -6,59 +6,58 @@
     <title>PAGINA RAÚL ZALDÚA</title>
     <link rel="icon" href="icon.ico">
     <style>
-        /* Animación de tipeo en el texto */
+        @keyframes gradientBackground {
+            0% { background: #0d0d0d; }
+            50% { background: #333; }
+            100% { background: #0d0d0d; }
+        }
+
         @keyframes textTyping {
             0% { width: 0; }
             100% { width: 100%; }
         }
 
-        /* Animación de resplandor en el texto */
         @keyframes glow {
             0%, 100% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6); }
             50% { text-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 0.8); }
         }
 
-        /* Animación de burbujeo */
         @keyframes bubbleMovement {
             0% { transform: translateY(100vh); opacity: 0; }
-            50% { opacity: 1; }
+            10% { opacity: 1; }
             100% { transform: translateY(-100vh); opacity: 0; }
         }
 
-        /* Animación de entrada de la página */
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* General del body */
         body {
             font-family: 'Arial', sans-serif;
             color: #f4f4f9;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #0d0d0d;
+            background: #0d0d0d; 
             overflow: hidden;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: fadeIn 1s ease-out;
+            animation: gradientBackground 10s ease infinite;
         }
 
-        /* Burbujas de fondo */
         .bubble {
             position: absolute;
             border-radius: 50%;
             background-color: rgba(255, 0, 0, 0.5);
             box-shadow: 0 0 20px rgba(255, 0, 0, 1);
-            animation: bubbleMovement 8s infinite ease-in;
-            filter: blur(4px);
-            pointer-events: none;
+            animation: bubbleMovement 12s infinite ease-in;
+            animation-delay: 1s;
+            filter: blur(3px);
         }
 
-        /* Tamaño y variación de las burbujas */
         .bubble:nth-child(1) { left: 5%; width: 15px; height: 15px; animation-delay: 0s; }
         .bubble:nth-child(2) { left: 15%; width: 25px; height: 25px; animation-delay: 2s; }
         .bubble:nth-child(3) { left: 25%; width: 20px; height: 20px; animation-delay: 1s; }
@@ -70,7 +69,6 @@
         .bubble:nth-child(9) { left: 85%; width: 26px; height: 26px; animation-delay: 1s; }
         .bubble:nth-child(10) { left: 95%; width: 16px; height: 16px; animation-delay: 2s; }
 
-        /* Estilos de encabezado y contenido */
         .container {
             display: flex;
             flex-direction: column;
@@ -178,8 +176,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Burbujas de fondo adicionales -->
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
@@ -190,14 +186,12 @@
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
-
     <div class="container">
         <div class="header">
             <h1 class="title">Ejemplo de index.html</h1>
             <h1 class="title">RAÚL ZALDÚA GUTIÉRREZ</h1>
             <h2 class="subtitle">Lenguaje de Marcas 1 DAW <b>Curso 24/25</b></h2>
         </div>
-
         <div class="courses">
             <div class="course">
                 <h4>1: Introducción al lenguaje de marcas</h4>
@@ -215,6 +209,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
