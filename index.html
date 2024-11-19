@@ -3,19 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario de clase</title>
+    <title>PAGINA RAÚL ZALDÚA</title>
+    <link rel="icon" href="icon.ico">
+    <style>
+        @keyframes gradientBackground {
+            0% { background: #0d0d0d; }
+            50% { background: #333; }
+            100% { background: #0d0d0d; }
+        }
+
+        @keyframes textTyping {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6); }
+            50% { text-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 0.8); }
+        }
+
+        @keyframes bubbleMovement {
+            0% { transform: translateY(110vh); opacity: 1; }
+            50% { transform: translateY(-10vh); opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #0d0d0d; 
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: gradientBackground 10s ease infinite;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+            animation: bubbleMovement 4s infinite ease-in-out;
+            filter: blur(3px);
+        }
+
+        .bubble:nth-child(1) { left: 5%; width: 15px; height: 15px; animation-delay: 0s; }
+        .bubble:nth-child(2) { left: 15%; width: 25px; height: 25px; animation-delay: 1s; }
+        .bubble:nth-child(3) { left: 25%; width: 20px; height: 20px; animation-delay: 0.5s; }
+        .bubble:nth-child(4) { left: 35%; width: 30px; height: 30px; animation-delay: 1.5s; }
+        .bubble:nth-child(5) { left: 45%; width: 18px; height: 18px; animation-delay: 0.2s; }
+        .bubble:nth-child(6) { left: 55%; width: 22px; height: 22px; animation-delay: 1s; }
+        .bubble:nth-child(7) { left: 65%; width: 28px; height: 28px; animation-delay: 0.8s; }
+        .bubble:nth-child(8) { left: 75%; width: 24px; height: 24px; animation-delay: 1.2s; }
+        .bubble:nth-child(9) { left: 85%; width: 26px; height: 26px; animation-delay: 0.3s; }
+        .bubble:nth-child(10) { left: 95%; width: 16px; height: 16px; animation-delay: 1.4s; }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #f44336;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: textTyping 3s steps(30) 1s forwards, glow 2s infinite alternate;
+        }
+
+        h1:hover, h2:hover {
+            color: #ff6666;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        .header {
+            width: 1000px;
+            max-width: 850px;
+            height: 300px;
+            margin: 10px 0;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.9);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .header:hover {
+            transform: scale(1.05);
+        }
+
+        .title {
+            font-size: 2.8em;
+        }
+
+        .courses {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .course {
+            width: 45%;
+            min-width: 360px;
+            margin-top: 10px;
+            background-color: #333;
+            border: 2px solid #f44336;
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .course:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        h4 {
+            font-size: 1.5em;
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #f44336;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        a:hover {
+            color: #ff6666;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            text-decoration: underline;
+        }
+        
+    </style>
 </head>
-<body bgcolor=#DEDEDE>
-    <br><br><br><br><br><br><br><br><br>
-    <table align="center" border="1" cellspacing="2" cellpadding="5" width="40%" height="400px">
-        <tr><th bgcolor=FC1538><font color="white">Horario</font></th><th bgcolor=FC1538><font color="white">Lunes</font></th><th bgcolor=FC1538><font color="white">Martes</font></th><th bgcolor=FC1538><font color="white">Miércoles</font></th><th bgcolor=FC1538><font color="white">Jueves</font></th><th bgcolor=FC1538><font color="white">Viernes</font></th></tr>
-        <tr><td bgcolor=#7AE582><b>08:30-09:30</b></td><td bgcolor=#4ecdc4>ENDES</td><td bgcolor=#BD7FFF>INGLES</td><td bgcolor=#CAC9D7>LGMT</td><td bgcolor=#A16D69>STINF</td><td bgcolor=#7A7D7D>SAS</td></tr>
-        <tr><td bgcolor=#7AE582><b>09:30-10:30</b></td><td bgcolor=#48FF94>PROGR</td><td bgcolor=#B8E1FF>DAS</td><td bgcolor=#4ecdc4>ENDES</td><td bgcolor=#4ecdc4>ENDES</td><td bgcolor=#F6EFA6>IPE</td></tr>
-        <tr><td bgcolor=#7AE582><b>10:30-11:30</b></td><td bgcolor=#48FF94>PROGR</td><td bgcolor=#F6EFA6>IPE</td><td bgcolor=#A16D69>STINF</td><td bgcolor=#48FF94>PROGR</td><td bgcolor=#48FF94>PROGR</td></tr>
-        <tr><td colspan="6" align="center" bgcolor=#dd9ac2><b>RECREO</b></td></tr>
-        <tr><td bgcolor=#7AE582><b>12:00-13:00</b></td><td bgcolor=#EAE151>BADAT</td><td bgcolor=#EAE151>BADAT</td><td bgcolor=#A16D69>STINF</td><td bgcolor=#48FF94>PROGR</td><td bgcolor=#48FF94>PROGR</td></tr>
-        <tr><td bgcolor=#7AE582><b>13:00-14:00</b></td><td bgcolor=#EAE151>BADAT</td><td bgcolor=#EAE151>BADAT</td><td bgcolor=#EAE151>BADAT</td><td bgcolor=#F6EFA6>IPE</td><td bgcolor=#A16D69>STINF</td></tr>
-        <tr><td bgcolor=#7AE582><b>14:00-15:00</b></td><td bgcolor=#BD7FFF>INGLES</td><td bgcolor=#CAC9D7>LGMT</td><td bgcolor=#EAE151>BADAT</td><td bgcolor=#CAC9D7>LGMT</td><td bgcolor=#A16D69>STINF</td></tr>
-    </table>
+<body>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Ejemplo de index.html</h1>
+            <h1 class="title">RAÚL ZALDÚA GUTIÉRREZ</h1>
+            <h2 class="subtitle">Lenguaje de Marcas 1 DAW <b>Curso 24/25</b></h2>
+        </div>
+        <div class="courses">
+            <div class="course">
+                <h4>1: Introducción al lenguaje de marcas</h4>
+                <ul>
+                    <li><a href="HTML/LGMT/XML/Lista_Alumnos.xml" target="_blank">Ejercicio 1</a></li>
+                    <li><a href="HTML/LGMT/XML/examenRaul.xml" target="_blank">Ejercicio 2</a></li>
+                </ul>
+            </div>
+            <div class="course">
+                <h4>Tema 2: HTML</h4>
+                <ul>
+                    <li><a href="HTML/LGMT/HTML/TEMA1/listas.html" target="_blank">Ejercicio 1: Listas</a></li>
+                    <li><a href="HTML/LGMT/HTML/TEMA2/HorarioClase.html" target="_blank">Ejercicio 2: Horario</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
