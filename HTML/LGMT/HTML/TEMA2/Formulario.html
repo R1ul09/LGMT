@@ -13,9 +13,9 @@
                 <p><font color="white">
                     Nombre: <input type="text" name="nombre" size="25" maxlength="40"><br>
                     Dirección: <input type="text" name="apellido" size="25" maxlength="40"><br>
-                    Telefono: <input type="text" name="telefono" size="25" maxlength="40" value="0"><br>
-                    Edad: <input type="text" name="edad" size="25" maxlength="40" value="0"><br>
-                    Población: <input type="text" name="poblacion" size="25" maxlength="40" value="El Puerto de Santa María"><br>
+                    Telefono: <input type="number" name="telefono" size="25" maxlength="40"><br>
+                    Edad: <input type="number" name="edad" size="25" maxlength="40"><br>
+                    Población: <input type="text" name="poblacion" size="25" maxlength="40"><br>
                     <br>
 
                     Sexo: <input type="radio" name="sexo" value="Masculino">Masculino
@@ -31,10 +31,29 @@
                     Deportes Preferidos: <input type="checkbox" name="deportes" value="baloncesto">Baloncesto
                     <input type="checkbox" name="deportes" value="futbol">Futbol
                     <input type="checkbox" name="deportes" value="tenis">Tenis
-                    <input type="checkbox" name="deportes" value="otro">Otro<br>
+                    <input type="checkbox" name="deportes" value="otro">Otro<br><br>
 
-                    <center><input type="submit" value="Enviar"></center><br>
-                    <center><input type="submit" value="Guardar"></center>
+                    Tipo de serie preferido:
+                    <select name="Series">
+                        <option value="Terror">Terror</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Acción">Acción</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Ciencia Ficción">Ciencia Ficción</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Drama">Drama</option>
+                        <br><br>
+
+                    </select>
+                    <br>
+                    <hr>
+                    <br>
+
+                    <center><input type="button" value="Salir" onclick="window.close()">
+                    <input type="button" value="Fecha" onclick="alert(Date())">
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Borrar">
+                    <input type="submit" value="Guardar"></center>
                     
                 </font></p>
             </form>
