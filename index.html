@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAGINA RAÚL ZALDÚA</title>
+    <title>Página Raúl Zaldúa</title>
     <link rel="icon" href="icon.ico">
     <style>
+        /* Animaciones */
         @keyframes gradientBackground {
             0% { background: #0d0d0d; }
             50% { background: #333; }
@@ -33,6 +34,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
         
+        /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
             color: #f4f4f9;
@@ -68,12 +70,45 @@
         .bubble:nth-child(9) { left: 85%; width: 26px; height: 26px; animation-delay: 0.3s; }
         .bubble:nth-child(10) { left: 95%; width: 16px; height: 16px; animation-delay: 1.4s; }
 
+        header, section, article, footer {
+            margin: 10px 0;
+        }
+
+        footer {
+            width: 100%;
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.4);
+            color: #f44336;
+            font-size: 1em;
+            animation: fadeIn 1.5s ease-out, glow 2s infinite alternate;
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        footer:hover {
+            background-color: rgba(50, 50, 50, 1);
+            transform: translateY(-5px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .title {
+            font-size: 2.8em;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             max-width: 1200px;
-            margin-top: 20px;
             padding: 20px;
         }
 
@@ -99,26 +134,6 @@
             font-size: 1.2em;
         }
 
-        .header {
-            width: 1000px;
-            max-width: 850px;
-            height: 300px;
-            margin: 10px 0;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: rgba(34, 34, 34, 0.9);
-            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
-            transition: transform 0.3s;
-        }
-
-        .header:hover {
-            transform: scale(1.05);
-        }
-
-        .title {
-            font-size: 2.8em;
-        }
-
         .courses {
             display: flex;
             justify-content: center;
@@ -139,15 +154,40 @@
             animation: fadeIn 1.5s ease-out;
         }
 
+        .header {
+            width: 1000px;
+            max-width: 850px;
+            height: 300px;
+            margin: 10px 0;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.9);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .header:hover {
+            transform: scale(1.05);
+        }
+
+        .courses {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
         .course:hover {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
         }
 
-        h4 {
-            font-size: 1.5em;
+        a {
             color: #f44336;
+            font-size: 1.2em;
             font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         ul {
@@ -159,12 +199,11 @@
             margin: 10px 0;
         }
 
-        a {
+
+        h4 {
+            font-size: 1.5em;
             color: #f44336;
-            font-size: 1.2em;
             font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s;
         }
 
         a:hover {
@@ -172,10 +211,10 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
             text-decoration: underline;
         }
-        
     </style>
 </head>
 <body>
+    <!-- Burbujas animadas -->
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
@@ -186,21 +225,24 @@
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
-    <div class="container">
-        <div class="header">
-            <h1 class="title">Ejemplo de index.html</h1>
-            <h1 class="title">RAÚL ZALDÚA GUTIÉRREZ</h1>
-            <h2 class="subtitle">Lenguaje de Marcas 1 DAW <b>Curso 24/25</b></h2>
+
+    <header>
+        <div class="container">
+            <h1>RAÚL ZALDÚA GUTIÉRREZ</h1>
+            <h2>Lenguaje de Marcas 1 DAW <b>Curso 24/25</b></h2>
         </div>
+    </header>
+
+    <section>
         <div class="courses">
-            <div class="course">
+            <article class="course">
                 <h4>1: Introducción al lenguaje de marcas</h4>
                 <ul>
                     <li><a href="HTML/LGMT/XML/Lista_Alumnos.xml" target="_blank">Ejercicio 1</a></li>
                     <li><a href="HTML/LGMT/XML/examenRaul.xml" target="_blank">Ejercicio 2</a></li>
                 </ul>
-            </div>
-            <div class="course">
+            </article>
+            <article class="course">
                 <h4>Tema 2: HTML</h4>
                 <ul>
                     <li><a href="HTML/LGMT/HTML/TEMA1/listas.html" target="_blank">Ejercicio 1: Listas</a></li>
@@ -208,8 +250,12 @@
                     <li><a href="HTML/LGMT/HTML/TEMA2/ejemploPaginaFrame.html" target="_blank">Ejercicio 3: Iframes</a></li>
                     <li><a href="HTML/LGMT/HTML/TEMA2/Formulario.html" target="_blank">Ejercicio 4: Formulario</a></li>
                 </ul>
-            </div>
+            </article>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Raúl Zaldúa</p>
+    </footer>
 </body>
 </html>
