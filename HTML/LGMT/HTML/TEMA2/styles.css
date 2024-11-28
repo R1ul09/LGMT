@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #0d3b66;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 900px;
+}
+.cv-container {
+    display: flex;
+    max-width: 900px;
+    margin: 0px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.sidebar {
+    background-color: #0d3b66;
+    color: #fff;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.photo img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.sidebar h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.sidebar .job-title {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.contact-info, .additional-info {
+    margin-top: 20px;
+}
+
+.main-content {
+    padding: 20px;
+    width: 70%;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #0d3b66;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.experience h3 {
+    margin: 5px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+aside > section > h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+footer {
+    background-color: #387cbb;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 900px;
+}
