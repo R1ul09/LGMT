@@ -11,6 +11,8 @@ header {
     color: #ffffff;
     display: flex;
     align-items: center;
+    border-bottom: 4px solid #387cbb;
+    text-align: center;
     justify-content: space-between;
     margin: auto;
     width: 900px;
@@ -68,19 +70,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-.experience h3 {
-    margin: 5px 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 5px 0;
-}
-
 aside > section > h2 {
     color: #ffffff;
     border-bottom: 2px solid #ddd;
@@ -95,4 +84,30 @@ footer {
     justify-content: space-between;
     margin: auto;
     width: 900px;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-info {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+.contact-info p {
+    margin: 5px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+.experience h3 {
+    margin: 10px 0;
+    font-size: 18px;
 }
