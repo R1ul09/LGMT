@@ -102,6 +102,7 @@
             align-items: center;
             max-width: 1200px;
             padding: 60px;
+            margin-top: 150px;
         }
 
         h1, h2 {
@@ -126,26 +127,6 @@
             font-size: 1.2em;
         }
 
-        .courses {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .course {
-            width: 45%;
-            min-width: 360px;
-            margin-top: 10px;
-            background-color: #333;
-            border: 2px solid #f44336;
-            padding: 10px;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            animation: fadeIn 1.5s ease-out;
-        }
-
         .header {
             width: 1000px;
             max-width: 850px;
@@ -160,18 +141,6 @@
 
         .header:hover {
             transform: scale(1.05);
-        }
-
-        .courses {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .course:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
         }
 
         a {
@@ -204,7 +173,7 @@
             text-decoration: underline;
         }
 
-         .navbar {
+        .navbar {
             width: 100%;
             background-color: rgba(34, 34, 34, 0.9);
             box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
