@@ -1,0 +1,97 @@
+/* Estilo general */
+body {
+    background-color: white;
+    max-width: 1500px;
+}
+
+/* Encabezado */
+header {
+    border: 2px solid black;
+    width: 1300px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre logotipo y buscador */
+    align-items: center; /* Centra verticalmente */
+    padding: 10px; /* Espaciado interno */
+}
+
+header p {
+    justify-content: right;
+    display: flex;
+}
+
+/* Menú de navegación */
+nav {
+    border: 2px solid black;
+    display: flex;
+    width: 1320px;
+}
+
+/* Aside izquierdo */
+aside {
+    border: 2px solid black;
+    width: 22%; /* Ajusta el ancho relativo al espacio disponible */
+    float: left; /* Coloca el aside a la izquierda */
+    margin-right: 10px; /* Espacio entre el aside y el main */
+}
+
+/* Main */
+main {
+    border: 2px solid black;
+    width: 40%; /* Ajusta el ancho del contenido principal */
+    float: left; /* Coloca el main a la izquierda del aside derecho */
+    margin-right: 10px; /* Espacio entre el main y el aside derecho */
+}
+
+/* Aside derecho */
+#derecha {
+    border: 2px solid black;
+    width: 23%; /* Ajusta el ancho del aside derecho */
+    float: left; /* Coloca el aside derecho al lado del main */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Espaciado entre secciones en el aside derecho */
+#derecha section {
+    margin-bottom: 20px; /* Espacio entre las secciones */
+}
+
+#derecha h1 {
+    font-size: 1.2em; /* Ajusta el tamaño del título */
+    margin-bottom: 5px; /* Espacio debajo del título */
+}
+
+#derecha p {
+    text-align: justify; /* Alinea el texto */
+}
+
+/* Imágenes y texto en main */
+#primer img, #segundo img {
+    float: left; /* Hace que la imagen flote a la izquierda */
+    margin-right: 10px; /* Añade espacio entre la imagen y el texto */
+}
+
+#primer p, #segundo p {
+    overflow: hidden; /* Asegura que el texto no se solape con otros elementos */
+    text-align: justify; /* Alinea el texto */
+}
+
+#primer, #segundo {
+    clear: both; /* Asegura que los divs no se solapen */
+    margin-bottom: 20px; /* Espacio entre los bloques */
+}
+
+/* Footer */
+footer {
+    clear: both;
+    border: 2px solid black;
+    width: 1300px;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    padding: 10px; /* Espaciado interno */
+}
+
+footer p {
+    text-align: right;
+}
+
+
