@@ -1,17 +1,21 @@
 /* Estilo general */
 body {
-    background-color: white;
+    color: black;
+    font-size: 0.9em;
+    font-family: Arial;
     max-width: 1500px;
 }
 
 /* Encabezado */
 header {
     border: 2px solid black;
-    width: 1300px;
+    width: 1160px;
     display: flex;
     justify-content: space-between; /* Espacio entre logotipo y buscador */
     align-items: center; /* Centra verticalmente */
     padding: 10px; /* Espaciado interno */
+    font-size: 1.6em;
+    margin-bottom: 0.3em;
 }
 
 header p {
@@ -22,30 +26,47 @@ header p {
 /* Menú de navegación */
 nav {
     border: 2px solid black;
-    display: flex;
-    width: 1320px;
+    width: 1160px;
+    background-color: #0264c7;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+nav a {
+    margin-right: 10px;
+    font-size: 20px;
 }
 
 /* Aside izquierdo */
 aside {
     border: 2px solid black;
-    width: 22%; /* Ajusta el ancho relativo al espacio disponible */
+    width: 20%; /* Ajusta el ancho relativo al espacio disponible */
     float: left; /* Coloca el aside a la izquierda */
     margin-right: 10px; /* Espacio entre el aside y el main */
+    font-size: 0.9em;
+    color: #003366;
 }
 
 /* Main */
 main {
-    border: 2px solid black;
     width: 40%; /* Ajusta el ancho del contenido principal */
     float: left; /* Coloca el main a la izquierda del aside derecho */
-    margin-right: 10px; /* Espacio entre el main y el aside derecho */
+    margin-right: 1em; /* Espacio entre el main y el aside derecho */
+    margin-left: 1em; 
+    font-size: 1.3em;
+}
+
+#Publicidad {
+    border: 2px solid rgb(255, 136, 0);
+    background-color: #f8edab;
+    padding: 10px;
+    margin-top: 20px;
 }
 
 /* Aside derecho */
 #derecha {
-    border: 2px solid black;
-    width: 23%; /* Ajusta el ancho del aside derecho */
+    border: 4px solid rgb(255, 136, 0);
+    width: 14%; /* Ajusta el ancho del aside derecho */
     float: left; /* Coloca el aside derecho al lado del main */
     padding: 10px; /* Espaciado interno */
 }
@@ -56,6 +77,8 @@ main {
 }
 
 #derecha h1 {
+    border: 4px solid rgb(255, 136, 0);
+    background:rgb(255, 136, 0);
     font-size: 1.2em; /* Ajusta el tamaño del título */
     margin-bottom: 5px; /* Espacio debajo del título */
 }
@@ -84,14 +107,12 @@ main {
 footer {
     clear: both;
     border: 2px solid black;
-    width: 1300px;
-    display: flex;
+    width: 1160px;
+    background-color: rgb(235, 234, 234);
+    padding: 10px;
+}
+
+#copy {
+    margin-left: 1100px;
     align-items: center; /* Centra verticalmente */
-    padding: 10px; /* Espaciado interno */
 }
-
-footer p {
-    text-align: right;
-}
-
-
