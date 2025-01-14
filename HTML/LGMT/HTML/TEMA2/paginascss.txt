@@ -1,0 +1,17 @@
+https://www.corecode.school/blog/css-guia-basica-flexbox-grid#manejar-espacios-sobrantes
+Tiene como objetivo proporcionar una forma más eficiente de diseñar, alinear y distribuir el espacio entre los elementos en un contenedor, 
+incluso cuando su tamaño es desconocido y/o dinámico (por eso se le llama “flex”).
+
+La idea principal detrás del diseño flexible es darle al contenedor la capacidad de modificar el ancho/alto (y el orden) de sus elementos para llenar mejor el espacio disponible 
+(adaptación a todo tipo de tamaños de pantalla). Un contenedor flexible puede expandir los elementos para llenar el espacio libre disponible 
+o los puede reducir para evitar el desbordamiento.
+
+Centrar con Flexbox
+En este caso utilizarás las siguientes propiedades CSS para centrar uno o varios "items" dentro de un elemento "container" de esta manera.
+
+css
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
