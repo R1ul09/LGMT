@@ -1,48 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora Grid</title>
     <style>
+        /* Aplicamos a todos los elementos lo siguiente: 
+        quita márgenes y paddings, ajustamos el modelo de caja y definimos tamoaño y letra */
         * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-        font-size: 18px;
-    }
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+        }
 
+        /* Definimos un contenedor principal como un grid, con espaciado entre elementos */
         .container {
-        padding: 5vw;
-        height: 100vh;
-        background-color: #eeeeee;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-    }
+            padding: 5vw; /* Espaciado interior proporcional al ancho de la ventana, sobre todo para resoluciones como los moviles */
+            height: 100vh; /* Con esto ocuparemos toda la altura disponible de la pantalla. */
+            background-color: #eeeeee; 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Con esto creamos 4 columnas iguales */
+            gap: 5px; /* Espaciado entre las celdas del grid */
+        }
 
+        /* Estilo base para cada ítem(cada cuadradito): color, redondeo y centrar contenido */
         .item {
-        background: #fb6942;
-        border-radius: 1rem;
-        color: #fff;
-        display: grid;
-        place-items: center;
-    }
+            background: #fb6942; 
+            border-radius: 1rem; 
+            color: #fff; 
+            display: grid; /* Usamos grid para centrar el contenido */
+            place-items: center;
+        }
 
+        /* Estilo especial para el botón "+" con mayor tamaño y posición personalizada con el grid */
         .item1 {
-        background: #fb6942;
-        border-radius: 1rem;
-        color: #fff;
-        display: grid;
-        place-items: center;
-        grid-row: 4  / span 2;
-        grid-column: 4;
-    }
+            background: #fb6942; 
+            border-radius: 1rem; 
+            color: #fff;
+            display: grid; 
+            place-items: center; 
+            grid-row: 4 / span 2; /* Va a ocupar desde la fila 4 y se va a extender 2 filas */
+            grid-column: 4; /* Se posiciona en la cuarta columna */
+        }
     </style>
 </head>
 <body>
-    <!-- Vamos a ver para qué sirve flexbox -->
     <div class="container">
         <div class="item">Off</div>
         <div class="item">√</div>
@@ -59,7 +63,7 @@
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
-        <div class="item1">+</div>
+        <div class="item1">+</div> 
         <div class="item">0</div>
         <div class="item">.</div>
         <div class="item">=</div>
