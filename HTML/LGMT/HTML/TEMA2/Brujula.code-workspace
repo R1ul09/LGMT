@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "LGMT",
+			"path": "../.."
+		},
+		{
+			"name": "IMG",
+			"path": "../../../../IMG"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "LGMT"
+	}
+}

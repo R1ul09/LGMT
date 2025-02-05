@@ -11,12 +11,48 @@
 </head>
 <!-- Fondo gris claro -->
 <body class="bg-light">
-
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-6"> <!-- Columna que ocupa 6 de 12 espacios -->
+    <div>
       <div class="card shadow-lg p-4"> <!-- Tarjeta con sombra y relleno -->
-        <h3 class="text-center mb-4">Iniciar Sesión</h3>
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">Simple header</span>
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          </ul>
+        </header>
+        <div class="row">
+          <div class="col-sm-4 p-3">
+            <img class="img-fluid" src="/IMG/bootstrap.png" alt="New York"></div>
+          <div class="col-sm-8 p-3">
+            <p class="fw-bold">Texto en negrita.</p>
+            <p class="fw-bolder">Texto en negrita (relativo al elemento principal).</p>
+            <p class="fw-normal">Texto de peso normal.</p>
+            <p class="fw-light">Texto liviano.</p>
+            <p class="fw-lighter">Texto más ligero (en relación con el elemento principal).</p>
+            <p class="fst-italic">Texto en cursiva.</p>
+            <p class="fst-normal">Texto con estilo de fuente normal</p>
+          </div>
+        </div>
+        <div>
+        <div class="row">
+          <div class="col">
+            <img src="https://picsum.photos/200/300" alt="foto1"></div>
+          </div>
+          <div class="col">
+            <img src="https://picsum.photos/200/300" alt="foto2"></div>
+          </div>
+          <div class="col">
+            <img src="https://picsum.photos/200/300" alt="foto3"></div>
+          </div>
+        </div>
         <form action="/action_page.php">
           <div class="mb-3">
             <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
