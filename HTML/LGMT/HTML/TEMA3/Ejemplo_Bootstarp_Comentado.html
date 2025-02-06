@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Formulario Mejorado</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Estas son las Librerias de Bootstrap 5, para poder utilizarlas tenemos que poner este link en la cabezara de nuestro HTML para que funcionen las clases-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-------------------------------------------------------------NOTA------------------------------------------------------------------------------
+Vamos a ver que en el siguiente codigo vamos a trabajar con unas clases de Bootstrap 5 la cual vamos a explicar para que sirve cada una de ellas.
+Cada una de ellas tiene un significado y una funcion que se aplica a la misma, pero cada una tiene sus propios parametros que se pueden cambiar.
+ - "container": Contenedor principal
+ - "row": La fila de contenedores
+ - "col": Columna de contenedores
+ - "btn": Botón
+ - "img: Imagen con algun tipo de parametro que se ajuste a la pantalla
+ - "card": Esta clase sirve para realizar una carta
+------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="container"> <!-- Contenedor principal -->
+    <div class="row"> <!-- La fila de contenedores -->
+      <div class="col-md-6"> <!-- Columna, md es para tamaño de pantalla mediano y el 6 es para el tamaño de columna "De 6 a 12"-->
+        <h1>Bienvenido a mi landing page</h1>
+        <p>Esta es una landing page sencilla creada con Bootstrap 5 Grid.</p>
+              <!-- Botón de la página, con el parametro "primary" que es para que se vea con el fondo azul -->
+        <button class="btn btn-primary">Llamada a la acción</button>
+      </div>
+      <div class="col-md-6"> <!-- Columna, md es para tamaño de pantalla mediano y el 6 es para el tamaño de columna "De 6 a 12" -->
+                                                            <!-- Imagen responsiva con el parametro "fluid" que es para que se ajuste a la pantalla -->
+        <img src="https://cdn.pixabay.com/photo/2017/07/31/20/06/ball-2560612_640.jpg" class="img-fluid" alt="Imagen principal">
+      </div>
+    </div>
+    <!-- En la siguiente "seccion de codigo" veremos que vamos a trabajar con la clase "card", 
+     que sirve para hacer cartas con un diseño y tamaño que se ajuste a la pantalla -->
+    <div class="row mt-4"> <!-- fila (row) con el parametro "mt-4" (margin top) que aplica un margen superior de 4 unidades de Bootstrap (24px) -->
+      <div class="col-md-4"> <!-- Columna, md es para tamaño de pantalla mediano y el 4 es para el tamaño de columna "De 4 a 12 o 1/3 ancho" -->
+        <div class="card"> <!-- Esta clase sirve para realizar una carta -->
+          <div class="card-body"> <!-- El cuerpo de la carta -->
+              <!-- El titulo de la carta -->
+            <h5 class="card-title">Característica 1</h5>
+              <!-- El texto de la carta -->
+            <p class="card-text">Descripción de la característica 1.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"> <!-- Columna, md es para tamaño de pantalla mediano y el 4 es para el tamaño de columna "De 4 a 12 o 1/3 ancho" -->
+        <div class="card"> <!-- La misma clase de antes para realizar una carta -->
+          <div class="card-body"> <!-- El cuerpo de la carta -->
+                <!-- El titulo de la carta -->
+            <h5 class="card-title">Característica 2</h5>
+                <!-- El texto de la carta -->
+            <p class="card-text">Descripción de la característica 2.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"> <!-- Columna, md es para tamaño de pantalla mediano y el 4 es para el tamaño de columna "De 4 a 12 o 1/3 ancho" -->
+        <div class="card"> <!-- La misma clase otra vez que antes, que sirve para realizar otra carta -->
+          <div class="card-body"> <!-- El cuerpo de la carta -->
+                <!-- El titulo de la carta -->
+            <h5 class="card-title">Característica 3</h5>
+                <!-- El texto de la carta -->
+            <p class="card-text">Descripción de la característica 3.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
