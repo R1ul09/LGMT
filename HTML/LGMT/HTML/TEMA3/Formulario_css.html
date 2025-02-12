@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <!--Cabecera-->
+  <head>
+    <title>Ejemplo de CSS con formularios de Raul Zaldúa</title>
+    <meta charset="utf-8">
+    <link type="text/css" href="../../CSS/style-form.css" rel="stylesheet">
+  </head>
+  <!--Cuerpo-->
+  <body>
+  <form aling="center">
+    <!-- La utilizamos para agrupar los campos de un formulario -->
+    <fieldset>
+        <!-- se utiliza para proporcionar un título o una descripción para el fieldset y su contenido-->
+        <legend>Datos personales</legend>
+        <label for="idnombre">Nombre y apellidos</label>
+        <input type="text">
+        <label for="situacionlaboral">Situación laboral</label>
+        <select id="situacionlaboral">
+            <option>En paro</option>
+            <option>En activo</option>
+            <option>Jubilado</option>
+        </select>
+        <input type="radio" name="hijos">
+        <label for="idsinhijos">Sin hijos</label>
+        <input type="radio" name="hijos">
+        <label for="idconhijos">Con hijos</label>
+    </fieldset>
+  </form>
+  </body>
+</html>
