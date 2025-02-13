@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Hola Mundo Javascript</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        let mensaje = "Hola mundo";
+        document.write(mensaje);
+
+        /* Ejemplo de Array */
+        let listaNombres = new Array("Raul", "Juan", "Carlos", "Marcos", "Luis", "Daniel", "Fernando", "David", "Jorge", "Jose", "Pedro", "Antonio", "Miguel");
+
+        /* Ejemplo de for */
+        for (let i = 0; i < listaNombres.length; i++) {
+            document.write(listaNombres[i] + "<br>");
+        }
+    </script>
+    <p id="demo">Dale al boton para saber cuanto es 2 + 2</p>
+
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "es 4"'>Pinsha aki!</button>
+</body>
+</html>
