@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatorio</title>
+</head>
+<body>
+    <script>
+        /* Sumatorio de array */
+        /* Creamos un array con numeros aleatorios */
+        "use strict"
+        let numeros = new Array(100);
+        let sumatorio = 0;
+
+        // Llenamos el array con números aleatorios entre 1 y 100
+        for (let i = 0; i < numeros.length; i++) {
+           numeros[i] = Math.floor(Math.random() * 100) + 1; 
+        }
+
+        // Recorremos el array para imprimir y sumar los valores
+        for (let i = 0; i < numeros.length; i++) {
+            document.write(numeros[i] + "<br>"); 
+            sumatorio += numeros[i]; 
+        }
+
+        document.write("<strong>Sumatorio:</strong> " + sumatorio);
+    </script>
+</body>
+</html>
