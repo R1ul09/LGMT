@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros pares y impares</title>
+</head>
+<body>
+    <script>
+        /* Diseña un script que vaya leyendo números y guardándolos en un array. Una vez lleno mostrará el array y deberá decir cuantos números son pares y 
+        cuantos son impares. La entrada de datos termina cuando el usuario teclea 0 o un valor no numérico.
+        Por ejemplo si tecleo: 3,5,4,6,7,8, 11 el script me dirá que el array de entrada es [3,5,4,6,7,8, 11] y que hay 3 pares y 4 impares.*/
+
+        /* Array con numeros leidos pares y impares */
+        "use strict"
+        let numeros = new Array();
+        let pares = 0, impares = 0;
+
+        while (true) {
+            let input = prompt("Introduce un número (0 o valor no numérico para terminar):");
+            let num = parseInt(input);
+
+            if (isNaN(num) || num == 0) {
+                break;
+            }
+    
+            numeros.push(num);
+            if (num % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+        }
+
+        document.write("<strong>Array de entrada:</strong>", numeros + "<br>");
+        document.write("<strong>Números pares:</strong>", pares + "<br>");
+        document.write("<strong>Números impares:</strong>", impares + "<br>");
+
+    </script>
+</body>
+</html>
