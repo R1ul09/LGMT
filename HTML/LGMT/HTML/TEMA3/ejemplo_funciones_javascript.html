@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Javascript</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        /* Funcion de un sumatorio */
+        let numeros = new Array(50)
+        /* Le vamos a pasar como parametro la variable numeros */
+        function sumatorio(numeros) {
+            let suma = 0
+            /* Y para hacer el sumatorio vamos a crear un for que recorra el array y guarda la suma los valores en la variable suma que hemos creado arriba */
+            for (let i = 0; i < numeros.length; i++) {
+                suma += numeros[i]
+            }
+            /* Y al final de la funcion devolvemos la variable suma */
+            return suma
+        }
+
+        /* Ahora le vamos a dar valores al array y llamaremos a la funcion*/
+        // Llenamos el array con números aleatorios entre 1 y 100
+        for (let i = 0; i < numeros.length; i++) {
+           numeros[i] = Math.floor(Math.random() * 100) + 1; 
+        }
+
+        /* Imprimimos el array para que veamos que esta funcionando y que valores se le a asignado al Array, 
+        ya que le estamos dando valores aleatorios a cada posicion del Array */
+        document.write("<strong>Numeros almacenados en el Array:</strong>")
+        for (let i = 0; i < numeros.length; i++) {
+            /* Y ahora vamos a hacer que saque los numeros juntos pero que cada 10 valores haga un break */
+            if (i % 10 == 0) {
+                document.write("<br/>")
+            }
+            document.write(numeros[i] + ", ")
+        }
+        document.write("<br/>")
+
+        /* Llamamos a la funcion */
+        /* NOTA: si ponemos el nombre de la variable igual que el nombre de la funcion, cuando llamemos a la funcion no va a llamar 
+        a la variable, llamara a la función, con lo cual dara fallos.
+        SOLUCION: Darle un nombre distinto de la funcion, en mi caso la VARIABLE se llama sumatorios, y la FUNCION se llama sumatorio */
+        let sumatorios = sumatorio(numeros)
+        document.write("<br/> <strong>El sumatorio de los numeros de dicho Array es: </strong>" + sumatorios)
+    </script>
+</body>
+</html>
