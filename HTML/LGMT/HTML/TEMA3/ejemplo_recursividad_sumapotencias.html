@@ -10,22 +10,38 @@
         "use strict"
         /* Funcion recursiva que recibe 2 numeros del usuario y nos va a devolver la el resultado de la potencia de esos numeros
         Ejemplo: si el usuario ingresa 2 y 3 la funcion nos devolvera 2^3 = 8
-        NOTA: si el usuario ingresa un numero negativo, la funcion debe devolver un mensaje de error */
+        NOTA: si el usuario ingresa algo distinto a un numero entero positivo, la funcion debe devolver un mensaje de error */
+        
+        /* Crearemos una funcion que reciba 2 numeros como parametros */
         function potencia(numero1, numero2) {
+            /* Si el numero 2 es 0 devolvemos 1 */
             if (numero2 == 0) {
                 return 1;
             }
+            /* O si el numero 1 o 2 es 0 devolveremos un mensaje de error*/
             if (numero2 < 0 || numero1 < 0) {
                 return "Error, dato incorrecto";
             }
+            /* Si ambos son positivos devolvemos el resultado de la multiplicacion de los numeros
+            Para esto usamos la funcion multiplicacion que hemos creado anteriormente 
+            y decimos que multipliquemos el numero 1 con el resultado de la funcion recursiva
+            con el numero 2 -1 
+            El -1 sirve para reducir el exponente en cada llamada recursiva,
+            acercándolo cada vez más al caso base (numero2 == 0) ya que
+            Si no restaras 1 en cada llamada (numero2 - 1), 
+            la función nunca llegaría al caso base y entraría en un bucle infinito*/
             return numero1 * potencia(numero1, numero2 - 1);
         }
 
+        /* Ponemos una alerta para que el usuario ingrese dos numeros positivos */
         alert("Ingrese dos numeros positivos para calcular la potencia de esos numeros, (dele a enter para continuar):");
+        /* Cojemos el prompt que nos devuelve el usuario y lo guardamos en variables */
         let numero1 = prompt("Numero 1:");
         let numero2 = prompt("Numero 2:");
 
+        /* Creamos una variable que guarde el resultado de la funcion recursiva */
         let resultado = potencia(numero1, numero2)
+        /* Y luego mostramos el resultado en la pantalla */
         document.write("<br/><strong>Resultado: </strong>" + resultado);
     </script>
 </body>
