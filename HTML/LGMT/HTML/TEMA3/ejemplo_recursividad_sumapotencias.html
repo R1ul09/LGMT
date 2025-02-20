@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursividad con suma de potencias</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        /* Funcion recursiva que recibe 2 numeros del usuario y nos va a devolver la el resultado de la potencia de esos numeros
+        Ejemplo: si el usuario ingresa 2 y 3 la funcion nos devolvera 2^3 = 8
+        NOTA: si el usuario ingresa un numero negativo, la funcion debe devolver un mensaje de error */
+        function potencia(numero1, numero2) {
+            if (numero2 == 0) {
+                return 1;
+            }
+            if (numero2 < 0 || numero1 < 0) {
+                return "Error, dato incorrecto";
+            }
+            return numero1 * potencia(numero1, numero2 - 1);
+        }
+
+        alert("Ingrese dos numeros positivos para calcular la potencia de esos numeros, (dele a enter para continuar):");
+        let numero1 = prompt("Numero 1:");
+        let numero2 = prompt("Numero 2:");
+
+        let resultado = potencia(numero1, numero2)
+        document.write("<br/><strong>Resultado: </strong>" + resultado);
+    </script>
+</body>
+</html>
