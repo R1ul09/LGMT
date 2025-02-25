@@ -7,47 +7,62 @@
 </head>
 <body>
     <script>
-        /* Vamos a crear una clase que se llame funciones y que tenga 
-        los siguientes metodos:
-        - sumatorio
-        - multiplicacion
-        - maximo
-        - minimo */
+        /* Vamos a crear una clase que se llame Funciones y que tenga los siguientes metodos:
+         * - Calcular el sumatorio de un array de números
+         * - Calcular la multiplicación de los números en el array
+         * - Encontrar el número máximo del array
+         * - Encontrar el número mínimo del array
+         */
         "use strict"        
-        // Introduccion de datos del usuario
+        /****************************************
+         *        INTRODUCCION DE DATOS         *
+        ****************************************/
         let numeros = [];
         while (true) {
             let input = prompt("Introduce un número (0 o valor no numérico para terminar):");
+            // Convertimos el input a un número entero
             let num = parseInt(input);
 
+            // Si metemos un valor no numerico o el número 0, salimos del bucle
             if (isNaN(num) || num == 0) {
                 break;
             }
+            // Si no, lo añadimos al array con push
             numeros.push(num);
 
         }
-        // Creamos la clase que va a recibir los datos
-        Funciones = {
+        // Creamos el obejto Funciones que tenfra los metodos para operar
+        let Funciones = {
             // Funcion que devuelve el sumatorio de los numeros
             sumatorio : function(numeros) {
+                // Si el array está vacío, devolvemos null
+                if (numeros.length == 0) return null;
                 let suma = 0;
+                // Recorremos el array y sumamos los valores
                 for (let i = 0; i < numeros.length; i++) {
                 suma += numeros[i]
             }
-            return suma
+            return suma;
             },
             
             multiplicacion : function(numeros) {
-                let resultado = 0;
+                // Si el array está vacío, devolvemos null
+                if (numeros.length == 0) return null;
+                let resultado = 1;
+                // Hacemos lo mismo que antes, recorremos el array y multiplicamos los valores
                 for (let i = 0; i < numeros.length; i++) {
                 resultado *= numeros[i]
             }
-            return suma
+            return resultado;
             },
 
             maximo : function(numeros) {
-                let maximo = 0;
+                // Si el array está vacío, devolvemos null
+                if (numeros.length == 0) return null;
+                let maximo = numeros[0];
+                // Recorremos el array y buscamos el máximo
                 for (let i = 0; i < numeros.length; i++) {
+                // Si encontramos un número mayor que el actual máximo, actualizamos la variable
                 if (numeros[i] > maximo) {
                     maximo = numeros[i]
                 }
@@ -56,9 +71,13 @@
             },
 
             minimo : function(numeros) {
-                let minimo = 0;
+                // Si el array está vacío, devolvemos null
+                if (numeros.length == 0) return null;
+                let minimo = numeros[0];
+                // Recorremos el array y buscamos el mínimo
                 for (let i = 0; i < numeros.length; i++) {
-                if (numeros[i] < minimo) {
+                    // Si encontramos un número menor que el actual mínimo, actualizamos la variable
+                    if (numeros[i] < minimo) {
                     minimo = numeros[i]
                 }
             }
@@ -66,13 +85,15 @@
             }
         }
         // Ahora vamos a crear las variables que van a recibir los datos de las funciones
+        // En este caso el array que hemos creado previamente
         let sumatorio = Funciones.sumatorio(numeros);
         let multiplicacion = Funciones.multiplicacion(numeros);
         let maximo = Funciones.maximo(numeros);
         let minimo = Funciones.minimo(numeros);
+        
         // Ahora vamos a mostrar los resultados
         document.write("<strong>El sumatorio es: </strong>" + sumatorio + "<br/>")
-        document.write("<strong>El multiplicacion es: </strong>" + multiplicacion + "<br/>")
+        document.write("<strong>La multiplicacion es: </strong>" + multiplicacion + "<br/>")
         document.write("<strong>El maximo es: </strong>" + maximo + "<br/>")
         document.write("<strong>El minimo es: </strong>" + minimo + "<br/>")
     </script>
