@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,48 +36,51 @@
             const $name = document.getElementById('name');
             const $email = document.getElementById('email');
             const $phone = document.getElementById('phone');
-            const $messages = document.querySelector('.messages');
+            const $messages = $form.querySelector('.messages');
 
             $form.addEventListener('submit', function (event) {
                 event.preventDefault();
+
+                // Obtener valores de los campos
+                let name = $name.value.trim();
+                let email = $email.value.trim();
+                let phone = $phone.value.trim();
                 let errors = [];
 
-                // Limpiar mensajes anteriores
-                $messages.innerHTML = "";
-                $messages.classList.remove("error-message", "success-message");
-                $messages.style.display = "none";
-
-                // Validación del nombre
-                if ($name.length < 3) {
-                    errors.push("El nombre debe tener al menos 3 caracteres.");
-                    $name.classList.add("error");
+                // Validación del nombre (sin expresiones regulares, solo letras y espacios)
+                let nameValid = true;
+                for (let i = 0; i < name.length; i++) {
+                    if (!((name[i] >= 'A' && name[i] <= 'Z') || (name[i] >= 'a' && name[i] <= 'z') || name[i] === ' ')) {
+                        nameValid = false;
+                        break;
+                    }
+                }
+                if (name.length < 3) {
+                    errors.push('El nombre debe tener al menos 3 caracteres.');
+                    $name.classList.add('error');
+                } else if (!nameValid) {
+                    errors.push('El nombre solo puede contener letras y espacios.');
+                    $name.classList.add('error');
                 } else {
-                    $name.classList.remove("error");
+                    $name.classList.remove('error');
                 }
 
-                // Validación del teléfono
-                if ($phone.length != 9) {
-                    errors.push("El teléfono debe tener exactamente 9 dígitos numéricos.");
-                    $phone.classList.add("error");
+                // Validación del teléfono (9 dígitos y solo números)
+                if (phone.length !== 9 || isNaN(phone)) {
+                    errors.push('El teléfono debe tener exactamente 9 dígitos numéricos.');
+                    $phone.classList.add('error');
                 } else {
-                    $phone.classList.remove("error");
-                }
+                    $phone.classList.remove('error');
+                } 
 
-                // Mostrar mensajes de error o éxito
+                // Mostrar errores si existen
                 if (errors.length > 0) {
-                    $messages.innerHTML = errors.join("<br>");
-                    $messages.classList.add("error-message");
-                    $messages.style.display = "block";
+                    $messages.innerHTML = errors.join('<br>'); // Mostrar errores en líneas separadas
+                    $messages.classList.add('show');
                 } else {
-                    $messages.innerHTML = "Formulario enviado correctamente ✅";
-                    $messages.classList.add("success-message");
-                    $messages.style.display = "block";
-
-                    // Simulación de envío después de 2 segundos
-                    setTimeout(() => {
-                        $form.reset();
-                        $messages.style.display = "none";
-                    }, 2000);
+                    $messages.classList.remove('show'); // Ocultar errores si está correcto
+                    alert('Formulario enviado correctamente');
+                    $form.submit();
                 }
             });
         });
