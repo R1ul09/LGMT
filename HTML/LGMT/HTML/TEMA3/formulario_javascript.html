@@ -5,13 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <style>
-        /* Estilos del formulario */
-        form input { display: block; font-size: 0.84em; border: solid 2px #ccc; margin-bottom: 10px; padding: 5px; }
-        form input:focus { border: 2px solid rgba(0,0,0,.4); }
-        form input.error { border: 2px solid #dd356e; }
-        /* Estilos de mensajes de error */
-        form .messages { color: #dd356e; background-color: rgba(212, 63, 58, 0.25); display: none; padding: 5px; margin-bottom: 10px; }
-        form .messages.show { display: block; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+
+        form {
+            background-color: #ffffff; 
+            padding: 25px 35px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            width: 100%; 
+            max-width: 400px; 
+        }
+
+        label {
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 8px;
+            color: #333; 
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+            font-size: 14px; 
+            transition: border-color 0.3s ease; 
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus {
+            border-color: #007BFF; 
+            outline: none; 
+        }
+
+        input.error {
+            border-color: #dc3545; 
+        }
+
+        .messages {
+            color: #dc3545; 
+            background-color: #f8d7da; 
+            padding: 10px; 
+            border-radius: 4px; 
+            margin-bottom: 15px; 
+            display: none; 
+        }
+
+        .messages.show {
+            display: block; 
+        }
+
+        button[type="submit"] {
+            width: 100%; 
+            padding: 12px; 
+            background-color: #007BFF; 
+            color: white;
+            border: none; 
+            border-radius: 4px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; 
+        }
     </style>
 </head>
 <body>
@@ -26,11 +97,19 @@
         <label for="phone">Teléfono:</label>
         <input type="number" id="phone" name="phone">
       
+        <!-- Este es el contenedor para mostrar mensajes de error -->
         <div class="messages"></div>
         <button type="submit">Enviar</button>
     </form>
 
     <script>
+        // Lo pirmero es decir al documento (DOM) que espere a que todo su contenido cargue.
+        // El DOM es como la estructura en la que el navegador organiza el HTML, 
+        // como si fuera un árbol de elementos.
+        // "addEventListener" le dice al documento que escuche un evento, en este caso "DOMContentLoaded".
+        // Cuando ese evento ocurre (es decir, cuando el HTML ya está listo, que es de lo que trata DOM), 
+        // ejecuta la función.
+        // Así evitamos errores si intentamos usar elementos antes de que existan en la página.
         document.addEventListener('DOMContentLoaded', function () {
             const $form = document.getElementById('formRegister');
             const $name = document.getElementById('name');
@@ -38,48 +117,76 @@
             const $phone = document.getElementById('phone');
             const $messages = $form.querySelector('.messages');
 
+            // Aqui escuchamos el evento "submit" del formulario.
             $form.addEventListener('submit', function (event) {
+                // Y con esto evitaamos que el formulario se envie automaticamente
                 event.preventDefault();
 
-                // Obtener valores de los campos
+                // Creamos las variables que vamos a usar para obtener los valores
+                // ingresados por el ususario en el formulario.
+                // Y con trim() eliminamos los espacios en blanco al principio y final.
+                // Tambien crearemos un array para ir guardando los errores.
                 let name = $name.value.trim();
                 let email = $email.value.trim();
                 let phone = $phone.value.trim();
                 let errors = [];
 
-                // Validación del nombre (sin expresiones regulares, solo letras y espacios)
+                // Vamos a validar el campo nombre
                 let nameValid = true;
+                // Crear un bucle que recorra cada caracter del nombre
                 for (let i = 0; i < name.length; i++) {
+                    // Si el caracter eses algo distinto a letras de la A a la Z, o es un espacio,
+                    // ya sea mayuscula o minuscula
                     if (!((name[i] >= 'A' && name[i] <= 'Z') || (name[i] >= 'a' && name[i] <= 'z') || name[i] === ' ')) {
+                        // Entonces el nombre no es valido y nos salimos
                         nameValid = false;
                         break;
                     }
                 }
+
+                // Si el nombre tiene menos de 3 caracteres, es invalido
                 if (name.length < 3) {
+                    // Mostraremos con .push que el nombre no es valido
                     errors.push('El nombre debe tener al menos 3 caracteres.');
+                    // Y con .add() le agregamos a la lista de errores el error
                     $name.classList.add('error');
+                // Aqui decimos que si es distinto de nameValid, es decir que es invalido
                 } else if (!nameValid) {
+                    // Mostraremos con .push que el nombre no es valido
                     errors.push('El nombre solo puede contener letras y espacios.');
+                    // Y con .add() le agregamos a la lista de errores el error
                     $name.classList.add('error');
                 } else {
+                    // Y si no, quitamos el error de la lista
                     $name.classList.remove('error');
                 }
 
-                // Validación del teléfono (9 dígitos y solo números)
+                // Ahora validamos el teléfono, si el teledono tiene algo distinto a 9 dígitos, es decir,
+                // no tiene 9 dijitos exactos
+                // O, con el isNaN() validamos que el telefono sea un número
                 if (phone.length !== 9 || isNaN(phone)) {
+                    // Mostraremos con .push que el teléfono no es valido
                     errors.push('El teléfono debe tener exactamente 9 dígitos numéricos.');
+                    // Y con .add() le agregamos a la lista de errores el error
                     $phone.classList.add('error');
                 } else {
+                    // Y si no, quitamos el error de la lista
                     $phone.classList.remove('error');
                 } 
 
-                // Mostrar errores si existen
+                // Si el array de errores no está vacío, mostraremos los errores
                 if (errors.length > 0) {
-                    $messages.innerHTML = errors.join('<br>'); // Mostrar errores en líneas separadas
+                    // Para ello usamos .innerHTML y .join() para unir los errores con un <br>
+                    // innnerHTML es para poner el texto dentro del elemento
+                    $messages.innerHTML = errors.join('<br>'); 
+                    // Y lo mostramos con .add() y .show()
                     $messages.classList.add('show');
                 } else {
-                    $messages.classList.remove('show'); // Ocultar errores si está correcto
+                    // Si no, lo quitamos
+                    $messages.classList.remove('show'); 
+                    // Y mostramos un alert con el mensaje de exito
                     alert('Formulario enviado correctamente');
+                    // Y enviamos el formulario
                     $form.submit();
                 }
             });
