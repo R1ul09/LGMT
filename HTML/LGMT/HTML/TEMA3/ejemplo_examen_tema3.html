@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Ejemplo examen tema 3</title>
+</head>
+<body>
+    <!-- Vamos a crear un programa con jquery que tenga varios párrafos con 4 botones que permitan que cuando se haga click en ellos ocurran distintas cosas:
+    - Habrá un botón con el texto «Ocultar pares». Cuando se hace click en él se ocultan los párrafos pares.
+    - Habrá un botón con el texto «Ocultar impares». Cuando se hace click en él se ocultan los párrafos impares.
+    - Habrá un botón con el texto «Mostrar pares». Cuando se hace click en él se muestran los párrafos pares (que tal vez estaban ocultos).
+    - Habrá un botón con el texto «Mostrar impares». Cuando se hace click en él se muestran los párrafos impares (que tal vez estaban ocultos). -->
+
+    <!-- Vamos a crear los parrafos con sus respectivas clases, par o impar -->
+    <p class="par">Este es un párrafo par</p>
+    <p class="impar">Este es otro párrafo impar</p>
+    <p class="par">Este es un párrafo par</p>
+    <p class="impar">Este es otro párrafo impar</p>
+
+    <!-- Hacemos lo mismo para los botones, añadiendo los id a los botones -->
+    <button id="ocultarPares">Ocultar pares</button>
+    <button id="ocultarImpares">Ocultar impares</button>
+    <button id="mostrarPares">Mostrar pares</button>
+    <button id="mostrarImpares">Mostrar impares</button>
+
+    <script>
+        // Le damos al documento el evento ready para que se ejecute cuando el documento esté listo
+        // Y dentro de esta funcion, vamos a hacer lo siguiente
+        $(document).ready(function() {
+            // Con $ podemos acceder a los elementos de jQuery
+            // Y le decimos que los elementos con el id ocultarPares
+            $("#ocultarPares").click(function() {
+                // Cuando le demos click al boton, se lanzara la funcion fadeOut para todos los elementos con la clase par
+                $(".par").fadeOut();
+            });
+
+            // Lo mismo para el botón ocultarImpares
+            $("#ocultarImpares").click(function() {
+                // Cuando le demos click al boton, se lanzara la funcion fadeOut para todos los elementos con la clase impar
+                $(".impar").fadeOut();
+            });
+
+            // Iden de lo mismo para el botón mostrarPares
+            $("#mostrarPares").click(function() {
+                // Cuando le demos click al boton, se lanzara la funcion fadeIn para mostrar todos los elementos con la clase par
+                $(".par").fadeIn();
+            });
+
+            // Y lo mismo para el botón mostrarImpares
+            $("#mostrarImpares").click(function() {
+                // Cuando le demos click al boton, se lanzara la funcion fadeIn para mostrar todos los elementos con la clase impar
+                $(".impar").fadeIn();
+            });
+        });
+    </script>
+</body>
+</html>
