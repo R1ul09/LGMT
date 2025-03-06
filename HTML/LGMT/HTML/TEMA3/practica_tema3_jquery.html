@@ -8,34 +8,43 @@
 </head>
 <body>
     <!-- Vamos a crear una calculadora con jquey-->
+    <!-- Vamos a hacer dos entradas, una para el primer numero y otra para el segundo numero-->
     <h1>Calculadora</h1>
     <p>Para que la calculadora funciones, debes de introducir dos valores</p>
     <p>Introduce el 1º numero <input type="number" name="numero1" class="numero1"></p>
     <p>Introduce el 2º numero <input type="number" name="numero2" class="numero2"></p>
 
+    <!-- Vamos a crear cuatro botones para realizar las operaciones de suma, resta, multiplicacion y división-->
     <input type="button" class="suma" value="Sumar">
     <input type="button" class="resta" value="Restar">
     <input type="button" class="multiplicar" value="Multiplicar">
     <input type="button" class="dividir" value="Dividir">
+    <input type="button" value="Borrar" class="Borrar">
 
     <br>
 
+    <!-- Vamos a crear un div para mostrar el resultado de la operación-->
     <div class="resultado"></div>
     <script>
-	    // funcion para sumar
-        $(".suma").click(function(){
+        $(document).ready(function(){
+            // Creamos la funcion para sumar
+            $(".suma").click(function(){
+                // Dentro de la funcion, creamos las variables numero1 y numero2 para guardar los valores introducidos por el usuario
                 let numero1 = Number($(".numero1").val());
                 let numero2 = Number($(".numero2").val());
                 let resultado;
+                // Si alguno de los valores introducidos por el usuario esta vacio, mostraremos un mensaje de error
                 if(isNaN(numero1) || isNaN(numero2)) {
                     $(".resultado").html("<p>Introduce los valores</p>");
+                // Y si no, realizaremos la operación de suma
                 } else {
                     resultado = numero1 + numero2;
                     $(".resultado").html("<p>El resultado es " + resultado + "</p>");
                 }
             });
 
-            // funcion para restar
+            // Vamos a hacer lo mismo para todas las demas operciones
+            // Creamos la funcion para restar
             $(".resta").click(function(){
                 let numero1 = Number($(".numero1").val());
                 let numero2 = Number($(".numero2").val());
@@ -48,7 +57,7 @@
                 }
             });
 
-            // funcion para multiplicar
+            // Creamos la funcion para multiplicar
             $(".multiplicar").click(function(){
                 let numero1 = Number($(".numero1").val());
                 let numero2 = Number($(".numero2").val());
@@ -61,7 +70,7 @@
                 }
             });
 
-            // funcion para dividir
+            // Creamos la funcion para dividir
             $(".dividir").click(function(){
                 let numero1 = Number($(".numero1").val());
                 let numero2 = Number($(".numero2").val());
@@ -77,6 +86,14 @@
                     }
                 }
             });
+
+            // Y vamos a crear una funcion para borrar los valores introducidos por el usuario
+            $(".Borrar").click(function(){
+                $(".numero1").val("");
+                $(".numero2").val("");
+                $(".resultado").html("");
+            });
+        });
 </script>
 </body>
 </html>
