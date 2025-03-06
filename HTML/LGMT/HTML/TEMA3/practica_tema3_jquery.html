@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Vamos a crear una calculadora con jquey-->
+    <h1>Calculadora</h1>
+    <p>Para que la calculadora funciones, debes de introducir dos valores</p>
+    <p>Introduce el 1º numero <input type="number" name="numero1" class="numero1"></p>
+    <p>Introduce el 2º numero <input type="number" name="numero2" class="numero2"></p>
+
+    <input type="button" class="suma" value="Sumar">
+    <input type="button" class="resta" value="Restar">
+    <input type="button" class="multiplicar" value="Multiplicar">
+    <input type="button" class="dividir" value="Dividir">
+
+    <br>
+
+    <div class="resultado"></div>
+    <script>
+	    // funcion para sumar
+        $(".suma").click(function(){
+                let numero1 = Number($(".numero1").val());
+                let numero2 = Number($(".numero2").val());
+                let resultado;
+                if(isNaN(numero1) || isNaN(numero2)) {
+                    $(".resultado").html("<p>Introduce los valores</p>");
+                } else {
+                    resultado = numero1 + numero2;
+                    $(".resultado").html("<p>El resultado es " + resultado + "</p>");
+                }
+            });
+
+            // funcion para restar
+            $(".resta").click(function(){
+                let numero1 = Number($(".numero1").val());
+                let numero2 = Number($(".numero2").val());
+                let resultado;
+                if(isNaN(numero1) || isNaN(numero2)) {
+                    $(".resultado").html("<p>Introduce los valores</p>");
+                } else {
+                    resultado = numero1 - numero2;
+                    $(".resultado").html("<p>El resultado es " + resultado + "</p>");
+                }
+            });
+
+            // funcion para multiplicar
+            $(".multiplicar").click(function(){
+                let numero1 = Number($(".numero1").val());
+                let numero2 = Number($(".numero2").val());
+                let resultado;
+                if(isNaN(numero1) || isNaN(numero2)) {
+                    $(".resultado").html("<p>Introduce los valores</p>");
+                } else {
+                    resultado = numero1 * numero2;
+                    $(".resultado").html("<p>El resultado es " + resultado + "</p>");
+                }
+            });
+
+            // funcion para dividir
+            $(".dividir").click(function(){
+                let numero1 = Number($(".numero1").val());
+                let numero2 = Number($(".numero2").val());
+                let resultado;
+                if(isNaN(numero1) || isNaN(numero2)) {
+                    $(".resultado").html("<p>Introduce los valores</p>");
+                } else {
+                    if (numero2 === 0) {
+                        $(".resultado").html("<p>No se puede dividir entre cero</p>");
+                    } else {
+                        resultado = numero1 / numero2;
+                        $(".resultado").html("<p>El resultado es " + resultado + "</p>");
+                    }
+                }
+            });
+</script>
+</body>
+</html>

@@ -25,6 +25,10 @@
     <button id="mostrarPares">Mostrar pares</button>
     <button id="mostrarImpares">Mostrar impares</button>
 
+    <br><br>
+    <!-- Ahora vamos a hacer un tdiv con un texto y que cuando pasemos el raton  por encima, la caja cambie de color -->
+    <div id="caja" style="width: 160px; color: white; height: 20px; background-color: red;">Pasa el ratón por encima</div>
+
     <script>
         // Le damos al documento el evento ready para que se ejecute cuando el documento esté listo
         // Y dentro de esta funcion, vamos a hacer lo siguiente
@@ -52,6 +56,18 @@
             $("#mostrarImpares").click(function() {
                 // Cuando le demos click al boton, se lanzara la funcion fadeIn para mostrar todos los elementos con la clase impar
                 $(".impar").fadeIn();
+            });
+
+            // Esta funcion es para que cuando pasemos por encima de un elemento con el id caja, cambie de color
+            $("#caja").mouseover(function() {
+                // Cuando pasemos el ratón por encima de la caja, cambiara de color a azul
+                $(this).css("background-color", "blue");
+            });
+
+            // Y este es para que cuando ya no este por encima, vuelva a su color original
+            $("#caja").mouseout(function() {
+                // Cuando pasemos el ratón por encima de la caja, cambiara de color a rojo
+                $(this).css("background-color", "red");
             });
         });
     </script>

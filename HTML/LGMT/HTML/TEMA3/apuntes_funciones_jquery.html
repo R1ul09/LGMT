@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* Vamos a poner el parrafo al centro de la pantalla y en grande y para que se vea bien */
+        p {
+            align-items: center;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+
+    <p>Inspecciona la pagina para ver como funciona las distintas funciones de jQuery</p>
+
+    <script>
+        /* Vamos a ir poniendo todas las funciones de jQuery en un solo evento ready
+         El document ready es un evento que se lanza cuando el documento esté listo
+         Vamos a poner los mas importantes de jQuery en este evento, los cuales son:
+         - hacer click en un boton
+         - hacer doble click en un boton
+         - hacer el mouseenter en un boton
+         - hacer el mouseleave en un boton
+         - hacer el focus en un boton
+         - hacer el blur en un boton
+         - hacer el flotar en un elemento
+         - hacer hover en un elemento
+         - hacer mouseover en un elemento
+         - hacer mouseout en un elemento
+         - hacer toggle en un elemento
+         - hacer fadeOut en un elemento
+         - hacer fadeIn en un elemento
+         - hacer fadeToggle en un elemento
+         - hacer hide en un elemento
+         - hacer show en un elemento
+         */
+    
+        $(document).ready(function() {
+
+            $("#boton").click(function() {
+                $("#texto").fadeOut();
+            });
+
+            $("#boton").dblclick(function() {
+                $("#texto").fadeIn();
+            });
+
+            $("#boton").mouseenter(function() {
+                $("#texto").fadeOut();
+            });
+
+            $("#boton").mouseleave(function() {
+                $("#texto").fadeIn();
+            });
+
+            $("#boton").focus(function() {
+                $("#texto").fadeOut();
+            });
+
+            $("#boton").blur(function() {
+                $("#texto").fadeIn();
+            });
+
+            $("#elemento").float(function() {
+                $("#texto").fadeOut();
+            });
+
+            $("#elemento").hover(function() {
+                $("#texto").fadeOut();
+            });
+        });
+    </script>
+
+</body>
+</html>
