@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let v = new Array()
+v = [9.98, 7.86, 4.53, 8.91, 5.76, 2.31];
+
+let mediana; // Declaramos mediana fuera de los bloques
+
+if (v.length % 2 == 0) {
+    let pos1 = v.length / 2;
+    let pos2 = pos1 - 1;
+    let elem1 = v[pos1];
+    let elem2 = v[pos2];
+    mediana = (elem1 + elem2) / 2; // Asignamos mediana
+} else {
+    let pos_central = (v.length - 1) / 2;
+    mediana = v[pos_central]; // Asignamos mediana
+}
+
+document.write("La mediana es: " + mediana);
+    </script>
+</body>
+</html>

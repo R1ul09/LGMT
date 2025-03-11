@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+/* Este vector nos dice cuantas veces aparece un número en un vector*/
+function calcularFrecuencia(numero, vector){
+    var num_veces=0
+    for (let pos in vector) {
+        if (vector[pos]==numero) {
+            num_veces++
+        }
+    }
+    return num_veces
+}
+
+/* Dado un vector de números se nos devuelve la posición
+ * del número mayor*/
+function obtenerPosMayor(vector_valores){
+    let posMayor=0
+    let numMayor=vector_valores[0]
+    for (let pos in vector_valores){
+        if (vector_valores[pos]>numMayor) {
+            numMayor=vector_valores[pos]
+            posMayor=pos
+        }
+    }
+    return posMayor
+}
+
+/* Función que devuelve el número "moda" de un vector*/
+function obtenerModa(vector_valores){
+    let frecuencias=new Array(vector_valores.length)
+    for (let pos in vector_valores){
+        let numero=vector_valores[pos]
+        frecuencias[pos]=calcularFrecuencia(numero, vector_valores)
+    }
+    let posModa=obtenerPosMayor(frecuencias)
+    return vector_valores[posModa]
+}
+
+let vector=new Array(4)
+vector[0]=7
+vector[1]=7
+vector[2]=7
+vector[3]=5
+
+var moda=obtenerModa(vector)
+var mayor=obtenerPosMayor(vector)
+var frec=calcularFrecuencia(7, vector)
+
+document.write("<br/>El número 7 aparece "+frec+" veces")
+document.write("<br/>El mayor es:"+mayor)
+document.write("<br/>La moda es:"+moda)
+
+    </script>
+</body>
+</html>

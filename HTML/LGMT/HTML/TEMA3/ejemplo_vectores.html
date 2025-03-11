@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let v=new Array()
+        v = [9.98, 7.86, 4.53, 8.91, 5.76, 2.31]
+/* Vamos cogiendo cada elemento...*/
+for (let i=0; i<v.length; i++){
+/* Y se compara con*/
+/* todos Los demas */
+for (let j=0; j<v.length; j++) {
+if (v[j]>v[i]){
+aux=v[i]
+v[i]=v[j]
+v[j]=aux
+} /* Fin deL if*/
+} /* Fin del for interno*/
+} /* fin del for externo*/
+/* Se imprime eL contenido*/
+for (let i=0; i<v.length; i++){
+alert ("Pos "+i+ ":"+v[i])
+}
+
+/* bucle for each*/
+/*for (let posicion in v){
+alert ("Pos "+posicion+ ":"+v[posicion])
+}*/
+    </script>
+</body>
+</html>

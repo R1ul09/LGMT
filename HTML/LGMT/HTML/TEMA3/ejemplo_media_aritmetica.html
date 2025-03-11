@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let vector_numeros = new Array()
+        vector_numeros = [9.98, 7.86, 4.53, 8.91, 5.76, 2.31];
+        let suma = 0;
+        for (let pos in vector_numeros) {
+            suma += vector_numeros[pos];
+        }
+        let media = suma / vector_numeros.length;
+        document.write("La media aritmetica es: " + media);
+    </script>
+</body>
+</html>

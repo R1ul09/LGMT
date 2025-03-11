@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+function usuario(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.mayorEdad = function () {
+        if (this.edad > 18) {
+            return true;
+        }
+        return false;
+    };
+}
+
+let usuario1 = new usuario("Juan", 20);
+
+document.write("¿Es mayor de edad?: " + usuario1.mayorEdad());
+
+/* Ejercicio */
+
+function validarUsuario(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+
+    this.mayorEdad = function () {
+        if (this.edad > 18) {
+            return true;
+        }
+        return false;
+    };
+
+    this.inscripcionFacultad = function() {
+        if (this.edad >= 18 && this.edad <= 25) {
+            return "Inscrito";
+        }
+        if (this.edad < 18 || this.edad > 45) {
+            return "No aceptado";
+        }
+    };
+}
+
+let usuario2 = new validarUsuario("Pedro", 23);
+document.write("<br/> Estado: " + usuario2.inscripcionFacultad());
+
+/* Ejercicio */
+
+class GestorVectores {
+    constructor() {
+        this.vector_numeros = new Array();
+    }
+
+    getMedia() {
+        let suma = this.vector_numeros.reduce((a, b) => a + b, 0);
+        return suma / this.vector_numeros.length;
+    }
+
+    getMediana() {
+        let sorted = [...this.vector_numeros].sort((a, b) => a - b);
+        let mitad = Math.floor(sorted.length / 2);
+        return sorted.length % 2 === 0 ? (sorted[mitad - 1] + sorted[mitad]) / 2 : sorted[mitad];
+    }
+
+    getModa() {
+        let frecuencias = {};
+        this.vector_numeros.forEach(num => {
+            frecuencias[num] = (frecuencias[num] || 0) + 1;
+        });
+        let maxFrecuencia = Math.max(...Object.values(frecuencias));
+        return Object.keys(frecuencias).filter(num => frecuencias[num] === maxFrecuencia);
+    }
+}
+
+let vector_prueba = new GestorVectores();
+vector_prueba.vector_numeros = [1, 2, 2, 3, 4, 4, 4, 5];
+
+document.write("<br/> Media: " + vector_prueba.getMedia());
+document.write("<br/> Mediana: " + vector_prueba.getMediana());
+document.write("<br/> Moda: " + vector_prueba.getModa().join(", "));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let vector_numeros = new Array()
+        vector_numeros = [9.98, 7.86, 4.53, 8.91, 5.76, 2.31];
+        let media = 0;
+        let suma = 0;
+        for (let pos in vector_numeros) {
+            let desviacion = Math.abs(vector_numeros[pos] - media);
+            suma += desviacion;
+        }
+        let desv_media = suma / vector_numeros.length;
+        document.write("La desviación media es: " + desv_media);
+    </script>
+</body>
+</html>

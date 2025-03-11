@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Cambiar Color de Fondo</h1>
+    <p>Color actual: <span id="colorActual">#ffffff</span></p>
+    <button id="cambiarColor">Cambiar Color</button>
+    <button id="resetearColor">Restablecer</button>
+    <script>
+        $(document).ready(function() {
+        // Color inicial de la página
+        let colorOriginal = "#ffffff"; 
+
+    $("#cambiarColor").click(function() {
+        // Genera un color aleatorio
+        let nuevoColor = generarColorAleatorio(); 
+        // Cambia el fondo
+        $("body").css("background-color", nuevoColor); 
+        // Muestra el código del color
+        $("#colorActual").text(nuevoColor); 
+    });
+
+    $("#resetearColor").click(function() {
+        // Restaura el color original
+        $("body").css("background-color", colorOriginal); 
+        $("#colorActual").text(colorOriginal);
+    });
+
+    function generarColorAleatorio() {
+        let letras = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letras[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Gestor de Tareas</h1>
+    <input type="text" id="tarea" placeholder="Escribe una tarea...">
+    <button id="agregar">Agregar</button>
+    <ul id="lista"></ul>
+    <button id="eliminarCompletadas">Eliminar Completadas</button>
+    <script>
+    $(document).ready(function() {
+    // Carga las tareas almacenadas cuando la página se carga
+    cargarTareas(); 
+    
+    $("#agregar").click(function() {
+        // Obtiene el texto de la tarea y elimina espacios
+        let tarea = $("#tarea").val().trim(); 
+        // Si hay algo escrito
+        if (tarea) { 
+            // Crea un elemento de lista con el texto de la tarea
+            let item = $("<li>").text(tarea) 
+                // Agrega botón para marcar como completada
+                .append(" <button class='completar'>completar</button> ") 
+                // Agrega botón para eliminar
+                .append(" <button class='eliminar'>eliminar</button>"); 
+            // Añade la tarea a la lista
+            $("#lista").append(item); 
+            // Guarda las tareas en el almacenamiento local
+            guardarTareas(); 
+            // Limpia el campo de entrada
+            $("#tarea").val(""); 
+        }
+    });
+
+    // Alterna la clase 'completada' para marcar o desmarcar
+    $("#lista").on("click", ".completar", function() {
+        $(this).parent().toggleClass("completada"); 
+        // Guarda el estado actualizado de las tareas
+        guardarTareas(); 
+    });
+    
+    // Elimina la tarea de la lista
+    $("#lista").on("click", ".eliminar", function() {
+        $(this).parent().remove(); 
+        // Guarda los cambios
+        guardarTareas(); 
+    });
+    
+    // Borra todas las tareas que están marcadas como completadas
+    $("#eliminarCompletadas").click(function() {
+        $(".completada").remove(); 
+        // Guarda los cambios
+        guardarTareas(); 
+    });
+    
+    function guardarTareas() {
+        let tareas = [];
+        $("#lista li").each(function() {
+            tareas.push({
+                // Guarda solo el texto sin los botones
+                texto: $(this).text().replace("completar eliminar", ""), 
+                 // Guarda si la tarea está completada o no
+                completada: $(this).hasClass("completada")
+            });
+        });
+        // Guarda las tareas en localStorage
+        localStorage.setItem("tareas", JSON.stringify(tareas)); 
+    }
+    
+    function cargarTareas() {
+        // Recupera las tareas almacenadas
+        let tareas = JSON.parse(localStorage.getItem("tareas")) || []; 
+        tareas.forEach(t => {
+            // Crea un elemento de lista con el texto guardado
+            let item = $("<li>").text(t.texto) 
+                // Si estaba completada, le agrega la clase
+                .toggleClass("completada", t.completada) 
+                // Botón para completar
+                .append(" <button class='completar'>completar</button> ") 
+                // Botón para eliminar
+                .append(" <button class='eliminar'>eliminar</button>"); 
+            // Agrega la tarea a la lista
+            $("#lista").append(item); 
+        });
+    }
+});
+    </script>
+</body>
+</html>
