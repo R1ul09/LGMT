@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let input = prompt("Ingrese un número hasta donde quieres que lleguen las tablas de multiplicar:");
+let num = parseInt(input);
+
+if (!isNaN(num) && num > 0) {
+    for (let i = 1; i <= num; i++) {
+        document.write("<strong>Tabla de multiplicar del " + i + "</strong><br>");
+        for (let j = 1; j <= 10; j++) {
+            document.write(i + " x " + j + " = " + (i * j) + "<br>");
+        }
+        document.write("<br>");
+    }
+} else {
+    document.write("Por favor, ingrese un número válido.");
+}
+    </script>
+</body>
+</html>

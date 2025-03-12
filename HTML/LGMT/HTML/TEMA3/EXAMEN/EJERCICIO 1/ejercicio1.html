@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <script>
+        function muestraOculta(idContenido, idEnlace) {
+            let contenido = document.getElementById(idContenido);
+            let enlace = document.getElementById(idEnlace);
+
+            if (contenido.style.display === "none") {
+                contenido.style.display = "block"; // Mostrar el párrafo
+                enlace.innerHTML = "Ocultar contenido"; // Cambiar texto del enlace
+            } else {
+                contenido.style.display = "none"; // Ocultar el párrafo
+                enlace.innerHTML = "Mostrar contenido"; // Cambiar texto del enlace
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="contenido_1">Texto del párrafo 1</p> 
+    <a href="#" id="enlace_1" onclick="muestraOculta('contenido_1', 'enlace_1')">Ocultar contenido</a>
+    
+    <p id="contenido_2">Texto del párrafo 2</p> 
+    <a href="#" id="enlace_2" onclick="muestraOculta('contenido_2', 'enlace_2')">Ocultar contenido</a>
+    
+    <p id="contenido_3">Texto del párrafo 3</p> 
+    <a href="#" id="enlace_3" onclick="muestraOculta('contenido_3', 'enlace_3')">Ocultar contenido</a>
+</body>
+</html>
