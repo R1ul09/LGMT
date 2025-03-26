@@ -255,7 +255,7 @@ a:hover {
 }
 
 body {
-    padding-top 30px;
+    padding-top: 30px;
 }
  /* Modo oscuro */
  .dark-mode {
@@ -346,10 +346,10 @@ box-shadow: 0 0 15px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.8);
 background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80%);
 }
 
-@media screen and (min-width: 768px) {
-    .navbar ul {
-        justify-content: center;
-        gap: 20px;
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 40px;
     }
 
     h1 {
@@ -359,39 +359,18 @@ background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80
     h2 {
         font-size: 1.8em;
     }
-
-    .bubble {
-        width: 20px;
-        height: 20px;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 1.2em;
-    }
 }
 
 @media screen and (max-width: 768px) {
-    header {
-        margin-top: 100px;
-        padding: 10px;
-    }
-
-    h1, h2 {
-        font-size: 1.8em;
-    }
-
-    .navbar {
-        padding: 5px 0;
-    }
-
     .navbar ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* Cambiar a fila */
+        justify-content: center;
+        gap: 10px; /* Espaciado reducido */
     }
 
     .navbar a {
-        padding: 8px 12px;
+        padding: 5px 10px; /* Reducir padding */
+        font-size: 1em; /* Reducir tamaño de fuente */
     }
 
     .bubble {
@@ -401,6 +380,25 @@ background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80
 
     footer {
         font-size: 0.8em;
+        padding: 10px 0; /* Reducir padding */
+    }
+
+    header {
+        padding: 10px 0; /* Reducir padding en el header */
+    }
+
+    h1 {
+        font-size: 2em; /* Reducir tamaño de h1 */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Reducir tamaño de h2 */
+    }
+
+    button {
+        bottom: 40px; /* Subir botones más */
+        font-size: 1em; /* Reducir tamaño de fuente de los botones */
+        padding: 6px 12px; /* Reducir padding de los botones */
     }
 }
 
@@ -419,7 +417,21 @@ background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80
     }
 
     button {
-        padding: 6px 12px;
-        font-size: 0.9em;
+        padding: 5px 10px; /* Reducir aún más el padding */
+        font-size: 0.8em; /* Reducir tamaño de fuente de los botones */
+        bottom: 30px; /* Ajustar aún más la posición */
+    }
+
+    .navbar a {
+        font-size: 0.9em; /* Reducir tamaño de fuente en móvil */
+    }
+
+    footer {
+        font-size: 0.7em; /* Reducir tamaño de fuente en footer */
+        padding: 5px 0; /* Reducir padding en footer */
+    }
+
+    body {
+        overflow: auto; /* Permitir desplazamiento si el contenido se superpone */
     }
 }
