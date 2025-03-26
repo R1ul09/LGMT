@@ -423,7 +423,7 @@ background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80
     }
 
     .navbar a {
-        font-size: 0.9em; /* Reducir tamaño de fuente en móvil */
+        font-size: 0.7em; /* Reducir tamaño de fuente en móvil */
     }
 
     footer {

@@ -42,6 +42,17 @@ body {
     animation: gradientBackground 10s ease infinite;
 }
 
+.dark-mode {
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto claro */
+}
+
+/* Modo claro */
+body {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto oscuro */
+}
+
 .bubble {
     position: absolute;
     border-radius: 50%;
@@ -219,36 +230,6 @@ body {
     padding-top: 60px;
 }
 
-/* Modo oscuro */
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-.dark-mode .bubble {
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-}
-
-.dark-mode a {
-    color: #4caf50;
-}
-
-.dark-mode a:hover {
-    color: #81c784;
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-}
-
-.dark-mode footer {
-    background-color: rgba(34, 34, 34, 0.9);
-    color: #81c784;
-    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.4);
-}
-
-.dark-mode footer:hover {
-    background-color: rgba(50, 50, 50, 1);
-}
-
 /* Botones generales */
 button {
     background-color: rgba(255, 0, 0, 0.7);
@@ -386,7 +367,7 @@ button:hover::before {
     }
 
     .navbar a {
-        font-size: 0.9em; /* Reducir tamaño de fuente en móvil */
+        font-size: 0.7em; /* Reducir tamaño de fuente en móvil */
     }
 
     footer {
