@@ -287,28 +287,30 @@ body {
     background-color: rgba(50, 50, 50, 1);
 }
 
-/* Botones generales */
-button {
-background-color: rgba(255, 0, 0, 0.7);
-color: #fff;
-border: none;
-border-radius: 5px;
-padding: 10px 20px;
-font-size: 1.2em;
-font-weight: bold;
-cursor: pointer;
-text-transform: uppercase;
-box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4);
-transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-position: relative;
-overflow: hidden;
+.icon-button {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Hacer el botón redondo */
+    width: 40px; /* Tamaño inicial */
+    height: 40px; /* Tamaño inicial */
+    font-size: 1.5em; /* Tamaño del ícono */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4);
+    position: fixed; /* Fijar posición */
+    bottom: 20px; /* Espacio desde el fondo */
+    right: 20px; /* Espacio desde la derecha */
+    z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Botón Hover */
-button:hover {
-background-color: #ff3333;
-transform: scale(1.1);
-box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8);
+.icon-button:hover {
+    background-color: #ff3333;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8);
 }
 
 /* Efecto de brillo en el botón */
@@ -395,16 +397,24 @@ background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80
         font-size: 1.5em; /* Reducir tamaño de h2 */
     }
 
-    button {
-        bottom: 40px; /* Subir botones más */
-        font-size: 1em; /* Reducir tamaño de fuente de los botones */
-        padding: 6px 12px; /* Reducir padding de los botones */
+    .icon-button {
+        width: 30px; /* Tamaño reducido */
+        height: 30px; /* Tamaño reducido */
+        font-size: 1.2em; /* Tamaño del ícono reducido */
+        margin-top: 200px;
     }
 }
 
 @media screen and (max-width: 480px) {
     h1 {
         font-size: 1.5em;
+    }
+
+    .icon-button {
+        width: 20px; /* Tamaño aún más reducido */
+        height: 20px; /* Tamaño aún más reducido */
+        font-size: 1em; /* Tamaño del ícono aún más reducido */
+        margin-bottom: -8px;
     }
 
     h2 {
@@ -414,12 +424,6 @@ background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 80
     .bubble {
         width: 12px;
         height: 12px;
-    }
-
-    button {
-        padding: 5px 10px; /* Reducir aún más el padding */
-        font-size: 0.8em; /* Reducir tamaño de fuente de los botones */
-        bottom: 30px; /* Ajustar aún más la posición */
     }
 
     .navbar a {
