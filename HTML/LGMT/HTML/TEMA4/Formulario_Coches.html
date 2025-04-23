@@ -1,64 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Coches</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Vehículos</title>
+  <link rel="stylesheet" href="coches_api.css">
 </head>
 <body>
-    <h1>Selección de Características del Vehículo</h1>
-    <!-- Vamos a empezar creando el formulario, y lo vamos a ir dividiendo en diferentes
-     div para que se diferencie cada seccion -->
-    <form>
-        <!-- Aqui vamos a empezar a crear las secciones -->
-        <!-- Sección de Motor -->
-        <div id="motor">
-            Tipo de motor<br>
-            <input type="radio" name="motor" id="gasolina">Gasolina(2300€)<br>
-            <input type="radio" name="motor" id="diesel">Diésel(1200€)<br>
-            <input type="radio" name="motor" id="eléctrico">Eléctrico(1000€)<br>
-            <input type="radio" name="motor" id="hibrido">Híbrido(1400€)<br><input type="radio" name="motor" id="hibrido">Hibrido(1400€)<br>
-        </div><br>
 
-        <!-- Sección de Transmision -->
-        <div id="transmision">
-            Trasnmisión<br>
-            <input type="radio" name="trasmision" id="manual">Manual(4000€)<br>
-            <input type="radio" name="trasmision" id="automático">Automático(5000€)<br>
-            <input type="radio" name="trasmision" id="cvt">CVT(3400€)<br>
-            <input type="radio" name="trasmision" id="dobleembrague">Doble embrague(3000€)<br>
-        </div><br>
+  <h1>Configurador de Vehículos</h1>
 
-        <!-- Sección de Traccion -->
-        <div id="traccion">
-            Tracción<br>
-            <input type="radio" name="tracción" id="delantera">Delantera(FWD)(2000€)<br>
-            <input type="radio" name="tracción" id="trasera">Trasera(RWD)(2500€)<br>
-            <input type="radio" name="tracción" id="ti">Total o integral(AWD, 4x4)(3000€)<br>
-        </div><br>
+  <!-- Comienza nuestro formulario, todo lo que el usuario selecciona va dentro de este <form> -->
+  <form id="formulario">
 
-        <!-- Sección de Carroceria -->
-        <div id="carroceria">
-            Tipo de carroceria<br>
-            <input type="radio" name="carroceria" id="sedan">Sedan(2000€)<br>
-            <input type="radio" name="carroceria" id="hatchback">Hatchback(2500€)<br>
-            <input type="radio" name="carroceria" id="suv">SUV(3000€)<br>
-            <input type="radio" name="carroceria" id="coupe">Coupé(3500€)<br>
-            <input type="radio" name="carroceria" id="cd">Cabrio/Descapotable(4000€)<br>
-            <input type="radio" name="carroceria" id="familiar">Familiar(4500€)<br>
-            <input type="radio" name="carroceria" id="pickup">Pick-up(5000€)<br>
-            <input type="radio" name="carroceria" id="monovolumen">Monovolumen(5500€)<br>
-        </div><br>
+    <!-- GRUPO: Tipo de vehículo -->
+    <div class="grupo">
+      <h3>Tipo de vehículo</h3>
+      <!-- Esto es un desplegable para elegir entre coche o moto -->
+      <!-- Cuando el usuario cambie la opción, se ejecuta la función actualizarFormulario() -->
+      <select name="vehiculo" id="vehiculoSelect" onchange="actualizarFormulario()">
+        <option value="Coche">Coche</option>
+        <option value="Moto">Moto</option>
+      </select>
+    </div>
 
-        <!-- Sección de Puertas -->
-        <div id="puertas">
-            Número de puertas<br>
-            <input type="radio" name="puertas" id="2">2 puertas(2000€)<br>
-            <input type="radio" name="puertas" id="3">3 puertas(2500€)<br>
-            <input type="radio" name="puertas" id="4">4 puertas(3000€)<br>
-            <input type="radio" name="puertas" id="5">5 puertas(3500€)<br>
-        </div>
-        
-    </form>
+    <!-- GRUPO: Tipo de motor -->
+    <div class="grupo">
+      <h3>Tipo de motor</h3>
+      <label><input type="radio" name="motor" value="Gasolina"> Gasolina</label>
+      <label><input type="radio" name="motor" value="Diésel"> Diésel</label>
+      <label><input type="radio" name="motor" value="Eléctrico"> Eléctrico</label>
+      <label><input type="radio" name="motor" value="Híbrido"> Híbrido</label>
+    </div>
+
+    <!-- GRUPO: Transmisión -->
+    <div class="grupo">
+      <h3>Transmisión</h3>
+      <label><input type="radio" name="transmision" value="Manual"> Manual</label>
+      <label><input type="radio" name="transmision" value="Automático"> Automático</label>
+      <label><input type="radio" name="transmision" value="CVT"> CVT</label>
+    </div>
+
+    <!-- GRUPO: Tracción -->
+    <div class="grupo">
+      <h3>Tracción</h3>
+      <label><input type="radio" name="traccion" value="Delantera"> Delantera</label>
+      <label><input type="radio" name="traccion" value="Trasera"> Trasera</label>
+      <label><input type="radio" name="traccion" value="4x4"> 4x4</label>
+    </div>
+
+    <!-- GRUPO: Tipo de carrocería (solo para coches) -->
+    <div class="grupo" id="carroceriaGrupo">
+      <h3>Tipo de carrocería</h3>
+      <label><input type="radio" name="carroceria" value="Sedán"> Sedán</label>
+      <label><input type="radio" name="carroceria" value="SUV"> SUV</label>
+      <label><input type="radio" name="carroceria" value="Coupé"> Coupé</label>
+    </div>
+
+    <!-- GRUPO: Número de puertas (solo para coches) -->
+    <div class="grupo" id="puertasGrupo">
+      <h3>Número de puertas</h3>
+      <label><input type="radio" name="puertas" value="2"> 2</label>
+      <label><input type="radio" name="puertas" value="4"> 4</label>
+      <label><input type="radio" name="puertas" value="5"> 5</label>
+    </div>
+
+    <div class="botones">
+        <!-- Botón para mostrar los vehículos recomendados -->
+        <button type="button" onclick="enviar()">Mostrar vehículos recomendados</button>
+
+        <!-- Botón para resetear el formulario -->
+        <button type="reset">Restablecer formulario</button>
+    </div>
+  
+  </form>
+
+  <!-- Este div muestra el precio total y se va a ir actualizando actual abajo a la derecha -->
+  <div id="precioTotal">Precio total: 0€</div>
+
+  <!-- Aquí se mostrará el resultado final con la frase -->
+  <div id="resultado"></div>
+
 </body>
 </html>
