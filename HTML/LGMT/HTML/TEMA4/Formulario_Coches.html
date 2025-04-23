@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Coches</title>
+</head>
+<body>
+    <h1>Selección de Características del Vehículo</h1>
+    <!-- Vamos a empezar creando el formulario, y lo vamos a ir dividiendo en diferentes
+     div para que se diferencie cada seccion -->
+    <form>
+        <!-- Aqui vamos a empezar a crear las secciones -->
+        <!-- Sección de Motor -->
+        <div id="motor">
+            Tipo de motor<br>
+            <input type="radio" name="motor" id="gasolina">Gasolina(2300€)<br>
+            <input type="radio" name="motor" id="diesel">Diésel(1200€)<br>
+            <input type="radio" name="motor" id="eléctrico">Eléctrico(1000€)<br>
+            <input type="radio" name="motor" id="hibrido">Híbrido(1400€)<br><input type="radio" name="motor" id="hibrido">Hibrido(1400€)<br>
+        </div><br>
+
+        <!-- Sección de Transmision -->
+        <div id="transmision">
+            Trasnmisión<br>
+            <input type="radio" name="trasmision" id="manual">Manual(4000€)<br>
+            <input type="radio" name="trasmision" id="automático">Automático(5000€)<br>
+            <input type="radio" name="trasmision" id="cvt">CVT(3400€)<br>
+            <input type="radio" name="trasmision" id="dobleembrague">Doble embrague(3000€)<br>
+        </div><br>
+
+        <!-- Sección de Traccion -->
+        <div id="traccion">
+            Tracción<br>
+            <input type="radio" name="tracción" id="delantera">Delantera(FWD)(2000€)<br>
+            <input type="radio" name="tracción" id="trasera">Trasera(RWD)(2500€)<br>
+            <input type="radio" name="tracción" id="ti">Total o integral(AWD, 4x4)(3000€)<br>
+        </div><br>
+
+        <!-- Sección de Carroceria -->
+        <div id="carroceria">
+            Tipo de carroceria<br>
+            <input type="radio" name="carroceria" id="sedan">Sedan(2000€)<br>
+            <input type="radio" name="carroceria" id="hatchback">Hatchback(2500€)<br>
+            <input type="radio" name="carroceria" id="suv">SUV(3000€)<br>
+            <input type="radio" name="carroceria" id="coupe">Coupé(3500€)<br>
+            <input type="radio" name="carroceria" id="cd">Cabrio/Descapotable(4000€)<br>
+            <input type="radio" name="carroceria" id="familiar">Familiar(4500€)<br>
+            <input type="radio" name="carroceria" id="pickup">Pick-up(5000€)<br>
+            <input type="radio" name="carroceria" id="monovolumen">Monovolumen(5500€)<br>
+        </div><br>
+
+        <!-- Sección de Puertas -->
+        <div id="puertas">
+            Número de puertas<br>
+            <input type="radio" name="puertas" id="2">2 puertas(2000€)<br>
+            <input type="radio" name="puertas" id="3">3 puertas(2500€)<br>
+            <input type="radio" name="puertas" id="4">4 puertas(3000€)<br>
+            <input type="radio" name="puertas" id="5">5 puertas(3500€)<br>
+        </div>
+        
+    </form>
+</body>
+</html>
