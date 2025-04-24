@@ -1,15 +1,20 @@
 // Esta función se encarga de sumar todos los precios de las opciones seleccionadas
 function calcularPrecio() {
-    let total = 0; // Guardamos aquí el precio total
+    // Guardamos aquí el precio total
+    let total = 0;
   
-    // Buscamos todos los input de tipo radio que estén seleccionados
+    // Buscamos todos los input de tipo radio que estén seleccionados, cuando ponemos
+    // querySelectorAll('input[type="radio"]:checked') nos devuelve todos los input de tipo radio
+    // que estén seleccionados, pero no los que no estén seleccionados, y ponemos forEach
+    // nos devuelve cada uno de los input de tipo radio que estén seleccionados
     const radiosSeleccionados = document.querySelectorAll('input[type="radio"]:checked');
     radiosSeleccionados.forEach(radio => {
-      // Leemos el precio que está justo al lado del input
+      // Leemos el precio que está justo al lado del input, sibling significa que nos
+      // estamos buscando el elemento que está a la derecha del elemento actual
       let precioTexto = radio.nextElementSibling.innerText;
       // Quitamos los símbolos € y los paréntesis para dejar solo el número
       precioTexto = precioTexto.replace('€', '').replace('(', '').replace(')', '');
-      // Convertimos ese texto a número
+      // Convertimos ese texto a número y ya estaria hecho
       total += Number(precioTexto);
     });
   
