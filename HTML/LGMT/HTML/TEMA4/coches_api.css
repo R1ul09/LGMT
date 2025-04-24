@@ -15,7 +15,7 @@ body {
     background: #fff;
     padding: clamp(15px, 3vw, 25px);
     border-radius: 10px;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
@@ -42,7 +42,26 @@ body {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: clamp(14px, 3.5vw, 16px);
-  }  
+  }
+
+  .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, 2vw, 14px);
+  }
+  
+  .opciones div {
+    display: flex;
+    align-items: center;
+    font-size: clamp(14px, 3.5vw, 16px);
+  }
+  
+  .precio {
+    font-size: clamp(12px, 2.5vw, 14px);
+    color: #999;
+    margin-left: 5px;
+  }
+  
 
   .botones {
     display: flex;
@@ -52,9 +71,8 @@ body {
     margin-top: clamp(10px, 3vw, 20px);
   }
   
-  /* Estilo de los botones */
   button {
-    width: clamp(180px, 19vw, 200px); /* Tamaño flexible de ancho usando clamp */
+    width: clamp(180px, 19vw, 200px);
     background: #007bff;
     color: #fff;
     padding: clamp(10px, 3vw, 16px);
@@ -65,7 +83,6 @@ body {
     transition: background 0.3s ease;
   }
   
-  /* Efecto al pasar el ratón por encima del botón */
   button:hover {
     background: #0056b3;
   }  

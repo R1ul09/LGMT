@@ -4,84 +4,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Vehículos</title>
+  <!-- Aquí enlazamos nuestro CSS externo -->
   <link rel="stylesheet" href="coches_api.css">
+  <script src="coches_api.js"></script>
 </head>
 <body>
 
+  <!-- Título principal de la página -->
   <h1>Configurador de Vehículos</h1>
 
-  <!-- Comienza nuestro formulario, todo lo que el usuario selecciona va dentro de este <form> -->
+  <!-- Comienza nuestro formulario -->
   <form id="formulario">
 
-    <!-- GRUPO: Tipo de vehículo -->
+    <!-- SECCIÓN: Tipo de vehículo -->
     <div class="grupo">
       <h3>Tipo de vehículo</h3>
-      <!-- Esto es un desplegable para elegir entre coche o moto -->
-      <!-- Cuando el usuario cambie la opción, se ejecuta la función actualizarFormulario() -->
-      <select name="vehiculo" id="vehiculoSelect" onchange="actualizarFormulario()">
+      <!-- Desplegable para elegir entre coche o moto -->
+      <select name="vehiculo" id="vehiculoSelect">
         <option value="Coche">Coche</option>
         <option value="Moto">Moto</option>
       </select>
     </div>
 
-    <!-- GRUPO: Tipo de motor -->
+    <!-- SECCIÓN: Tipo de motor -->
     <div class="grupo">
       <h3>Tipo de motor</h3>
-      <label><input type="radio" name="motor" value="Gasolina"> Gasolina</label>
-      <label><input type="radio" name="motor" value="Diésel"> Diésel</label>
-      <label><input type="radio" name="motor" value="Eléctrico"> Eléctrico</label>
-      <label><input type="radio" name="motor" value="Híbrido"> Híbrido</label>
+      <!-- Opciones en línea con su precio pequeño al lado -->
+      <div class="opciones">
+        <div><input type="radio" name="motor" value="Gasolina"> Gasolina <span class="precio">(2300€)</span></div>
+        <div><input type="radio" name="motor" value="Diésel"> Diésel <span class="precio">(1200€)</span></div>
+        <div><input type="radio" name="motor" value="Eléctrico"> Eléctrico <span class="precio">(1000€)</span></div>
+        <div><input type="radio" name="motor" value="Híbrido"> Híbrido <span class="precio">(1400€)</span></div>
+      </div>
     </div>
 
-    <!-- GRUPO: Transmisión -->
+    <!-- SECCIÓN: Transmisión -->
     <div class="grupo">
       <h3>Transmisión</h3>
-      <label><input type="radio" name="transmision" value="Manual"> Manual</label>
-      <label><input type="radio" name="transmision" value="Automático"> Automático</label>
-      <label><input type="radio" name="transmision" value="CVT"> CVT</label>
+      <div class="opciones">
+        <div><input type="radio" name="transmision" value="Manual"> Manual <span class="precio">(4000€)</span></div>
+        <div><input type="radio" name="transmision" value="Automático"> Automático <span class="precio">(5000€)</span></div>
+        <div><input type="radio" name="transmision" value="CVT"> CVT <span class="precio">(3400€)</span></div>
+      </div>
     </div>
 
-    <!-- GRUPO: Tracción -->
+    <!-- SECCIÓN: Tracción -->
     <div class="grupo">
       <h3>Tracción</h3>
-      <label><input type="radio" name="traccion" value="Delantera"> Delantera</label>
-      <label><input type="radio" name="traccion" value="Trasera"> Trasera</label>
-      <label><input type="radio" name="traccion" value="4x4"> 4x4</label>
+      <div class="opciones">
+        <div><input type="radio" name="traccion" value="Delantera"> Delantera <span class="precio">(2000€)</span></div>
+        <div><input type="radio" name="traccion" value="Trasera"> Trasera <span class="precio">(2500€)</span></div>
+        <div><input type="radio" name="traccion" value="4x4"> 4x4 <span class="precio">(3000€)</span></div>
+      </div>
     </div>
 
-    <!-- GRUPO: Tipo de carrocería (solo para coches) -->
-    <div class="grupo" id="carroceriaGrupo">
+    <!-- SECCIÓN: Carrocería (solo para coche) -->
+    <div class="grupo">
       <h3>Tipo de carrocería</h3>
-      <label><input type="radio" name="carroceria" value="Sedán"> Sedán</label>
-      <label><input type="radio" name="carroceria" value="SUV"> SUV</label>
-      <label><input type="radio" name="carroceria" value="Coupé"> Coupé</label>
+      <div class="opciones">
+        <div><input type="radio" name="carroceria" value="Sedán"> Sedán <span class="precio">(2000€)</span></div>
+        <div><input type="radio" name="carroceria" value="SUV"> SUV <span class="precio">(3000€)</span></div>
+        <div><input type="radio" name="carroceria" value="Coupé"> Coupé <span class="precio">(3500€)</span></div>
+      </div>
     </div>
 
-    <!-- GRUPO: Número de puertas (solo para coches) -->
-    <div class="grupo" id="puertasGrupo">
+    <!-- SECCIÓN: Número de puertas -->
+    <div class="grupo">
       <h3>Número de puertas</h3>
-      <label><input type="radio" name="puertas" value="2"> 2</label>
-      <label><input type="radio" name="puertas" value="4"> 4</label>
-      <label><input type="radio" name="puertas" value="5"> 5</label>
+      <div class="opciones">
+        <div><input type="radio" name="puertas" value="2"> 2 <span class="precio">(2000€)</span></div>
+        <div><input type="radio" name="puertas" value="4"> 4 <span class="precio">(3000€)</span></div>
+        <div><input type="radio" name="puertas" value="5"> 5 <span class="precio">(3500€)</span></div>
+      </div>
     </div>
 
-    <!-- GRUPO: Color del vehiculo -->
+    <!-- GRUPO: Color -->
     <div class="grupo">
       <h3>Color del vehículo</h3>
-      <label><input type="radio" name="color" value="Rojo"> Rojo</label>
-      <label><input type="radio" name="color" value="Azul"> Azul</label>
-      <label><input type="radio" name="color" value="Negro"> Negro</label>
-      <label><input type="radio" name="color" value="Blanco"> Blanco</label>
+      <div class="opciones">
+        <div><input type="radio" name="color" value="Rojo"> Rojo <span class="precio">(200€)</span></div>
+        <div><input type="radio" name="color" value="Azul"> Azul <span class="precio">(200€)</span></div>
+        <div><input type="radio" name="color" value="Negro"> Negro <span class="precio">(200€)</span></div>
+        <div><input type="radio" name="color" value="Blanco"> Blanco <span class="precio">(200€)</span></div>
+      </div>
     </div>
 
-    
+    <!-- GRUPO: Accesorios extra -->
     <div class="grupo">
       <h3>Accesorios extra</h3>
-      <label><input type="checkbox" name="extras" value="Aire acondicionado"> Aire acondicionado</label>
-      <label><input type="checkbox" name="extras" value="Navegador GPS"> Navegador GPS</label>
-      <label><input type="checkbox" name="extras" value="Asientos de cuero"> Asientos de cuero</label>
-      <label><input type="checkbox" name="extras" value="Techo solar"> Techo solar</label>
-    </div>    
+      <div class="opciones">
+        <div><input type="checkbox" name="extras" value="Aire acondicionado"> Aire acondicionado <span class="precio">(500€)</span></div>
+        <div><input type="checkbox" name="extras" value="Navegador GPS"> Navegador GPS <span class="precio">(600€)</span></div>
+        <div><input type="checkbox" name="extras" value="Asientos de cuero"> Asientos de cuero <span class="precio">(800€)</span></div>
+        <div><input type="checkbox" name="extras" value="Techo solar"> Techo solar <span class="precio">(1000€)</span></div>
+      </div>
+    </div>
+
+    <!-- GRUPO: Seguro -->
+    <div class="grupo">
+      <h3>Tipo de seguro</h3>
+      <div class="opciones">
+        <div><input type="radio" name="seguro" value="Todo riesgo"> Todo riesgo <span class="precio">(900€)</span></div>
+        <div><input type="radio" name="seguro" value="A terceros"> A terceros <span class="precio">(500€)</span></div>
+      </div>
+    </div>
+
 
     <div class="botones">
         <!-- Botón para mostrar los vehículos recomendados -->
