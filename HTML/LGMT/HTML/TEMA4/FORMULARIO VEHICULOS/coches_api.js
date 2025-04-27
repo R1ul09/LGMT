@@ -126,25 +126,18 @@ fetch(apiURL, {
 .then(data => {
   console.log('Respuesta Magic Loops :', data); // Ver para depurar
 
-  let lista = '\n\nVehículos recomendados por Magic Loops:\n';
+  let listaHTML = '<h3 style="margin-top:20px;">Vehículos recomendados por Magic Loops:</h3>';
 
   // Mostramos los modelos recomendados y sus precios con imagen
   data.recommendations.forEach(vehiculo => {
-    lista += '- ' + vehiculo.modelo + ' (' + vehiculo.precio + ')\n';
-
-    // Añadimos imagen con etiqueta img, para que se vea en la web
-    lista += '<img src="https://via.placeholder.com/200x120?text=' + encodeURIComponent(vehiculo.modelo) + '" alt="' + vehiculo.modelo + '" style="width:200px;margin-bottom:10px;"><br>';
+    listaHTML += '<p style="margin:5px 0;"><strong>' + vehiculo.modelo + '</strong> (' + vehiculo.precio + ')</p>';
   });
 
-  // Nota aclaratoria
-  lista += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de los modelos recomendados pueden variar según características reales.</p>';
+  // Nota aclaratoria abajo
+  listaHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de los modelos recomendados pueden variar según características reales.</p>';
 
   // Mostramos todo en el div de resultado
-  resultadoDiv.innerHTML += lista;
-})
-.catch(error => {
-  console.error('Error conectando con Magic Loops:', error);
-  resultadoDiv.innerText += '\n\n(No se pudo conectar con Magic Loops)';
+  resultadoDiv.innerHTML += listaHTML;
 });
 }
 
@@ -171,6 +164,7 @@ document.getElementById('vehiculoSelect').addEventListener('change', () => {
     actualizarFormulario();
   }
 });
+
 
 // Al cargar la página, dejamos todo listo y mostramos precio inicial 0€
 actualizarFormulario();
