@@ -100,6 +100,52 @@ function enviar() {
   const resultadoDiv = document.getElementById('resultado');
   resultadoDiv.innerText = frase;
   resultadoDiv.style.display = 'block';
+
+  const apiURL = 'https://magicloops.dev/api/loop/a5a7e8bc-2ab5-4bf9-95cd-9cc1980af979/run';
+
+// Creamos el objeto con los datos seleccionados
+const datos = {
+  motor: motor,
+  transmision: transmision,
+  traccion: traccion,
+  carroceria: carroceria,
+  puertas: puertas,
+  color: color,
+  seguro: seguro
+};
+
+// Hacemos la petición POST a Magic Loops
+fetch(apiURL, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(datos)
+})
+.then(res => res.json())
+.then(data => {
+  console.log('Respuesta Magic Loops :', data); // Ver para depurar
+
+  let lista = '\n\nVehículos recomendados por Magic Loops:\n';
+
+  // Mostramos los modelos recomendados y sus precios con imagen
+  data.recommendations.forEach(vehiculo => {
+    lista += '- ' + vehiculo.modelo + ' (' + vehiculo.precio + ')\n';
+
+    // Añadimos imagen con etiqueta img, para que se vea en la web
+    lista += '<img src="https://via.placeholder.com/200x120?text=' + encodeURIComponent(vehiculo.modelo) + '" alt="' + vehiculo.modelo + '" style="width:200px;margin-bottom:10px;"><br>';
+  });
+
+  // Nota aclaratoria
+  lista += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de los modelos recomendados pueden variar según características reales.</p>';
+
+  // Mostramos todo en el div de resultado
+  resultadoDiv.innerHTML += lista;
+})
+.catch(error => {
+  console.error('Error conectando con Magic Loops:', error);
+  resultadoDiv.innerText += '\n\n(No se pudo conectar con Magic Loops)';
+});
 }
 
 // Esta función devuelve el valor seleccionado de un grupo
