@@ -88,37 +88,42 @@ function enviar() {
   };
 
   // Enviamos la petición a Magic Loops usando fetch
-  fetch(apiURL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(datos)
-  })
-  .then(res => res.json())
-  .then(data => {
-    // Mostramos en consola para depurar la respuesta
-    console.log("Respuesta Magic Loops:", data);
+  // Hacemos la petición a la API de Magic Loops con los datos seleccionados
+fetch(apiURL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(datos)
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Respuesta Magic Loops:", data);
 
-    // Montamos el HTML con las recomendaciones recibidas
-    let listaHTML = '<h3 style="margin-top:20px;">Vehículos recomendados por Magic Loops:</h3>';
+  // Inicia el contenido HTML con el título
+  let listaHTML = '<h3 style="margin-top:20px;">Vehículos recomendados por Magic Loops:</h3>';
 
-    // Recorreremos cada recomendación y la añadimos al HTML
-    data.recommendations.forEach(moto => {
-      // Sustituimos cualquier $ por € en los precios
-      let precioEuros = moto.precio.replace('$', '€');
-      listaHTML += `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
-    });
+  // Recorremos todas las recomendaciones que devuelve Magic Loops
+  data.recommendations.forEach(moto => {
+    let precioEuros = moto.precio.replace('$', '€');
 
-    // Añadimos una nota final informativa
-    listaHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar según características reales.</p>';
+    // Añadimos modelo y precio
+    listaHTML += `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
 
-    // Mostramos todo en el div de resultado
-    resultadoDiv.innerHTML += listaHTML;
-  })
-  .catch(error => {
-    // Si falla la conexión mostramos un mensaje en rojo
-    console.error('Error conectando con Magic Loops:', error);
-    resultadoDiv.innerHTML += '<p style="color:red;">(No se pudo conectar con Magic Loops)</p>';
   });
+
+  // Nota aclaratoria final
+  listaHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar según características reales.</p>';
+
+  // Mostramos todo el contenido en resultadoDiv
+  resultadoDiv.innerHTML += listaHTML;
+
+  // Aseguramos que el div resultado esté visible (por si acaso está oculto)
+  resultadoDiv.style.display = 'block';
+})
+.catch(error => {
+  console.error('Error conectando con Magic Loops:', error);
+  resultadoDiv.innerHTML += '<p style="color:red;">(No se pudo conectar con Magic Loops)</p>';
+});
+
 }
 
 // Esta función obtiene el valor seleccionado de un grupo de botones de opción

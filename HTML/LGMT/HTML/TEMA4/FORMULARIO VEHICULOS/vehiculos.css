@@ -109,3 +109,11 @@ body {
     display: none;
     font-size: clamp(14px, 3.5vw, 16px);
   }
+
+  #resultado img {
+    max-width: 250px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
