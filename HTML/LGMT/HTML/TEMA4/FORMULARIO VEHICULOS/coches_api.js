@@ -124,9 +124,9 @@ fetch(apiURL, {
 })
 .then(res => res.json())
 .then(data => {
-  console.log('Respuesta Magic Loops :', data); // Ver para depurar
+  console.log('Respuesta Magic Loops :', data);
 
-  let listaHTML = '<h3 style="margin-top:20px;">Vehículos recomendados por Magic Loops:</h3>';
+  let listaHTML = '<h3 style="margin-top:20px;">Coches recomendados por Magic Loops:</h3>';
 
   // Mostramos los modelos recomendados y sus precios con imagen
   data.recommendations.forEach(vehiculo => {
@@ -164,7 +164,6 @@ document.getElementById('vehiculoSelect').addEventListener('change', () => {
     actualizarFormulario();
   }
 });
-
 
 // Al cargar la página, dejamos todo listo y mostramos precio inicial 0€
 actualizarFormulario();
