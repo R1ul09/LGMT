@@ -1,84 +1,72 @@
-// Esta función calcula el precio total sumando todos los precios de las opciones seleccionadas
+// Esta función se encarga de sumar todos los precios seleccionados del formulario
+// Va sumando tanto radios como checkboxes y muestra el total abajo a la derecha
 function calcularPrecio() {
-  // Creamos una variable donde guardaremos el precio total
   let total = 0;
 
-  // Buscamos todos los botones de opción (input radio) que estén seleccionados
+  // Buscamos todos los radios seleccionados y sumamos sus precios
   const radiosSeleccionados = document.querySelectorAll('input[type="radio"]:checked');
-
-  // Recorreremos uno por uno todos esos botones de opción marcados
   radiosSeleccionados.forEach(radio => {
-    // Cogemos el texto que está justo al lado del botón, que es donde está el precio (en el span)
     let precioTexto = radio.nextElementSibling.innerText;
-
-    // Limpiamos ese texto, quitándole símbolos € y paréntesis
     precioTexto = precioTexto.replace('€', '').replace('(', '').replace(')', '');
-
-    // Convertimos el texto a número y se lo sumamos a total
     total += Number(precioTexto);
   });
 
-  // Ahora buscamos todos los checkbox que estén marcados (opciones extra)
+  // Hacemos lo mismo pero para los checkboxes de extras
   const extrasSeleccionados = document.querySelectorAll('input[type="checkbox"]:checked');
-
-  // Recorremos cada extra y sumamos su precio al total igual que antes
   extrasSeleccionados.forEach(checkbox => {
     let precioTexto = checkbox.nextElementSibling.innerText;
     precioTexto = precioTexto.replace('€', '').replace('(', '').replace(')', '');
     total += Number(precioTexto);
   });
 
-  // Mostramos el total actualizado en el recuadro fijo de abajo a la derecha
+  // Mostramos el total en su div correspondiente
   document.getElementById('precioTotal').innerText = 'Precio total: ' + total + '€';
-
-  // Devolvemos el total por si en algún momento necesitamos usarlo
   return total;
 }
 
-// Esta función se encarga de recoger los valores seleccionados,
-// llamar a la API y mostrar el resumen en pantalla
+// Esta función se ejecuta cuando se pulsa el botón "Mostrar motos recomendadas"
 function enviar() {
-  // Cogemos el tipo de vehículo seleccionado en el desplegable (aunque aquí sería moto)
+  // Recogemos el tipo de vehículo seleccionado
   const vehiculo = document.getElementById('vehiculoSelect').value;
 
-  // Creamos una lista con los nombres de los grupos obligatorios que deben tener una opción marcada
+  // Definimos los grupos de opciones que obligatoriamente hay que seleccionar
   const gruposObligatorios = ['motor', 'transmision', 'traccion', 'color', 'seguro'];
 
-  // Recorremos esa lista para comprobar uno a uno que tengan algo seleccionado
+  // Comprobamos que todos los grupos obligatorios tienen una opción marcada
   for (let i = 0; i < gruposObligatorios.length; i++) {
     const nombreGrupo = gruposObligatorios[i];
     const seleccionado = document.querySelector('input[name="' + nombreGrupo + '"]:checked');
     if (!seleccionado) {
-      // Si falta alguno, mostramos un aviso y salimos de la función
       alert('Debes seleccionar una opción en ' + nombreGrupo);
-      return;
+      return; // Si falta algo, paramos la función
     }
   }
 
-  // Si todo está correcto, recogemos las opciones elegidas con nuestra función de abajo
+  // Si todo está correcto, recogemos los valores seleccionados
   const motor = obtenerSeleccion('motor');
   const transmision = obtenerSeleccion('transmision');
   const traccion = obtenerSeleccion('traccion');
   const color = obtenerSeleccion('color');
   const seguro = obtenerSeleccion('seguro');
 
-  // Guardamos el precio total que hemos calculado antes
+  // Cogemos el precio total que aparece abajo a la derecha
   const precioTotalTexto = document.getElementById('precioTotal').innerText;
 
-  // Montamos la frase resumen con todas las elecciones
-  let frase = 'Quiero las 3 mejores ' + vehiculo.toLowerCase() + 's con motor ' + motor +
-              ', transmisión ' + transmision + ', tracción ' + traccion +
-              ', color ' + color + ' y seguro ' + seguro + '.\n' + precioTotalTexto;
+  // Montamos la frase resumen con las elecciones
+  let frase = 'Quiero las 3 mejores ' + vehiculo.toLowerCase() +
+              's con motor ' + motor + ', transmisión ' + transmision +
+              ', tracción ' + traccion + ', color ' + color +
+              ' y seguro ' + seguro + '.\n' + precioTotalTexto;
 
-  // Buscamos el div donde se mostrará ese texto y lo metemos dentro
+  // Mostramos esa frase en el div de resultado
   const resultadoDiv = document.getElementById('resultado');
   resultadoDiv.innerText = frase;
   resultadoDiv.style.display = 'block';
 
-  // Preparamos la URL de la API para hacer la petición
-  const apiURL = 'https://magicloops.dev/api/loop/7a49c592-9b5e-43c8-81fe-5a40d7bfc13b/run';
+  // URL de tu API de Magic Loops para motos ✅
+  const apiURL = 'https://magicloops.dev/api/loop/196f93ac-f4ab-44f2-a299-ef8bbcd54bae/run';
 
-  // Creamos el objeto con los datos seleccionados para enviarlo en la petición
+  // Creamos el objeto con los datos seleccionados
   const datos = {
     motor: motor,
     transmision: transmision,
@@ -87,63 +75,63 @@ function enviar() {
     seguro: seguro
   };
 
-  // Enviamos la petición a Magic Loops usando fetch
-  // Hacemos la petición a la API de Magic Loops con los datos seleccionados
-fetch(apiURL, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(datos)
-})
-.then(res => res.json())
-.then(data => {
-  console.log("Respuesta Magic Loops:", data);
+  // Llamada POST a Magic Loops con los datos que hemos recogido
+  fetch(apiURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(datos)
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("Respuesta Magic Loops:", data);
 
-  // Inicia el contenido HTML con el título
-  let listaHTML = '<h3 style="margin-top:20px;">Vehículos recomendados por Magic Loops:</h3>';
+    // Creamos una variable con HTML para añadir las recomendaciones
+    let listaHTML = '<h3 style="margin-top:20px;">Motos recomendadas por Magic Loops:</h3>';
 
-  // Recorremos todas las recomendaciones que devuelve Magic Loops
-  data.recommendations.forEach(moto => {
-    let precioEuros = moto.precio.replace('$', '€');
+    // Recorremos cada recomendación que devuelve la API
+    data.recommendations.forEach(moto => {
+      // Cambiamos $ por € si lo hubiera
+      let precioEuros = moto.precio.replace('$', '€');
 
-    // Añadimos modelo y precio
-    listaHTML += `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
+      // Añadimos modelo y precio
+      listaHTML += `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
 
+      // Si tiene imagen, la mostramos
+      if (moto.imagen) {
+        listaHTML += `<img src="${moto.imagen}" alt="${moto.modelo}" style="max-width:250px; display:block; margin-bottom:10px;">`;
+      }
+    });
+
+    // Añadimos la nota aclaratoria
+    listaHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar según características reales.</p>';
+
+    // Mostramos todo en el div de resultado
+    resultadoDiv.innerHTML += listaHTML;
+  })
+  .catch(error => {
+    console.error('Error conectando con Magic Loops:', error);
+    resultadoDiv.innerHTML += '<p style="color:red;">(No se pudo conectar con Magic Loops)</p>';
   });
-
-  // Nota aclaratoria final
-  listaHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar según características reales.</p>';
-
-  // Mostramos todo el contenido en resultadoDiv
-  resultadoDiv.innerHTML += listaHTML;
-
-  // Aseguramos que el div resultado esté visible (por si acaso está oculto)
-  resultadoDiv.style.display = 'block';
-})
-.catch(error => {
-  console.error('Error conectando con Magic Loops:', error);
-  resultadoDiv.innerHTML += '<p style="color:red;">(No se pudo conectar con Magic Loops)</p>';
-});
-
 }
 
-// Esta función obtiene el valor seleccionado de un grupo de botones de opción
+// Esta función devuelve el valor seleccionado en un grupo de opciones (motor, tracción…)
 function obtenerSeleccion(nombreGrupo) {
   const seleccionado = document.querySelector('input[name="' + nombreGrupo + '"]:checked');
   return seleccionado ? seleccionado.value : 'sin seleccionar';
 }
 
-// Este trozo detecta cualquier cambio en los inputs del formulario y recalcula el precio
+// Cuando cambia cualquier opción del formulario, recalculamos el precio total automáticamente
 document.getElementById('formulario').addEventListener('change', () => {
   calcularPrecio();
 });
 
-// Este detecta si cambias el tipo de vehículo y si es coche te manda a vehiculos.html
+// Cuando se cambia el desplegable de vehículo y se selecciona "Coche", redirige al configurador de coches
 document.getElementById('vehiculoSelect').addEventListener('change', () => {
   const tipoVehiculo = document.getElementById('vehiculoSelect').value;
   if (tipoVehiculo === 'Coche') {
-    window.location.href = 'coches.html';
+    window.location.href = 'vehiculos.html';
   }
 });
 
-// Al cargar la página, dejamos el precio inicial actualizado
+// Al cargar la página dejamos calculado el precio inicial en 0€
 calcularPrecio();
