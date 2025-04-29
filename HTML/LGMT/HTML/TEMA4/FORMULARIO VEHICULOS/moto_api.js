@@ -1,13 +1,21 @@
+/********************************************
+  FUNCION DE SUMAR PRECIOS DEL FORMULARIO
+ ********************************************/
 // Esta función se encarga de sumar todos los precios seleccionados del formulario
 // Va sumando tanto radios como checkboxes y muestra el total abajo a la derecha
 function calcularPrecio() {
   let total = 0;
 
   // Buscamos todos los radios seleccionados y sumamos sus precios
+  // Obtenemos todos los radios seleccionados
   const radiosSeleccionados = document.querySelectorAll('input[type="radio"]:checked');
+  // Recorremos cada radio seleccionado
   radiosSeleccionados.forEach(radio => {
+    // Obtenemos el texto que está al lado del radio, en este caso el precio y eso lo haceos con nextElementSibling
     let precioTexto = radio.nextElementSibling.innerText;
+    // A esa variable lo quitamos los símbolos y paréntesis para que solo nos quede el precio
     precioTexto = precioTexto.replace('€', '').replace('(', '').replace(')', '');
+    // Y se lo añadimos al total
     total += Number(precioTexto);
   });
 
@@ -24,6 +32,9 @@ function calcularPrecio() {
   return total;
 }
 
+/********************************************
+  FUNCION DE ENVIAR LOS DATOS A MAGIC LOOPS
+ ********************************************/
 // Esta función se ejecuta cuando se pulsa el botón "Mostrar motos recomendadas"
 function enviar() {
   // Recogemos el tipo de vehículo seleccionado
@@ -34,15 +45,20 @@ function enviar() {
 
   // Comprobamos que todos los grupos obligatorios tienen una opción marcada
   for (let i = 0; i < gruposObligatorios.length; i++) {
+    // Creamos un nombre de grupo para recorrer
     const nombreGrupo = gruposObligatorios[i];
+    // Obtenemos el elemento con ese nombre de grupo y con checked sabemos si está marcado
     const seleccionado = document.querySelector('input[name="' + nombreGrupo + '"]:checked');
+    // En caso de que no esté marcado, mostramos un alerta y devolvemos la función
     if (!seleccionado) {
       alert('Debes seleccionar una opción en ' + nombreGrupo);
-      return; // Si falta algo, paramos la función
+      // Si falta algo, paramos la función
+      return;
     }
   }
 
   // Si todo está correcto, recogemos los valores seleccionados
+  // Con obtenerSeleccion() obtenemos el valor seleccionado en un grupo de opciones
   const motor = obtenerSeleccion('motor');
   const transmision = obtenerSeleccion('transmision');
   const traccion = obtenerSeleccion('traccion');
@@ -63,7 +79,7 @@ function enviar() {
   resultadoDiv.innerText = frase;
   resultadoDiv.style.display = 'block';
 
-  // URL de tu API de Magic Loops para motos ✅
+  // URL de tu API de Magic Loops para motos
   const apiURL = 'https://magicloops.dev/api/loop/196f93ac-f4ab-44f2-a299-ef8bbcd54bae/run';
 
   // Creamos el objeto con los datos seleccionados
@@ -76,13 +92,20 @@ function enviar() {
   };
 
   // Llamada POST a Magic Loops con los datos que hemos recogido
+  // con fetch() llamamos a la API y le pasamos el método POST y el body con los datos
+  // Que el POST basicamente es un envio de datos a una URL, de manera simple, una llamada a una API
   fetch(apiURL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(datos)
   })
+  // El .then() es una función que se ejecutará cuando la llamada a la API se complete
+  // y devuelve el resultado de la llamada
   .then(res => res.json())
+  // Y datos es el resultado de la llamada a la API
   .then(data => {
+    
+    // Esto lo ponemos en la consola para ver que nos devuelve la API
     console.log("Respuesta Magic Loops:", data);
 
     // Creamos una variable con HTML para añadir las recomendaciones
@@ -114,24 +137,29 @@ function enviar() {
   });
 }
 
-// Esta función devuelve el valor seleccionado en un grupo de opciones (motor, tracción…)
-function obtenerSeleccion(nombreGrupo) {
-  const seleccionado = document.querySelector('input[name="' + nombreGrupo + '"]:checked');
-  return seleccionado ? seleccionado.value : 'sin seleccionar';
-}
-
-// Cuando cambia cualquier opción del formulario, recalculamos el precio total automáticamente
-document.getElementById('formulario').addEventListener('change', () => {
-  calcularPrecio();
-});
-
-// Cuando se cambia el desplegable de vehículo y se selecciona "Coche", redirige al configurador de coches
-document.getElementById('vehiculoSelect').addEventListener('change', () => {
-  const tipoVehiculo = document.getElementById('vehiculoSelect').value;
-  if (tipoVehiculo === 'Coche') {
-    window.location.href = 'coches.html';
+/********************************************
+    FUNCION DE OBTENER EL VALOR DEL GRUPO
+ ********************************************/
+  // Esta función devuelve el valor seleccionado en un grupo de opciones (motor, tracción…)
+  function obtenerSeleccion(nombreGrupo) {
+    // Obtenemos el elemento con ese nombre de grupo y con checked sabemos si está marcado
+    const seleccionado = document.querySelector('input[name="' + nombreGrupo + '"]:checked');
+    // Si está marcado, devolvemos el valor, si no, devolvemos sin seleccionar
+    return seleccionado ? seleccionado.value : 'sin seleccionar';
   }
+
+  // Cuando cambia cualquier opción del formulario, recalculamos el precio total automáticamente
+  document.getElementById('formulario').addEventListener('change', () => {
+    calcularPrecio();
+  });
+
+  // Cuando se cambia el desplegable de vehículo y se selecciona "Coche", redirige al configurador de coches
+  document.getElementById('vehiculoSelect').addEventListener('change', () => {
+    const tipoVehiculo = document.getElementById('vehiculoSelect').value;
+    if (tipoVehiculo === 'Coche') {
+    window.location.href = 'coches.html';
+    }
 });
 
-// Al cargar la página dejamos calculado el precio inicial en 0€
-calcularPrecio();
+  // Al cargar la página dejamos calculado el precio inicial en 0€
+  calcularPrecio();
