@@ -129,7 +129,7 @@ document.getElementById('formulario').addEventListener('change', () => {
 document.getElementById('vehiculoSelect').addEventListener('change', () => {
   const tipoVehiculo = document.getElementById('vehiculoSelect').value;
   if (tipoVehiculo === 'Coche') {
-    window.location.href = 'vehiculos.html';
+    window.location.href = 'coches.html';
   }
 });
 
