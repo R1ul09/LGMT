@@ -136,7 +136,7 @@ function enviar() {
   };
 
   // Llamada POST a Magic Loops con los datos que hemos recogido
-  // con fetch() llamamos a la API y le pasamos el método POST y el body con los datos
+  // con fetch(buscar en ingles) llamamos a la API y le pasamos el método POST y el body con los datos
   // Que el POST basicamente es un envio de datos a una URL, de manera simple, una llamada a una API
   fetch(apiURL, {
     method: 'POST',
