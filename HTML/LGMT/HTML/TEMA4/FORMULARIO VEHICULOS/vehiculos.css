@@ -116,4 +116,15 @@ body {
     margin-bottom: 10px;
     display: block;
   }
+
+  .recomendacion-imagen {
+    width: 100%;
+    max-width: 600px;
+    height: 250px;
+    border-radius: 10px;
+    display: block;
+    margin: 10px 0;
+    object-fit: cover;
+    object-position: center;
+  }  
   

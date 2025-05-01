@@ -104,36 +104,60 @@ function enviar() {
   .then(res => res.json())
   // Y datos es el resultado de la llamada a la API
   .then(data => {
-    
-    // Esto lo ponemos en la consola para ver que nos devuelve la API
     console.log("Respuesta Magic Loops:", data);
-
-    // Creamos una variable con HTML para añadir las recomendaciones
+  
+    // Número total de motos recomendadas
+    const totalMotos = data.recommendations.length;
+    let recibidos = 0;
+  
+    // Título de la sección de recomendaciones
     let listaHTML = '<h3 style="margin-top:20px;">Motos recomendadas por Magic Loops:</h3>';
-
-    // Recorremos cada recomendación que devuelve la API
-    data.recommendations.forEach(moto => {
-      // Cambiamos $ por € si lo hubiera
-      let precioEuros = moto.precio.replace('$', '€');
-
-      // Añadimos modelo y precio
-      listaHTML += `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
-
-      // Si tiene imagen, la mostramos
-      if (moto.imagen) {
-        listaHTML += `<img src="${moto.imagen}" alt="${moto.modelo}" style="max-width:250px; display:block; margin-bottom:10px;">`;
-      }
-    });
-
-    // Añadimos la nota aclaratoria
-    listaHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar según características reales.</p>';
-
-    // Mostramos todo en el div de resultado
     resultadoDiv.innerHTML += listaHTML;
+  
+    // Recorremos cada recomendación
+    data.recommendations.forEach(moto => {
+      let precioEuros = moto.precio.replace('$', '€');
+      let html = `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
+  
+      buscarImagen(moto.modelo, function(imagenUrl) {
+        if (imagenUrl) {
+          html += `<img src="${imagenUrl}" alt="${moto.modelo}" class="recomendacion-imagen" style="max-width:100%; border-radius:10px; margin-bottom:15px;">`;
+        } else {
+          html += `<p style="color:red;">(Imagen no disponible)</p>`;
+        }
+  
+        // Añadimos el bloque de cada moto
+        resultadoDiv.innerHTML += html;
+        recibidos++;
+  
+        // Cuando ya han llegado todas las imágenes, metemos la nota
+        if (recibidos === totalMotos) {
+          resultadoDiv.innerHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar.</p>';
+        }
+      });
+    });
+  })  
+  }
+
+function buscarImagen(modelo, callback) {
+  // Aquí va tu API key de Pexels 👇
+  const apiKey = 'NblVDVoS1e3YW51akW5QhmWgClpCtaQAW78GrPuBdOnjJqKfGnseofQe';
+
+  // Buscamos imágenes en Pexels usando el nombre de la moto
+  fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(modelo)}&per_page=1`, {
+    headers: {
+      Authorization: apiKey
+    }
   })
-  .catch(error => {
-    console.error('Error conectando con Magic Loops:', error);
-    resultadoDiv.innerHTML += '<p style="color:red;">(No se pudo conectar con Magic Loops)</p>';
+  .then(response => response.json())
+  .then(data => {
+    // Si encuentra al menos una imagen, usamos la primera
+    const imagenUrl = data.photos.length > 0 ? data.photos[0].src.medium : null;
+    callback(imagenUrl);
+  })
+  .catch(err => {
+    console.error('Error buscando imagen en Pexels:', err);
+    callback(null);
   });
 }
 
