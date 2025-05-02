@@ -159,7 +159,7 @@ function enviar() {
         // Cuando ya hemos procesado todas las recomendaciones
         if (recibidos === totalMotos) {
           // Añadimos una nota final sobre los precios
-          resultadoDiv.innerHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar.</p>';
+          resultadoDiv.innerHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de los modelos recomendados pueden variar, y las imágenes mostradas son orientativas y pueden diferir del modelo real.</p>';
         }
       });
     });
