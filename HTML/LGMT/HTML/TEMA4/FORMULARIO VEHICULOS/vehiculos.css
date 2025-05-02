@@ -118,13 +118,12 @@ body {
   }
 
   .recomendacion-imagen {
-    width: 100%;
-    max-width: 600px;
+    width: 80%;
+    max-width: 400px;
     height: 250px;
     border-radius: 10px;
     display: block;
     margin: 10px 0;
     object-fit: cover;
-    object-position: center;
   }  
   

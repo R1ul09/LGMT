@@ -139,27 +139,21 @@ function enviar() {
   })  
   }
 
-function buscarImagen(modelo, callback) {
-  // Aquí va tu API key de Pexels 👇
-  const apiKey = 'NblVDVoS1e3YW51akW5QhmWgClpCtaQAW78GrPuBdOnjJqKfGnseofQe';
-
-  // Buscamos imágenes en Pexels usando el nombre de la moto
-  fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(modelo)}&per_page=1`, {
-    headers: {
-      Authorization: apiKey
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    // Si encuentra al menos una imagen, usamos la primera
-    const imagenUrl = data.photos.length > 0 ? data.photos[0].src.medium : null;
-    callback(imagenUrl);
-  })
-  .catch(err => {
-    console.error('Error buscando imagen en Pexels:', err);
-    callback(null);
-  });
-}
+  function buscarImagen(modelo, callback) {
+    const apiKey = 'NblVDVoS1e3YW51akW5QhmWgClpCtaQAW78GrPuBdOnjJqKfGnseofQe';
+    fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(modelo)}&per_page=1`, {
+      headers: { Authorization: apiKey }
+    })
+    .then(response => response.json())
+    .then(data => {
+      const imagenUrl = data.photos.length > 0 ? data.photos[0].src.medium : null;
+      callback(imagenUrl);
+    })
+    .catch(err => {
+      console.error('Error buscando imagen en Pexels:', err);
+      callback(null);
+    });
+  }
 
 /********************************************
     FUNCION DE OBTENER EL VALOR DEL GRUPO
