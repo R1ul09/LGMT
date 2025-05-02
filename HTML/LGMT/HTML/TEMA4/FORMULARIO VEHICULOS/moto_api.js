@@ -1,8 +1,8 @@
 /********************************************
   FUNCION DE SUMAR PRECIOS DEL FORMULARIO
  ********************************************/
-// Esta función se encarga de sumar todos los precios seleccionados del formulario.
-// Va sumando tanto radios como checkboxes y muestra el total abajo a la derecha.
+// Esta función se encarga de sumar todos los precios seleccionados del formulario
+// Va sumando tanto radios como checkboxes y muestra el total abajo a la derecha
 function calcularPrecio() {
   // Variable donde iremos acumulando el total del precio
   let total = 0;
@@ -109,19 +109,25 @@ function enviar() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(datos)
   })
-  .then(res => res.json()) // Convertimos la respuesta a formato JSON
-  .then(data => { // Aquí recibimos los datos devueltos por la API
+  // Convertimos la respuesta a formato JSON
+  .then(res => res.json())
+  // Aquí recibimos los datos devueltos por la API
+  .then(data => {
 
-    console.log("Respuesta Magic Loops:", data); // Mostramos en consola la respuesta
+    // Mostramos en consola la respuesta
+    console.log("Respuesta Magic Loops:", data);
 
-    const totalMotos = data.recommendations.length; // Contamos cuántas recomendaciones vinieron
-    let recibidos = 0; // Variable para llevar cuenta de cuántas imágenes ya llegaron
+    // Contamos cuántas recomendaciones vinieron
+    const totalMotos = data.recommendations.length;
+    // Variable para llevar cuenta de cuántas imágenes llegaron
+    let recibidos = 0;
 
     // Creamos el encabezado de la lista de recomendaciones
     let listaHTML = '<h3 style="margin-top:20px;">Motos recomendadas por Magic Loops:</h3>';
+    // Agregamos el HTML al div de resultados
     resultadoDiv.innerHTML += listaHTML;
 
-    // Para cada moto recomendada...
+    // Para cada moto recomendada
     data.recommendations.forEach(moto => {
 
       // Reemplazamos el símbolo $ por € en el precio
@@ -130,7 +136,11 @@ function enviar() {
       // Creamos el HTML básico de la moto (modelo y precio)
       let html = `<p><strong>${moto.modelo}</strong> (${precioEuros})</p>`;
 
-      // Llamamos a una función para buscar una imagen del modelo de la moto
+      // Llamamos a una función para buscar una imagen del modelo de moto
+      // buscarImagen es una función que se encarga de buscar una imagen de un modelo de moto
+      // y devolverá la URL de la imagen si la encuentra, o null si no la encuentra
+      // La función buscarImagen se encarga de hacer una petición a la API de Pexels
+      // Logicamente ya a sido creada
       buscarImagen(moto.modelo, function(imagenUrl) {
 
         // Si encontramos una imagen, la añadimos al HTML
@@ -143,9 +153,10 @@ function enviar() {
 
         // Agregamos todo el HTML de la moto al div de resultados
         resultadoDiv.innerHTML += html;
-        recibidos++; // Aumentamos el contador de motos procesadas
+        // Aumentamos el contador de motos procesadas
+        recibidos++;
 
-        // Cuando ya hemos procesado todas las recomendaciones...
+        // Cuando ya hemos procesado todas las recomendaciones
         if (recibidos === totalMotos) {
           // Añadimos una nota final sobre los precios
           resultadoDiv.innerHTML += '<p style="margin-top:15px; color:#555; font-style:italic;">Nota: El precio total del configurador es orientativo. Los precios de las recomendaciones pueden variar.</p>';
@@ -155,16 +166,23 @@ function enviar() {
   })  
 }
 
-// Función para buscar una imagen de un modelo de moto usando la API de Pexels
+// Función para buscar una imagen de un modelo de coche usando la API de Pexels
+// Le pasamos por parámetros el modelo del coche y una función callback
+// La función callback se ejecutará cuando la imagen se haya encontrado
+// ponemos callback como parametro para que se pueda llamar a la función
+// desde dentro de la función buscarImagen
 function buscarImagen(modelo, callback) {
   // Clave de acceso a la API de Pexels
   const apiKey = 'NblVDVoS1e3YW51akW5QhmWgClpCtaQAW78GrPuBdOnjJqKfGnseofQe';
 
   // Hacemos una solicitud a la API de Pexels buscando fotos del modelo de la moto
   fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(modelo)}&per_page=1`, {
-    headers: { Authorization: apiKey } // Incluimos la clave en la cabecera
+    // Incluimos la clave en la cabecera
+    headers: { Authorization: apiKey } 
   })
-  .then(response => response.json()) // Convertimos la respuesta a formato JSON
+  // Convertimos la respuesta a formato JSON
+  .then(response => response.json())
+  // Entonces tomamos la primera foto y la devolvemos
   .then(data => {
     // Si hay fotos, tomamos la primera y obtenemos su URL
     const imagenUrl = data.photos.length > 0 ? data.photos[0].src.medium : null;
@@ -172,6 +190,7 @@ function buscarImagen(modelo, callback) {
     // Llamamos a la función de devolución (callback) con la URL de la imagen
     callback(imagenUrl);
   })
+  // Si hay un error, mostramos un mensaje en consola y devolvemos null
   .catch(err => {
     // Si hay un error, mostramos un mensaje en consola y devolvemos null
     console.error('Error buscando imagen en Pexels:', err);
@@ -198,6 +217,7 @@ document.getElementById('formulario').addEventListener('change', () => {
 
 // Cuando se cambia la selección del tipo de vehículo...
 document.getElementById('vehiculoSelect').addEventListener('change', () => {
+  // Obtenemos el valor seleccionado
   const tipoVehiculo = document.getElementById('vehiculoSelect').value;
 
   // Si es coche, redirigimos a otra página

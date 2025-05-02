@@ -20,6 +20,12 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
+  #vehiculoSelect:hover {
+    cursor: pointer;
+    background: #f4f4f4;
+    transition: all 0.3s ease-in-out;
+  }
+
   .grupo {
     margin-bottom: clamp(15px, 3vw, 20px);
   }
