@@ -5,10 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empleados</title>
 </head>
+    <style>
+
+    body {
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin: 100px auto;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 15px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tbody tr:hover {
+        background-color: #ddd;
+        cursor: pointer;
+    }
+
+</style>
 <body>
-    <!--ENUNCIADO-->
-    <!--El enunciado pide crear una pagina html la cual imprima los datos de los empleados 
-    del archivo Empleados.json que es el ejercicio anterior.-->
-    <div id="empleados"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Empleado</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Puesto</th>
+                <th>Departamento</th>
+                <th>Salario</th>
+                <th>Ubicación</th>
+            </tr>
+        </thead>
+        <tbody id="empleados">
+        </tbody>
+    </table>
+
+    <script src="empleados.js"></script>
 </body>
 </html>
