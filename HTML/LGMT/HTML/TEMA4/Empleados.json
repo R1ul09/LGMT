@@ -1,0 +1,31 @@
+{
+    "datos": [
+        {
+            "Employee": "Employee 1",
+            "Name": "Juan Perez",
+            "Age": 35,
+            "Position": "Senior Developer",
+            "Department": "Technology",
+            "Salary": 75000,
+            "Location": "Madrid, Spain"
+        },
+        {
+            "Employee": "Employee 2",
+            "Name": "Maria Rodriguez",
+            "Age": 28,
+            "Position": "Graphic Designer",
+            "Department": "Design",
+            "Salary": 60000,
+            "Location": "Paris, France"
+        },
+        {
+            "Employee": "Employee 3",
+            "Name": "Carlos Gomez",
+            "Age": 40,
+            "Position": "Project Manager",
+            "Department": "Project Management",
+            "Salary": 90000,
+            "Location": "Berlin, Germany"
+        }
+    ]
+}
