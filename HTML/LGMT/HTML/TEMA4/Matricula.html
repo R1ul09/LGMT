@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matricula</title>
+</head>
+<body>
+    <!-- ENUNCIADO -->
+    <!-- Un centro de estudios desea ofrecer a sus alumnos la posibilidad de cursar algunas materias de forma flexible.
+    El usuario puede cursar las horas semanales que desee. Cada hora de clase cuesta 20 euros al mes.
+    Un usuario puede ser antiguo alumno. En ese caso se le hace un descuento del 35% sobre el precio final.
+    Si el alumno tiene marcada la casilla de la beca, le cuesta la matricula un 20% del total (cuidado si es antiguo alumno).Deben verse los dos precios, el total y el total con la beca.  Ejemplo: Total 1000€, al tener beca se le queda en 200€ el total.
+    El usuario puede elegir las materias que desee: en concreto puede elegir de primero las asignaturas de «Matemáticas I» e «Historia» y de segundo «Matemáticas II» y «Física».
+    Está permitido matricularse de «Matemáticas I» y de «Matemáticas II» a la vez pero no está permitido elegir «Matemáticas II» sin elegir «Matemáticas I» . Si se hace esto no debe verse el precio, sino alguna clase de mensaje de error
+    El precio final mensual debe aparecer en un div . -->
+    <h1>Matrícula Flexible - Centro de Estudios</h1>
+    <form id="matriculaForm">
+        <label for="hours">Horas semanales a cursar:</label>
+        <input type="number" id="hours" name="hours" min="0" value="0" required> (20€/h)</input>
+</body>
+</html>
