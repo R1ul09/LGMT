@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matricula</title>
+    <link rel="stylesheet" href="Matricula.css">
+    <script src="Matricula.js"></script>
 </head>
 <body>
     <!-- ENUNCIADO -->
@@ -14,9 +16,40 @@
     El usuario puede elegir las materias que desee: en concreto puede elegir de primero las asignaturas de «Matemáticas I» e «Historia» y de segundo «Matemáticas II» y «Física».
     Está permitido matricularse de «Matemáticas I» y de «Matemáticas II» a la vez pero no está permitido elegir «Matemáticas II» sin elegir «Matemáticas I» . Si se hace esto no debe verse el precio, sino alguna clase de mensaje de error
     El precio final mensual debe aparecer en un div . -->
-    <h1>Matrícula Flexible - Centro de Estudios</h1>
+    <h1>Matrícula flexible</h1>
+
     <form id="matriculaForm">
-        <label for="hours">Horas semanales a cursar:</label>
-        <input type="number" id="hours" name="hours" min="0" value="0" required> (20€/h)</input>
+
+        <fieldset>
+
+            <legend>Materias disponibles</legend>
+
+            <label><input type="checkbox" id="mat1"> Matemáticas I</label>
+            <label><input type="checkbox" id="his"> Historia</label>
+            <label><input type="checkbox" id="mat2"> Matemáticas II</label>
+            <label><input type="checkbox" id="fis"> Física</label>
+
+        </fieldset>
+
+        <label>
+            Horas semanales:
+            <input type="number" id="horas" min="1">
+        </label>
+
+        <label>
+            <input type="checkbox" id="antiguo"> Soy antiguo alumno
+        </label>
+
+        <label>
+            <input type="checkbox" id="beca"> Tengo beca
+        </label>
+
+        <button type="button" onclick="calcularPrecio()">Calcular precio</button>
+
+        <button type="button" onclick="ResetearFormulario()">Resetear formulario</button>
+    </form>
+
+    <div id="resultado"></div>
+
 </body>
 </html>
