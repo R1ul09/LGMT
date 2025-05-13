@@ -6,34 +6,69 @@
     <title>Empleados</title>
 </head>
     <style>
-
+    
     body {
-        text-align: center;
-        font-family: sans-serif;
+        background: linear-gradient(to right, #f4f4f9, #e6ecf0);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
     }
 
     table {
-        border: 1px solid black;
         border-collapse: collapse;
-        margin: 100px auto;
+        width: 90%;
+        max-width: 1000px;
+        background-color: white;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        animation: fadeIn 0.8s ease-in-out;
     }
 
-    th, td {
-        border: 1px solid black;
-        padding: 15px;
-        text-align: center;
-    }
-
-    th {
-        background-color: #ff1500;
+    thead {
+        background-color: #e63946;
         color: white;
     }
 
+    th, td {
+        padding: 16px 20px;
+        text-align: left;
+    }
+
+    th {
+        font-size: 1.1em;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    tbody tr {
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
     tbody tr:hover {
-        background-color: #ddd;
+        background-color: #f1f1f1;
+        transform: scale(1.01);
         cursor: pointer;
     }
 
+    td {
+        border-bottom: 1px solid #ddd;
+        color: #333;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 </style>
 <body>
     <table>
