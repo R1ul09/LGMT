@@ -1,96 +1,114 @@
-/* Fondo suave y tipografía clara */
+/* Fondo con degradado suave en tonos rojizos */
 body {
-    background: #f8f0f0;
+    background: linear-gradient(135deg, #ffe6e6, #fff5f5);
     font-family: 'Segoe UI', sans-serif;
     padding: 30px;
+    color: #333;
 }
 
-/* Título principal */
+/* Título principal más expresivo */
 h1 {
-    color: #b30000;
+    color: #ff1a1a;
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 36px;
+    margin-bottom: 30px;
+    font-size: 42px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #ffb3b3;
 }
 
-/* Estilo general del formulario */
+/* Formulario con sombra y borde superior rojo */
 form {
     background: #fff;
-    padding: 25px;
-    border-radius: 20px;
-    max-width: 480px;
+    padding: 28px;
+    border-radius: 25px;
+    max-width: 500px;
     margin: 0 auto;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(255, 26, 26, 0.15);
+    border-top: 6px solid #ff1a1a;
+    transition: transform 0.3s ease;
 }
 
-/* Agrupar las materias con separador */
+/* Fieldset con borde personalizado */
 fieldset {
-    border: 2px solid #e0e0e0;
-    padding: 18px;
-    margin-bottom: 18px;
-    border-radius: 12px;
+    border: 2px ridge #ff4d4d;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: #fffafa;
 }
 
-/* Título de cada fieldset */
+/* Título de cada fieldset con fondo */
 legend {
     font-weight: bold;
-    color: #b30000;
-    padding: 0 8px;
+    color: #ff3333;
+    padding: 5px 12px;
+    background: #ffe6e6;
+    border-radius: 8px;
+    box-shadow: 1px 1px 3px #ffcccc;
 }
 
 /* Etiquetas de cada campo */
 label {
     display: block;
-    margin: 10px 0;
-    font-size: 16px;
+    margin: 12px 0;
+    font-size: 17px;
+    letter-spacing: 0.5px;
 }
 
-/* Inputs de tipo número */
+/* Inputs de tipo número con bordes más marcados */
 input[type="number"] {
-    width: 80px;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-left: 8px;
+    width: 85px;
+    padding: 9px;
+    border-radius: 8px;
+    border: 2px solid #ffb3b3;
+    margin-left: 10px;
+    transition: 0.3s;
 }
 
-/* Botón bonito */
+input[type="number"]:focus {
+    border-color: #ff1a1a;
+    outline: none;
+    box-shadow: 0 0 6px #ffcccc;
+}
+
+/* Botón con efecto animado */
 button {
-    background: #b30000;
+    background: #ff3333;
     color: #fff;
     border: none;
-    padding: 12px 22px;
-    border-radius: 10px;
+    padding: 14px 26px;
+    border-radius: 14px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 15px;
-    transition: background 0.3s ease;
+    font-size: 17px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(255, 26, 26, 0.3);
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #7a0000;
+    transform: translateY(-2px);
 }
 
-/* Resultado con borde y fondo */
+/* Resultado con fondo difuminado */
 #resultado {
-    padding: 18px;
-    margin-top: 25px;
-    font-size: 19px;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 20px;
     text-align: center;
-    border-radius: 12px;
-    color: #333;
+    border-radius: 14px;
+    color: #660000;
+    background: #fff0f0;
+    box-shadow: inset 0 0 8px #ffe6e6;
 }
 
-/* Ajuste para los checkboxes y radios */
+/* Checkboxes y radios con efecto ampliado */
 input[type="checkbox"],
 input[type="radio"] {
-    margin-right: 6px;
-    transform: scale(1.1);
+    margin-right: 8px;
+    transform: scale(1.2);
+    accent-color: #ff3333;
 }
 
-/* Pequeño efecto al enfocar inputs */
 input[type="number"]:focus {
-    border-color: #b30000;
-    outline: none;
-    box-shadow: 0 0 4px #ffcccc;
+    animation: resplandor 0.7s ease-in-out;
 }
