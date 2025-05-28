@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Nota Raul Zaldua</title>
+    <link rel="stylesheet" href="Examen-nota.css">
+    <script src="Examen-nota.js"></script>
+</head>
+<body>
+    <h2>Calculadora de Nota de Examen</h2>
+
+    <!-- Campo para meter los aciertos -->
+    <label for="aciertos">Cuantas preguntas has acertado (de 0 a 27)</label>
+    <input type="number" id="aciertos" min="0" max="27">
+
+    <!-- Menú desplegable para elegir penalizacion -->
+    <label for="penalizacion">Penalizacion por pregunta fallada segun tu tiempo de entrega o el tiempo que hayas tardado</label>
+    <select id="penalizacion">
+        <option value="0">Menos de 1 hora (sin penalización)</option>
+        <option value="0.1">De 1 a 12 horas (-0.1)</option>
+        <option value="0.2">Un día (-0.2)</option>
+        <option value="0.3">No entregado (-0.3)</option>
+    </select>
+
+    <!-- Boton para que cuando le demos clik pues nos ejecue la funcion calcular nota -->
+    <button onclick="calcularNota()">Calcular Nota</button>
+
+    <!-- Aqui saldra el resultado -->
+    <div id="resultado"></div>
+</body>
+</html>
