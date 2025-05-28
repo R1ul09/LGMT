@@ -19,6 +19,11 @@ function calcularNota() {
     // Calculamos la nota
     let nota = (aciertos * 10 / totalPreguntas) - (fallos * penalizacion);
 
+    // Si ha hecho la tarea voluntaria, sumamos 0.5
+    if (document.getElementById("tareaVoluntaria").checked) {
+        nota += 0.5;
+    }
+
     // Si la nota es menor de 0, la dejamos en 0
     if (nota < 0) {
         nota = 0;
