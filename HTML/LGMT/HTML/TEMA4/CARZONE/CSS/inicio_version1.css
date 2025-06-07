@@ -1,3 +1,4 @@
+/* ======= RESET / BASE ======= */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -8,7 +9,11 @@ body {
   min-height: 100vh;
 }
 
-/* Navbar */
+.d-none {
+  display: none;
+}
+
+/* ======= NAVBAR ======= */
 header {
   display: flex;
   justify-content: space-between;
@@ -33,7 +38,7 @@ nav a:hover {
   color: #bbb;
 }
 
-/* Banner con video */
+/* ======= BANNER CON VIDEO ======= */
 .banner {
   position: relative;
   height: 400px;
@@ -60,8 +65,7 @@ nav a:hover {
   margin: 0;
 }
 
-/* Botón scroll flecha grande */
-/* Botón Scroll (más pequeño) */
+/* ======= BOTÓN SCROLL ======= */
 .scroll-button {
   position: fixed;
   bottom: 1.5rem;
@@ -82,26 +86,82 @@ nav a:hover {
   background-color: #333;
 }
 
-/* Animación para mostrar info extra */
-.info-extra {
-  margin-top: 0.5rem;
-  overflow: hidden;
-  opacity: 1;
-  max-height: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
-
-.info-extra.show {
-  max-height: 200px;
-  opacity: 1;
-}
-
-/* Secciones */
+/* ======= SECCIONES GENERALES ======= */
 .modelos, .quienes-somos, .datos-curiosos {
   padding: 3rem 2rem;
   text-align: center;
 }
 
+/* ======= NUESTROS MODELOS (SLIDER) ======= */
+.modelos h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.slider-contenedor {
+  overflow-x: hidden;
+  position: relative;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+}
+
+.card-modelo {
+  background: #f7f7f7;
+  color: #222;
+  border-radius: 10px;
+  min-width: 280px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex-shrink: 0;
+}
+
+.card-modelo img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-modelo h3 {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.card-modelo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.slider-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.slider-buttons button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.slider-buttons button:hover {
+  background: #333;
+}
+
+/* ======= CARDS GENERALES ======= */
 .cards {
   display: flex;
   justify-content: center;
@@ -145,8 +205,142 @@ nav a:hover {
   background-color: #444;
 }
 
-.d-none {
-  display: none;
+/* Info extra animada */
+.info-extra {
+  margin-top: 0.5rem;
+  overflow: hidden;
+  opacity: 1;
+  max-height: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.info-extra.show {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* ======= QUIÉNES SOMOS ======= */
+.quienes-somos h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.info-card {
+  background-color: #f7f7f7;
+  color: #222;
+  border-radius: 10px;
+  padding: 2rem;
+  width: clamp(350px, 28vw, 350px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.info-card .icono {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #444;
+}
+
+/* ======= LOADER / DATOS CURIOSOS ======= */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #f02a2a;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: girar 1s linear infinite;
+  margin: 2rem auto;
+}
+
+/* Loader */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #f02a2a;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: girar 1s linear infinite;
+  margin: 1.5rem auto;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dato curioso card */
+.dato-curioso {
+  background: #f7f7f7;
+  color: #222;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  margin: 2rem auto;
+  max-width: 600px;
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+}
+
+.dato-curioso.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Botón para otro dato */
+.datos-button {
+  margin-top: 1.2rem;
+  padding: 0.8rem 1.8rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.datos-button:hover {
+  background-color: #333;
+}
+
+
+.dato-curioso {
+  margin-top: 1.5rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: #222;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.dato-curioso.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .datos-button {
@@ -164,11 +358,17 @@ nav a:hover {
   background-color: #333;
 }
 
-/* Footer fijo abajo */
+/* ======= FOOTER ======= */
 footer {
   background-color: black;
   color: white;
   padding: 1rem;
   text-align: center;
   margin-top: auto;
+}
+
+/* ======= ANIMACIONES / KEYFRAMES ======= */
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

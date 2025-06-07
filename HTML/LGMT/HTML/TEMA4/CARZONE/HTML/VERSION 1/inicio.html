@@ -30,29 +30,66 @@
 
 
   <section class="modelos" data-aos="fade-up">
-    <h2>Nuestros Modelos</h2>
-    <div class="cards">
-      <div class="card" data-aos="zoom-in">
-        <img src="https://via.placeholder.com/300x200" alt="Modelo 1" />
+  <h2>Nuestros Modelos</h2>
+  <div class="slider-contenedor">
+    <div class="slider" id="sliderModelos">
+      <!-- Cards -->
+      <div class="card-modelo">
+        <img src="https://via.placeholder.com/300x200" alt="Modelo 1">
         <h3>Modelo 1</h3>
-        <p>Potencia, elegancia y tecnología.</p>
-        <button onclick="mostrarInfo(this)">Ver más info</button>
-        <div class="info-extra d-none">Diseñado para destacar en cada curva.</div>
       </div>
+      <div class="card-modelo">
+        <img src="https://via.placeholder.com/300x200" alt="Modelo 2">
+        <h3>Modelo 2</h3>
+      </div>
+      <div class="card-modelo">
+        <img src="https://via.placeholder.com/300x200" alt="Modelo 3">
+        <h3>Modelo 3</h3>
+      </div>
+      <!-- añade más -->
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 4</h3></div>
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 5</h3></div>
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 6</h3></div>
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 7</h3></div>
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 8</h3></div>
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 9</h3></div>
+      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 10</h3></div>
     </div>
-  </section>
+  </div>
+
+  <!-- Botones -->
+  <div class="slider-buttons">
+    <button onclick="scrollSlider(-300)">⬅</button>
+    <button onclick="scrollSlider(300)">➡</button>
+  </div>
+</section>
+
 
   <section class="quienes-somos" data-aos="fade-up">
-    <h2>Quiénes somos</h2>
-    <p>
-      En CARZONE nos apasionan los coches. Creamos experiencias únicas para los amantes del motor con modelos exclusivos,
-      tecnología de vanguardia y una historia forjada por la innovación (inventada, pero épica).
-    </p>
-  </section>
+  <h2>Quiénes somos</h2>
+  <div class="info-cards">
+    <div class="info-card" data-aos="zoom-in">
+      <div class="icono">🚗</div>
+      <h3>Nuestra Historia</h3>
+      <p>Fundada en 2005, CARZONE nació de una pasión desmedida por los automóviles de lujo y alto rendimiento. Durante más de 15 años, hemos recorrido un camino de innovación, elegancia y tecnología al servicio de los amantes del motor.</p>
+    </div>
+    <div class="info-card" data-aos="zoom-in">
+      <div class="icono">✨</div>
+      <h3>Filosofía CARZONE</h3>
+      <p>Creemos que cada vehículo cuenta una historia. Nuestra filosofía se basa en ofrecer experiencias únicas, donde cada detalle está pensado para emocionar al conductor y cautivar a quien lo acompaña.</p>
+    </div>
+    <div class="info-card" data-aos="zoom-in">
+      <div class="icono">🔧</div>
+      <h3>Servicios Exclusivos</h3>
+      <p>Ofrecemos asesoramiento personalizado, venta de vehículos nuevos y seminuevos, mantenimiento integral, pruebas dinámicas y un área VIP para clientes premium. CARZONE es más que un concesionario: es una experiencia.</p>
+    </div>
+  </div>
+</section>
+
 
   <section class="datos-curiosos" data-aos="fade-up">
     <h2>Datos curiosos del mundo automotriz</h2>
-    <div id="datosCuriosos">Cargando datos curiosos...</div>
+    <div id="datosCuriosos"></div>
     <button class="scroll-button" onclick="scrollToTop()">⬆</button>
   </section>
 
