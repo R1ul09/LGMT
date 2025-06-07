@@ -41,13 +41,15 @@ body {
   background: #2a2a2a;
 }
 
-.version a {
-  text-decoration: none;
-  color: #f02a2a;
-}
-
-.version a h4 {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+#videoFondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.4);
 }
 
 footer {
@@ -73,15 +75,4 @@ footer {
 @keyframes aparecer {
   0% {opacity: 0;}
   100% {opacity: 1;}
-}
-
-#videoFondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.4);
 }

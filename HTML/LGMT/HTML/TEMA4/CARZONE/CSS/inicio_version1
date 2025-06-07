@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #121212;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.logo {
+  width: clamp(50px, 6vw, 70px);
+}
+
+/* Banner */
+.banner-img {
+  width: 100%;
+  height: clamp(250px, 60vw, 450px);
+  object-fit: cover;
+}
+
+/* Modelos */
+.modelos {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 4rem);
+}
+
+.modelos h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.card {
+  background: #1e1e1e;
+  color: #fff;
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 1rem;
+  text-align: center;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+/* Info */
+.info {
+  padding: clamp(3rem, 8vw, 5rem);
+  text-align: center;
+}
+
+.info h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.info p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #ccc;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #888;
+  background: #000;
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Botón Scroll */
+#btnScroll {
+  position: fixed;
+  bottom: clamp(1.5rem, 4vw, 2rem);
+  right: clamp(1.5rem, 4vw, 2rem);
+  background: #f02a2a;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: clamp(50px, 10vw, 60px);
+  height: clamp(50px, 10vw, 60px);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
