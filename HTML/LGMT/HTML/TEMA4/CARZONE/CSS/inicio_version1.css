@@ -35,7 +35,7 @@ header .logo {
       100px: Es el valor mínimo. El ancho del logo no será menor a 100 píxeles.
       4vw: Es el valor preferido (o "ideal"). El ancho del logo será el 4% de la anchura de la ventana de la pantalla.
       180px: Es el valor máximo. El ancho del logo no será mayor a 180 píxeles. */
-  width: clamp(70px, 2vw, 100px);
+  width: clamp(100px, 2.5vw, 180px);
 }
 
 nav a {
@@ -58,6 +58,7 @@ nav a:hover {
   /* Con esto hacemos que se oculte el contenido que desborda cortandolo y ocultandolo */
   overflow: hidden;
   display: flex;
+  justify-content: center;
   /* hacemos que el contenido se alinee al final, como si todos los elementos se pusieran 
   de acuerdo para irse al rincón más alejado, en la dirección contraria a cómo están normalmente organizados */
   align-items: flex-end;
@@ -78,11 +79,14 @@ nav a:hover {
 }
 
 .banner h1 {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   color: white;
   /* Con z-index 1 ponemos el texto en la parte de delante */
   z-index: 1;
   margin: 0;
+  text-align: center;
+  max-width: 90%;
+  margin-bottom: 1rem;
 }
 
 /* ======= BOTÓN SCROLL ======= */
