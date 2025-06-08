@@ -6,43 +6,70 @@
   <title>CARZONE | Inicio</title>
   <link rel="icon" href="../../IMG/ICONO-CARZONE-2.ico">
   <link rel="stylesheet" href="../../CSS/inicio_version1.css" />
+
+  <!-- Añadimos la librería AOS, que es una libreria para animaciones 
+   al hacer scroll, es como si fuera bootstrap pero con animaciones -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  
+  <!-- Añadimos la librería Swiper, que es una libreria para hacer sliders -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Tambien metemos la librería Swiper pero para javascript -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Y añadimos tambien la libreria AOS pero en javascript,
+   la cual nos permite hacer animaciones al hacer scroll -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="../../JS/inicio_version1.js" defer></script>
+
 </head>
 <body>
+<header>
 
-  <header>
-    <img src="../../IMG/LOGO CARZONE (BLANCO) VERSION2.png" alt="Logo" class="logo">
-    <nav>
-      <a href="inicio.html">Inicio</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+  <img src="../../IMG/LOGO CARZONE (BLANCO) VERSION2.png" alt="Logo" class="logo">
 
+  <nav>
+    <!-- Menú de navegación -->
+    <a href="inicio.html">Inicio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<!-------------------------
+          BANNER 
+-------------------------->
 <div class="banner">
+  <!-- Banner principal con vídeo de fondo, con las propiedades
+   autoplay: se inicia automaticamente
+   muted: no tenga sonido
+   loop: se repite infinito
+   playsinline: se reproduce sin que el usuario tenga que presionar play -->
   <video autoplay muted loop playsinline class="banner-video">
     <source src="../../IMG/BANNER.mp4" type="video/mp4">
   </video>
+
   <h1>Descubre la elegancia sobre ruedas</h1>
 </div>
 
-
-  <section class="modelos" data-aos="fade-up">
+<!-------------------------
+      SECCION MODELOS
+-------------------------->
+<!-- ponemos data-aos="fade-up" para que se muestre el contenido con una animación de fade-up -->
+<section class="modelos" data-aos="fade-up">
   <h2>Nuestros Modelos</h2>
 
+  <!-- Creamos un slider con Swiper -->
   <div class="swiper mySwiper">
+    <!-- Creamos el contenido del slider -->
     <div class="swiper-wrapper">
-      
+      <!-- Creamos cada uno de los slides -->
       <div class="swiper-slide">
         <img src="../../IMG/Audi-R8.jpg" alt="Audi R8">
         <h3>Audi R8</h3>
+        <!-- Metemos como parametro this a la funcion para que muestre la informacion del elemento en el que este en ese momento -->
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>El Audi R8 es un superdeportivo con motor V10 atmosférico, tracción quattro y una velocidad máxima de 330 km/h. Elegante, agresivo y con ADN de competición, es uno de los deportivos más equilibrados y deseados.</p>
+          <p>El Audi R8 combina un motor V10 atmosférico con un diseño agresivo y elegante. Es famoso por su equilibrio entre rendimiento y confort, capaz de acelerar de 0 a 100 en solo 3,1 segundos.</p>
         </div>
       </div>
 
@@ -51,7 +78,7 @@
         <h3>Lamborghini Veneno Roadster</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>El Veneno es una bestia de edición limitadísima con 750 CV, carrocería de fibra de carbono y un precio superior a los 10 millones de euros. Solo se fabricaron 13 unidades para todo el mundo.</p>
+          <p>Una joya de colección, el Veneno Roadster tiene 750 CV y solo se fabricaron 9 unidades. Su aerodinámica extrema y estética radical lo convierten en uno de los Lamborghinis más exclusivos jamás creados.</p>
         </div>
       </div>
 
@@ -60,7 +87,7 @@
         <h3>Bugatti Chiron</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Con 1.500 CV, el Chiron es un icono de lujo y velocidad. Supera los 420 km/h y su interior artesanal combina tecnología y elegancia a niveles inimaginables.</p>
         </div>
       </div>
 
@@ -69,7 +96,7 @@
         <h3>BMW M4 GT3</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Versión de competición del M4, con motor de 590 CV y aerodinámica adaptada al circuito. Una bestia pensada para dominar campeonatos de resistencia y GT.</p>
         </div>
       </div>
 
@@ -78,7 +105,7 @@
         <h3>Lamborghini Huracán STO</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Inspirado en los Huracán de competición, con 640 CV y carrocería de carbono. Toda una experiencia de circuito homologada para calle.</p>
         </div>
       </div>
 
@@ -87,7 +114,7 @@
         <h3>Mercedes AMG GT3</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Un pura sangre de competición con motor V8 atmosférico, preparado para las 24 horas de Nürburgring y campeonatos internacionales de GT.</p>
         </div>
       </div>
 
@@ -96,7 +123,7 @@
         <h3>Lamborghini Aventador SVJ</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>El Aventador más salvaje, con 770 CV y el sistema de aerodinámica activa ALA 2.0. Capaz de marcar récord en Nürburgring para coches de producción.</p>
         </div>
       </div>
 
@@ -105,7 +132,7 @@
         <h3>Mercedes AMG G63</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>El todoterreno más lujoso y bruto del mercado. Con motor V8 biturbo de 585 CV y diseño de leyenda, combina prestaciones con lujo extremo.</p>
         </div>
       </div>
 
@@ -114,7 +141,7 @@
         <h3>Nissan GT-R R35</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Apodado Godzilla, ofrece más de 570 CV, tracción integral y un rendimiento brutal. Famoso por su relación calidad-precio y fiabilidad en circuito.</p>
         </div>
       </div>
 
@@ -123,16 +150,16 @@
         <h3>Pagani Zonda R</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Una obra de arte de la ingeniería italiana. Motor V12 AMG y carrocería de carbono. Solo para circuito, es una de las máquinas más puras jamás fabricadas.</p>
         </div>
       </div>
 
       <div class="swiper-slide">
-        <img src="../../IMG/Porsche-911-GT3-RS.jpeg" alt="Porshe 911 GT3 RS">
-        <h3>Porshe 911 GT3 RS</h3>
+        <img src="../../IMG/Porsche-911-GT3-RS.jpeg" alt="Porsche 911 GT3 RS">
+        <h3>Porsche 911 GT3 RS</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>El GT3 RS es la versión más radical del mítico 911, con 525 CV, aerodinámica activa y ADN de circuito. Equilibrio perfecto entre tradición y tecnología pura Porsche.</p>
         </div>
       </div>
 
@@ -141,7 +168,7 @@
         <h3>McLaren Senna</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Creado como homenaje al legendario Ayrton Senna, este hypercar de 800 CV y menos de 1.200 kg es una máquina despiadada pensada exclusivamente para circuito.</p>
         </div>
       </div>
 
@@ -150,7 +177,7 @@
         <h3>Koenigsegg Agera RS</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Durante años, ostentó el récord mundial de velocidad con 447 km/h. Motor V8 biturbo de hasta 1.360 CV y una producción limitada a 25 unidades.</p>
         </div>
       </div>
 
@@ -159,7 +186,7 @@
         <h3>Toyota Supra Mk4</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>Icono del JDM, famoso por su motor 2JZ-GTE capaz de alcanzar más de 1.000 CV con preparaciones. Fue protagonista en Fast & Furious y es leyenda viva.</p>
         </div>
       </div>
 
@@ -168,19 +195,21 @@
         <h3>Bugatti Bolide</h3>
         <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
         <div class="info-extra">
-          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+          <p>El Bolide lleva el motor W16 de 1.850 CV a un chasis ultraligero de competición. Solo 40 unidades se fabricarán, diseñadas para romper récords en circuito.</p>
         </div>
       </div>
-
     </div>
 
-    <!-- Botones -->
+    <!-- Botones de derecha y izquierda -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
 </section>
 
-  <section class="quienes-somos" data-aos="fade-up">
+<!-------------------------
+        QUIÉNES SOMOS
+-------------------------->
+<section class="quienes-somos" data-aos="fade-up">
   <h2>Quiénes somos</h2>
   <div class="info-cards">
     <div class="info-card" data-aos="zoom-in">
@@ -201,7 +230,9 @@
   </div>
 </section>
 
-
+<!-------------------------
+      DATOS CURIOSOS
+-------------------------->
   <section class="datos-curiosos" data-aos="fade-up">
     <h2>Datos curiosos del mundo automotriz</h2>
     <div id="datosCuriosos"></div>

@@ -6,20 +6,35 @@ body {
   color: black;
   display: flex;
   flex-direction: column;
+  /* ponemos vh (Viewport Height) en vez de px para que se ajuste a la ventana del navegador */
   min-height: 100vh;
+}
+
+section {
+  /* Aqui ponemos rem (Root EM) ya que se basa en el tamaño de fuente de la raíz del documento*/
+  margin-bottom: 3rem;
 }
 
 /* ======= NAVBAR ======= */
 header {
-  display: flex;
-  justify-content: space-between;
+  /* Ponemos flex para que todo se ponga en linea */
+  display: flex; 
+  /* Con esto dejamos el logo a la izquierda y el menú a la derecha */
+  justify-content: space-between; 
+  /* Centramos verticalmente */
   align-items: center;
   background-color: black;
   color: white;
+  /* Con esto le decimos que arriba y abajo sera de un 1rem y a la izquierda y derecha de 2rem */
   padding: 1rem 2rem;
+  opacity: 95%; /* Un pelín transparente */
 }
 
 header .logo {
+  /* La función clamp() establece un rango de valores para el ancho.
+      100px: Es el valor mínimo. El ancho del logo no será menor a 100 píxeles.
+      4vw: Es el valor preferido (o "ideal"). El ancho del logo será el 4% de la anchura de la ventana de la pantalla.
+      180px: Es el valor máximo. El ancho del logo no será mayor a 180 píxeles. */
   width: clamp(100px, 4vw, 180px);
 }
 
@@ -36,10 +51,15 @@ nav a:hover {
 
 /* ======= BANNER CON VIDEO ======= */
 .banner {
+  /* Relative lo que hace es que el elemento se posicione relativamente al elemento padre,
+  es decir, lo que esté dentro de la clase .banner se posicione dentro del elemento padre */
   position: relative;
   height: 400px;
+  /* Con esto hacemos que se oculte el contenido que desborda cortandolo y ocultandolo */
   overflow: hidden;
   display: flex;
+  /* hacemos que el contenido se alinee al final, como si todos los elementos se pusieran 
+  de acuerdo para irse al rincón más alejado, en la dirección contraria a cómo están normalmente organizados */
   align-items: flex-end;
   padding: 2rem;
 }
@@ -50,8 +70,9 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  /* Hace que el vídeo cubra todo sin deformarse */
+  object-fit: cover; 
+  z-index: -1; /* Lo pone detrás del texto */
 }
 
 .banner h1 {
@@ -63,13 +84,13 @@ nav a:hover {
 
 /* ======= BOTÓN SCROLL ======= */
 .scroll-button {
-  position: fixed;
+  position: fixed; /* Fijo en pantalla */
   bottom: 1.5rem;
   right: 1.5rem;
   background-color: black;
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 50%; /* Forma circular */
   width: clamp(45px, 8vw, 55px);
   height: clamp(45px, 8vw, 55px);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -96,20 +117,28 @@ nav a:hover {
 
 .swiper {
   width: 90%;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background: #fff;
   border-radius: 1rem;
-  overflow: hidden;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   transition: transform 0.6s ease;
+  height: auto;
+  min-height: 500px;
+  overflow: visible;
+  padding-bottom: 1rem;
 }
 
 .swiper-slide img {
   width: 100%;
+  height: 250px;
+  object-fit: cover;
   display: block;
 }
 
@@ -118,12 +147,8 @@ nav a:hover {
   font-size: 1.3rem;
 }
 
-.swiper-button-next, .swiper-button-prev {
-  color: black;
-}
-
 .swiper-slide-active {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Efecto zoom al pasar a la imagen activa */
 }
 
 /* ======= CARDS GENERALES ======= */
@@ -170,6 +195,7 @@ nav a:hover {
   background-color: #444;
 }
 
+/* ======= INFO EXTRA (texto desplegable de los coches) ======= */
 .info-extra {
   max-height: 0;
   opacity: 0;
@@ -179,7 +205,7 @@ nav a:hover {
 }
 
 .info-extra.show {
-  max-height: 500px; 
+  max-height: 500px;
   opacity: 1;
   margin-top: 0.5rem;
 }
@@ -239,6 +265,7 @@ nav a:hover {
   margin: 1.5rem auto;
 }
 
+/* Animación del loader */
 @keyframes girar {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
