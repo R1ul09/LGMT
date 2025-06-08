@@ -35,7 +35,7 @@ header .logo {
       100px: Es el valor mínimo. El ancho del logo no será menor a 100 píxeles.
       4vw: Es el valor preferido (o "ideal"). El ancho del logo será el 4% de la anchura de la ventana de la pantalla.
       180px: Es el valor máximo. El ancho del logo no será mayor a 180 píxeles. */
-  width: clamp(100px, 4vw, 180px);
+  width: clamp(80px, 3vw, 140px);
 }
 
 nav a {
@@ -78,7 +78,7 @@ nav a:hover {
 }
 
 .banner h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: white;
   /* Con z-index 1 ponemos el texto en la parte de delante */
   z-index: 1;
