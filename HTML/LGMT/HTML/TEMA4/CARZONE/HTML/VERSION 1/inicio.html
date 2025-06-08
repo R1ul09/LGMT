@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CARZONE | Inicio</title>
-  <link rel="icon" href="../../IMG/ICONO-CARZONE.ico">
+  <link rel="icon" href="../../IMG/ICONO-CARZONE-2.ico">
   <link rel="stylesheet" href="../../CSS/inicio_version1.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="../../JS/inicio_version1.js" defer></script>
 </head>
@@ -31,39 +33,152 @@
 
   <section class="modelos" data-aos="fade-up">
   <h2>Nuestros Modelos</h2>
-  <div class="slider-contenedor">
-    <div class="slider" id="sliderModelos">
-      <!-- Cards -->
-      <div class="card-modelo">
-        <img src="https://via.placeholder.com/300x200" alt="Modelo 1">
-        <h3>Modelo 1</h3>
-      </div>
-      <div class="card-modelo">
-        <img src="https://via.placeholder.com/300x200" alt="Modelo 2">
-        <h3>Modelo 2</h3>
-      </div>
-      <div class="card-modelo">
-        <img src="https://via.placeholder.com/300x200" alt="Modelo 3">
-        <h3>Modelo 3</h3>
-      </div>
-      <!-- añade más -->
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 4</h3></div>
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 5</h3></div>
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 6</h3></div>
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 7</h3></div>
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 8</h3></div>
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 9</h3></div>
-      <div class="card-modelo"><img src="https://via.placeholder.com/300x200"><h3>Modelo 10</h3></div>
-    </div>
-  </div>
 
-  <!-- Botones -->
-  <div class="slider-buttons">
-    <button onclick="scrollSlider(-300)">⬅</button>
-    <button onclick="scrollSlider(300)">➡</button>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <img src="../../IMG/Audi-R8.jpg" alt="Audi R8">
+        <h3>Audi R8</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>El Audi R8 es un superdeportivo con motor V10 atmosférico, tracción quattro y una velocidad máxima de 330 km/h. Elegante, agresivo y con ADN de competición, es uno de los deportivos más equilibrados y deseados.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/lamborghini-veneno-roadster.png" alt="Lamborghini Veneno Roadster">
+        <h3>Lamborghini Veneno Roadster</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>El Veneno es una bestia de edición limitadísima con 750 CV, carrocería de fibra de carbono y un precio superior a los 10 millones de euros. Solo se fabricaron 13 unidades para todo el mundo.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Bugatti-Chiron-Super-Sport.jpeg" alt="Bugatti Chiron">
+        <h3>Bugatti Chiron</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/bmw-m4-gt3.jpg" alt="BMW M4 GT3">
+        <h3>BMW M4 GT3</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Lamborghini-Huracan-STO.png" alt="Lamborghini Huracán STO">
+        <h3>Lamborghini Huracán STO</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Mercedes-Benz-AMG-GT3.png" alt="Mercedes AMG GT3">
+        <h3>Mercedes AMG GT3</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Lamborghini-Aventador-SVJ.jpg" alt="Lamborghini Aventador SVJ">
+        <h3>Lamborghini Aventador SVJ</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Mercedes-Benz-AMG-G63.jpg" alt="Mercedes AMG G63">
+        <h3>Mercedes AMG G63</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Nissan-GTR-R35.jpeg" alt="Nissan GT-R R35">
+        <h3>Nissan GT-R R35</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/pagani-zonda-r.jpg" alt="Pagani Zonda R">
+        <h3>Pagani Zonda R</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Porsche-911-GT3-RS.jpeg" alt="Porshe 911 GT3 RS">
+        <h3>Porshe 911 GT3 RS</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/McLaren-Senna.png" alt="McLaren Senna">
+        <h3>McLaren Senna</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Koenigsegg-Agere-RS.jpg" alt="Koenigsegg Agera RS">
+        <h3>Koenigsegg Agera RS</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Toyota-Supra-mk4.jpeg" alt="Toyota Supra Mk4">
+        <h3>Toyota Supra Mk4</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="../../IMG/Bugatti-Bolide.jpeg" alt="Bugatti Bolide">
+        <h3>Bugatti Bolide</h3>
+        <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+        <div class="info-extra">
+          <p>Con 1.500 CV, el Chiron supera los 420 km/h, convirtiéndose en uno de los coches más rápidos y lujosos del planeta. Cada unidad se ensambla a mano en Molsheim (Francia).</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Botones -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
-
 
   <section class="quienes-somos" data-aos="fade-up">
   <h2>Quiénes somos</h2>

@@ -1,11 +1,13 @@
 AOS.init();
 
-function mostrarInfo(btn) {
-  const info = btn.nextElementSibling;
-  if (!info.classList.contains("show")) {
-    info.classList.add("show");
-  } else {
+function mostrarInfo(boton) {
+  const info = boton.nextElementSibling;
+  
+  // Si está oculta, la mostramos
+  if (info.classList.contains("show")) {
     info.classList.remove("show");
+  } else {
+    info.classList.add("show");
   }
 }
 
@@ -49,3 +51,26 @@ function cargarCuriosidad() {
       console.error("Error:", error);
     });
 }
+
+const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  speed: 900,
+  effect: "slide",
+  grabCursor: true,
+  centeredSlides: true,
+  parallax: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2
+    },
+    1024: {
+      slidesPerView: 3
+    }
+  }
+});
