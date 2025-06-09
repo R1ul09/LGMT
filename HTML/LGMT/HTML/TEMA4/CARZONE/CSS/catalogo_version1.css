@@ -1,0 +1,169 @@
+/* RESET / BASE */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  opacity: 95%;
+}
+
+header .logo {
+  width: clamp(100px, 2.5vw, 180px);
+}
+
+nav a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #bbb;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* CATALOGO */
+.catalogo h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+
+.cards { /* Asegúrate de que el ID de tu contenedor en HTML sea 'catalogoCoches' si usas 'cards' aquí */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Flip card */
+.card-flip {
+  width: 420px;
+  height: 520px; /* Mantener esta altura si es la que deseas para el conjunto */
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  padding: 1rem; /* Mantenemos este padding para el contenido interno */
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.card-front {
+  /* CAMBIO CLAVE: Usa space-around o space-between para distribuir el contenido */
+  justify-content: space-around; /* Distribuye el espacio uniformemente alrededor de los ítems */
+  /* justify-content: space-between; /* Otra opción, pega el primero arriba y el último abajo, distribuyendo el resto */
+  align-items: center;
+  text-align: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  /* margin-bottom: 0.5rem;  Lo dejamos que justify-content lo maneje mejor */
+}
+
+.card-front h3 {
+  font-size: 1.3rem;
+  /* Ajustamos márgenes para que 'justify-content' tenga más control */
+  margin: 0.2rem 0; /* Menos margen vertical */
+  text-align: center;
+  width: 100%;
+}
+
+.card-front .precio {
+  font-weight: bold;
+  color: #f02a2a;
+  font-size: 1.4rem;
+  /* Ajustamos márgenes para que 'justify-content' tenga más control */
+  margin: 0.2rem 0; /* Menos margen vertical */
+  text-align: center;
+  width: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.card-back h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  width: 100%;
+}
+
+.card-back p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.3rem 0;
+  text-align: left;
+}
+
+.comprar-button {
+  padding: 0.7rem 1.8rem;
+  background-color: #f02a2a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.1rem;
+  /* Ya no necesitamos margin-top: auto; ni un valor fijo, justify-content se encarga */
+  margin-top: 0.5rem; /* Pequeño margen superior para separar del precio */
+  align-self: center;
+  width: fit-content;
+}
+
+.comprar-button:hover {
+  background-color: #c81e1e;
+}
+
+.card-flip.flipped .card-inner {
+  transform: rotateY(180deg);
+}
