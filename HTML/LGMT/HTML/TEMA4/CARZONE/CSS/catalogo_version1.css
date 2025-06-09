@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* Si el header fuera fixed, necesitarías un padding-top aquí también */
 }
 
 section {
@@ -21,6 +22,12 @@ header {
   color: white;
   padding: 1rem 2rem;
   opacity: 95%;
+  /* Si quieres el header fijo como en el ejemplo anterior, añade esto: */
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* z-index: 1000; */
 }
 
 header .logo {
@@ -29,9 +36,10 @@ header .logo {
 
 nav a {
   color: white;
-  margin-left: 1.5rem;
+  margin-left: 1.5rem; /* Margen por defecto para pantallas más grandes */
   text-decoration: none;
   transition: color 0.3s;
+  white-space: nowrap; /* Evita que el texto del enlace se rompa en varias líneas */
 }
 
 nav a:hover {
@@ -53,7 +61,7 @@ footer {
   margin: 2rem 0;
 }
 
-.cards { /* Asegúrate de que el ID de tu contenedor en HTML sea 'catalogoCoches' si usas 'cards' aquí */
+.cards {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -63,7 +71,7 @@ footer {
 /* Flip card */
 .card-flip {
   width: 420px;
-  height: 520px; /* Mantener esta altura si es la que deseas para el conjunto */
+  height: 520px;
   perspective: 1000px;
 }
 
@@ -82,7 +90,7 @@ footer {
   background: #fff;
   border-radius: 1rem;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  padding: 1rem; /* Mantenemos este padding para el contenido interno */
+  padding: 1rem;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
@@ -90,9 +98,7 @@ footer {
 }
 
 .card-front {
-  /* CAMBIO CLAVE: Usa space-around o space-between para distribuir el contenido */
-  justify-content: space-around; /* Distribuye el espacio uniformemente alrededor de los ítems */
-  /* justify-content: space-between; /* Otra opción, pega el primero arriba y el último abajo, distribuyendo el resto */
+  justify-content: space-around;
   align-items: center;
   text-align: center;
 }
@@ -102,13 +108,11 @@ footer {
   height: 240px;
   object-fit: cover;
   border-radius: 0.5rem;
-  /* margin-bottom: 0.5rem;  Lo dejamos que justify-content lo maneje mejor */
 }
 
 .card-front h3 {
   font-size: 1.3rem;
-  /* Ajustamos márgenes para que 'justify-content' tenga más control */
-  margin: 0.2rem 0; /* Menos margen vertical */
+  margin: 0.2rem 0;
   text-align: center;
   width: 100%;
 }
@@ -117,8 +121,7 @@ footer {
   font-weight: bold;
   color: #000000;
   font-size: 1.4rem;
-  /* Ajustamos márgenes para que 'justify-content' tenga más control */
-  margin: 0.2rem 0; /* Menos margen vertical */
+  margin: 0.2rem 0;
   text-align: center;
   width: 100%;
 }
@@ -154,8 +157,7 @@ footer {
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 1.1rem;
-  /* Ya no necesitamos margin-top: auto; ni un valor fijo, justify-content se encarga */
-  margin-top: 0.5rem; /* Pequeño margen superior para separar del precio */
+  margin-top: 0.5rem;
   align-self: center;
   width: fit-content;
 }
@@ -166,4 +168,41 @@ footer {
 
 .card-flip.flipped .card-inner {
   transform: rotateY(180deg);
+}
+
+
+/* --- Media Queries para ajustar el navbar en dispositivos móviles --- */
+
+@media (max-width: 768px) { /* Puedes ajustar este breakpoint según tus necesidades */
+  header {
+    flex-wrap: wrap; /* Permite que los elementos del header (logo y nav) se envuelvan a la siguiente línea */
+    justify-content: center; /* Centra los elementos cuando se envuelvan */
+    padding: 1rem; /* Reduce el padding en pantallas pequeñas */
+  }
+
+  header .logo {
+    margin-bottom: 0.5rem; /* Añade un pequeño margen inferior si el logo y el nav se apilan */
+    width: clamp(80px, 15vw, 120px); /* Ajusta el tamaño del logo para móviles */
+  }
+
+  nav {
+    display: flex; /* Mantiene flexbox para los enlaces */
+    flex-wrap: wrap; /* Permite que los enlaces del nav se envuelvan a la siguiente línea */
+    justify-content: center; /* Centra los enlaces */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 0.5rem; /* Pequeño margen superior para separar del logo si se apilan */
+  }
+
+  nav a {
+    margin: 0 0.5rem; /* Reduce el margen entre enlaces en móviles */
+    font-size: 0.9rem; /* Reduce el tamaño de fuente de los enlaces */
+    padding: 0.3rem 0.5rem; /* Añade un pequeño padding para hacerlos más fáciles de tocar */
+  }
+}
+
+@media (max-width: 480px) { /* Para pantallas aún más pequeñas (smartphones muy compactos) */
+  nav a {
+    margin: 0 0.3rem; /* Reduce aún más el margen */
+    font-size: 0.8rem; /* Reduce aún más el tamaño de fuente */
+  }
 }
