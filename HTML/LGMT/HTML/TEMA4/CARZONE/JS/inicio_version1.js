@@ -15,12 +15,12 @@ function mostrarInfo(boton) {
   }
 }
 
-// Funcion para volver arriba de la pagina suavemente
+// Funcion para volver arriba a la pagina
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Cuando se cargue la pagina por completo hara lo siguente 
+// Cuando se cargue la pagina por completo hara lo de abajo 
 document.addEventListener("DOMContentLoaded", () => {
   // Buscamos el contenedor donde irá el dato curioso
   const curiosidadesDiv = document.getElementById("datosCuriosos");
@@ -45,7 +45,7 @@ function cargarCuriosidad() {
     .then(response => response.json())
     // Entonces con el JSON que nos haya dado, haremos lo siguiente
     .then(data => {
-      // Elegimos un dato al azar de todos los que devuelve la API
+      // Elegimos un dato al azar de todos los datos que nos  devuelve la API
       const aleatorio = data[Math.floor(Math.random() * data.length)];
 
       // Esperamos hast a que termine de cargar (para que se vea el loader) y lo mostramos
@@ -79,7 +79,7 @@ const swiper = new Swiper(".mySwiper", {
   grabCursor: true, 
   // Centra la imagen activa
   centeredSlides: true, 
-  // Habilita efecto parallax (movimiento de fondo)
+  // efecto parallax (movimiento de fondo)
   parallax: true, 
   // Botones de siguiente y anterior
   navigation: { 

@@ -53,7 +53,7 @@ function extraerNumero(texto) {
 }
 
 // Funcin para extraer solo el número de una cadena de texto de velocidad (lo mismo que la de arriba)
-// Por ejemplo: "300 km/h" -> 300
+// Por ejemplo: "300 km/h" pues es 300
 function extraerVelocidad(texto) {
   // Busca el primer grupo de uno o más dígitos (\d+) en la cadena
   // 'match()' devuelve un array si encuentra una coincidencia, o null si no

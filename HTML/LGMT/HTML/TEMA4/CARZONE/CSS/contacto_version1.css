@@ -197,10 +197,12 @@ textarea {
   header {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 1rem;
   }
 
   header .logo {
     margin-bottom: 0.5rem;
+    width: clamp(80px, 15vw, 120px);
   }
 
   nav {
@@ -214,6 +216,7 @@ textarea {
   nav a {
     margin: 0 0.5rem;
     font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
   }
 
   .contenido-contacto {
@@ -232,5 +235,12 @@ textarea {
 
   .mapa-incrustado {
     height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    margin: 0 0.3rem;
+    font-size: 0.8rem;
   }
 }
