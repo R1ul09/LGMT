@@ -248,17 +248,33 @@ footer {
 }
 
 @media (max-width: 480px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  header .logo {
+    margin-bottom: 0.5rem;
+    width: clamp(80px, 15vw, 120px);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
   nav a {
-    margin: 0 0.3rem;
-    font-size: 0.8rem;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
   }
 
-  .card-flip {
-    width: 90%;
-    height: auto;
-  }
-
-  .card-front img {
-    height: 200px;
+  .filtros {
+    flex-direction: column; /* Apila el label y el select en móviles */
+    gap: 0.5rem;
   }
 }
