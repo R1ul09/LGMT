@@ -1,367 +1,536 @@
+/* ======================== */
+/* ===== PRELOADER CSS ==== */
+/* ======================== */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out; 
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+.preloader-logo {
+    width: clamp(150px, 15vw, 250px);
+    margin-bottom: 20px;
+    animation: bounceIn 1s ease-out forwards; 
+    animation-delay: 0.2s;
+}
+
+#preloader h1 {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    margin: 0;
+    padding: 0 1rem; 
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Opcional: Spinner de carga CSS puro */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin-top: 20px;
+    animation-delay: 0.8s;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animaciones personalizadas */
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3)
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1)
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9)
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03)
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 /* ======= RESET / BASE ======= */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  /* ponemos vh (Viewport Height) en vez de px para que se ajuste a la ventana del navegador */
-  min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    /* ponemos vh (Viewport Height) en vez de px para que se ajuste a la ventana del navegador */
+    min-height: 100vh;
+    overflow-x: hidden; /* ¡Importante para evitar scroll horizontal inesperado! */
 }
 
 section {
-  /* Aqui ponemos rem (Root EM) ya que se basa en el tamaño de fuente de la raíz del documento*/
-  margin-bottom: 3rem;
+    /* Aqui ponemos rem (Root EM) ya que se basa en el tamaño de fuente de la raíz del documento*/
+    margin-bottom: 3rem;
 }
 
 /* ======= NAVBAR ======= */
 header {
-  /* Ponemos flex para que todo se ponga en linea */
-  display: flex; 
-  /* Con esto dejamos el logo a la izquierda y el menú a la derecha */
-  justify-content: space-between; 
-  /* Centramos verticalmente */
-  align-items: center;
-  background-color: black;
-  color: white;
-  /* Con esto le decimos que arriba y abajo sera de un 1rem y a la izquierda y derecha de 2rem */
-  padding: 1rem 2rem;
-  opacity: 95%; /* Un pelín transparente */
+    /* Ponemos flex para que todo se ponga en linea */
+    display: flex; 
+    /* Con esto dejamos el logo a la izquierda y el menú a la derecha */
+    justify-content: space-between; 
+    /* Centramos verticalmente */
+    align-items: center;
+    background-color: black;
+    color: white;
+    /* Con esto le decimos que arriba y abajo sera de un 1rem y a la izquierda y derecha de 2rem */
+    padding: 1rem 2rem;
+    opacity: 95%; 
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 header .logo {
-  /* La función clamp() establece un rango de valores para el ancho.
-      100px: Es el valor mínimo. El ancho del logo no será menor a 100 píxeles.
-      4vw: Es el valor preferido (o "ideal"). El ancho del logo será el 4% de la anchura de la ventana de la pantalla.
-      180px: Es el valor máximo. El ancho del logo no será mayor a 180 píxeles. */
-  width: clamp(100px, 2.5vw, 180px);
+    /* La función clamp() establece un rango de valores para el ancho.
+        100px: Es el valor mínimo. El ancho del logo no será menor a 100 píxeles.
+        4vw: Es el valor preferido (o "ideal"). El ancho del logo será el 4% de la anchura de la ventana de la pantalla.
+        180px: Es el valor máximo. El ancho del logo no será mayor a 180 píxeles. */
+    width: clamp(100px, 2.5vw, 180px);
 }
 
 nav a {
-  color: white;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  transition: color 0.3s;
+    color: white;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #bbb;
+    color: #bbb;
 }
 
 /* ======= BANNER CON VIDEO ======= */
 .banner {
-  /* Relative lo que hace es que el elemento se posicione relativamente al elemento padre,
-  es decir, lo que esté dentro de la clase .banner se posicione dentro del elemento padre */
-  position: relative;
-  height: 400px;
-  /* Con esto hacemos que se oculte el contenido que desborda cortandolo y ocultandolo */
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  /* hacemos que el contenido se alinee al final, como si todos los elementos se pusieran 
-  de acuerdo para irse al rincón más alejado, en la dirección contraria a cómo están normalmente organizados */
-  align-items: flex-end;
-  padding: 2rem;
+    /* Relative lo que hace es que el elemento se posicione relativamente al elemento padre,
+    es decir, lo que esté dentro de la clase .banner se posicione dentro del elemento padre */
+    position: relative;
+    height: 400px;
+    /* Con esto hacemos que se oculte el contenido que desborda cortandolo y ocultandolo */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    /* hacemos que el contenido se alinee al final, como si todos los elementos se pusieran 
+    de acuerdo para irse al rincón más alejado, en la dirección contraria a cómo están normalmente organizados */
+    align-items: flex-end;
+    padding: 2rem;
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .banner-video {
-  /* Con esto podemos poner donde queramos */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Hace que el vídeo cubra todo sin deformarse */
-  object-fit: cover;
-  /* Con z-index -1 ponemos el video en la parte de atrás */
-  z-index: -1;
+    /* Con esto podemos poner donde queramos */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Hace que el vídeo cubra todo sin deformarse */
+    object-fit: cover;
+    /* Con z-index -1 ponemos el video en la parte de atrás */
+    z-index: -1;
 }
 
 .banner h1 {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  color: white;
-  /* Con z-index 1 ponemos el texto en la parte de delante */
-  z-index: 1;
-  margin: 0;
-  text-align: center;
-  max-width: 90%;
-  margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: white;
+    /* Con z-index 1 ponemos el texto en la parte de delante */
+    z-index: 1;
+    margin: 0;
+    text-align: center;
+    max-width: 90%;
+    margin-bottom: 1rem;
 }
 
 /* ======= BOTÓN SCROLL ======= */
 .scroll-button {
-  /* con position fixe hacemos que el botón se posicione fijo */
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: clamp(45px, 8vw, 55px);
-  height: clamp(45px, 8vw, 55px);
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  cursor: pointer;
-  transition: background-color 0.3s;
-  z-index: 10;
+    /* con position fixe hacemos que el botón se posicione fijo */
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: clamp(45px, 8vw, 55px);
+    height: clamp(45px, 8vw, 55px);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
 }
 
 .scroll-button:hover {
-  background-color: #333;
+    background-color: #333;
 }
 
 /* ======= SECCIONES ======= */
 .modelos, .quienes-somos, .datos-curiosos {
-  padding: 3rem 2rem;
-  text-align: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ======= NUESTROS MODELOS (SWIPER CARRUSEL) ======= */
 .modelos h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
 }
 
 .swiper {
-  width: 90%;
-  padding-bottom: 1.5rem;
+    width: 90%;
+    padding-bottom: 1.5rem;
 }
 
 .swiper-slide {
-  display: flex;
-  /* Con esto ponemos el contenido en columna */
-  flex-direction: column;
-  /* Con esto le decimos que los coche se apilen al principio */
-  justify-content: flex-start;
-  background: #fff;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  transition: transform 0.6s ease;
-  height: auto;
-  min-height: 500px;
-  /* Esto hace que el contenido que se desborde siga siendo visible */
-  overflow: visible;
-  padding-bottom: 1rem;
+    display: flex;
+    /* Con esto ponemos el contenido en columna */
+    flex-direction: column;
+    /* Con esto le decimos que los coche se apilen al principio */
+    justify-content: flex-start;
+    background: #fff;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.6s ease;
+    height: auto;
+    min-height: 500px;
+    /* Esto hace que el contenido que se desborde siga siendo visible */
+    overflow: visible;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
 }
 
 .swiper-slide img {
-  width: 100%;
-  height: 250px;
-  /* Hace que el contenido se ajuste al contendeor ocupando todo lo posible sin deformarse */
-  object-fit: cover;
-  /* Y display: block hace que el contenido se vaya poniendo en bloques */
-  display: block;
+    width: 100%;
+    height: 250px;
+    /* Hace que el contenido se ajuste al contendeor ocupando todo lo posible sin deformarse */
+    object-fit: cover;
+    /* Y display: block hace que el contenido se vaya poniendo en bloques */
+    display: block;
 }
 
 .swiper-slide h3 {
-  padding: 1rem;
-  font-size: 1.3rem;
+    padding: 1rem;
+    font-size: 1.3rem;
 }
 
 .swiper-slide-active {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* ======= CARDS GENERALES ======= */
 .cards {
-  display: flex;
-  justify-content: center;
-  /* gap es el espacio entre filas y columnas */
-  gap: 2rem;
-  /* Con esto hacemos que si los elementos no caben en una sola línea se van a empezar en otra */
-  flex-wrap: wrap;
-  margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    /* gap es el espacio entre filas y columnas */
+    gap: 2rem;
+    /* Con esto hacemos que si los elementos no caben en una sola línea se van a empezar en otra */
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 300px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .card img {
-  width: 100%;
-  border-radius: 8px;
+    width: 100%;
+    border-radius: 8px;
 }
 
 .card button {
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .card button:hover {
-  background-color: #444;
+    background-color: #444;
 }
 
 /* ======= INFO EXTRA (texto desplegable de los coches) ======= */
 .info-extra {
-  max-height: 0;
-  opacity: 0;
-  /* Esto esconde cualquier cosa que se salga de los límites del elemento. */
-  overflow: hidden;
-  transition: all 0.5s ease;
-  margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    /* Esto esconde cualquier cosa que se salga de los límites del elemento. */
+    overflow: hidden;
+    transition: all 0.5s ease;
+    margin-top: 0;
 }
 
 .info-extra.show {
-  max-height: 500px;
-  opacity: 1;
-  margin-top: 0.5rem;
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 0.5rem;
 }
 
 /* ======= QUIÉNES SOMOS ======= */
 .quienes-somos h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
 }
 
 .info-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .info-card {
-  background-color: #f7f7f7;
-  color: #222;
-  border-radius: 10px;
-  padding: 2rem;
-  width: clamp(350px, 28vw, 350px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #f7f7f7;
+    color: #222;
+    border-radius: 10px;
+    padding: 2rem;
+    width: clamp(350px, 28vw, 350px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
 }
 
 .info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .info-card .icono {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .info-card h3 {
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    margin-bottom: 1rem;
 }
 
 .info-card p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #444;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #444;
 }
 
 /* ======= DATOS CURIOSOS Y LOADER ======= */
 .loader {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #f02a2a;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: girar 1s linear infinite;
-  margin: 1.5rem auto;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #f02a2a;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: girar 1s linear infinite;
+    margin: 1.5rem auto;
 }
 
 /* Animación del loader */
 @keyframes girar {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .dato-curioso {
-  background: #f7f7f7;
-  color: #222;
-  border-radius: 1rem;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  margin: 2rem auto;
-  max-width: 600px;
-  font-size: 1.2rem;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.5s ease;
+    background: #f7f7f7;
+    color: #222;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    margin: 2rem auto;
+    max-width: 600px;
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
 }
 
 .dato-curioso.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .datos-button {
-  margin-top: 1.2rem;
-  padding: 0.8rem 1.8rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    margin-top: 1.2rem;
+    padding: 0.8rem 1.8rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .datos-button:hover {
-  background-color: #333;
+    background-color: #333;
 }
 
 /* ======= FOOTER ======= */
 footer {
-  background-color: black;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  margin-top: auto;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* --- Media Queries para ajustar el navbar en dispositivos móviles --- */
-@media (max-width: 768px) { /* Puedes ajustar este breakpoint según tus necesidades */
-  header {
-    flex-wrap: wrap; /* Permite que los elementos del header (logo y nav) se envuelvan a la siguiente línea */
-    justify-content: center; /* Centra los elementos cuando se envuelvan */
-    padding: 1rem; /* Reduce el padding en pantallas pequeñas */
-  }
+@media (max-width: 768px) {
+    header {
+        /* Permite que los elementos del header (logo y nav) se envuelvan a la siguiente línea */
+        flex-wrap: wrap; 
+        justify-content: center;
+        padding: 1rem;
+    }
 
-  header .logo {
-    margin-bottom: 0.5rem; /* Añade un pequeño margen inferior si el logo y el nav se apilan */
-    width: clamp(80px, 15vw, 120px); /* Ajusta el tamaño del logo para móviles */
-  }
+    header .logo {
+        margin-bottom: 0.5rem;
+        width: clamp(80px, 15vw, 120px);
+    }
 
-  nav {
-    display: flex; /* Mantiene flexbox para los enlaces */
-    flex-wrap: wrap; /* Permite que los enlaces del nav se envuelvan a la siguiente línea */
-    justify-content: center; /* Centra los enlaces */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    margin-top: 0.5rem; /* Pequeño margen superior para separar del logo si se apilan */
-  }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-  nav a {
-    margin: 0 0.5rem; /* Reduce el margen entre enlaces en móviles */
-    font-size: 0.9rem; /* Reduce el tamaño de fuente de los enlaces */
-    padding: 0.3rem 0.5rem; /* Añade un pequeño padding para hacerlos más fáciles de tocar */
-  }
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .modelos, .quienes-somos, .datos-curiosos {
+        padding: 2rem 1rem;
+    }
+
+    .swiper {
+        width: 100%;
+        padding: 0 1rem 1.5rem 1rem;
+    }
+
+    .swiper-slide {
+        min-height: 450px;
+    }
+
+    .info-card {
+        width: 90%;
+        max-width: 380px;
+    }
 }
 
-@media (max-width: 480px) { /* Para pantallas aún más pequeñas (smartphones muy compactos) */
-  nav a {
-    margin: 0 0.3rem; /* Reduce aún más el margen */
-    font-size: 0.8rem; /* Reduce aún más el tamaño de fuente */
-  }
+@media (max-width: 480px) {
+    nav a {
+        margin: 0 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .swiper-slide img {
+        height: 200px;
+    }
+
+    .swiper-slide h3 {
+        font-size: 1.1rem;
+    }
+
+    .info-card {
+        padding: 1.5rem;
+    }
+
+    .info-card p {
+        font-size: 0.9rem;
+    }
 }
