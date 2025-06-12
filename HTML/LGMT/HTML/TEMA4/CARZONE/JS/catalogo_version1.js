@@ -3,6 +3,8 @@
 let todosLosCoches = [];
 
 // Esperamos a qe el documento HTML esté completamente cargado
+// El DOM es como un mapa que crea el navegador de los elementos html
+// Y el js puede interactuar con ellos gracias al DOM
 document.addEventListener("DOMContentLoaded", () => {
   // Llama a la función para cargar el catálogo de coches
   cargarCatalogo();
