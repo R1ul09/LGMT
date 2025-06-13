@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CARZONE | Catalogo</title>
+  <link rel="icon" href="../../IMG/ICONO-CARZONE-2.ico">
+  <link rel="stylesheet" href="../../CSS/catalogo_version2.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="../../JS/catalogo_version2.js"></script>
+</head>
+<body>
+<header>
+
+  <img src="../../IMG/LOGO CARZONE (BLANCO) VERSION2.png" alt="Logo" class="logo">
+
+  <nav>
+    <!-- Menú de navegación -->
+    <a href="inicio.html">Inicio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<section class="catalogo">
+  <h1>Catálogo de Vehículos</h1>
+
+  <div class="filtros animate__animated animate__fadeInUp">
+    <label for="filtroSelect">Filtrar por:</label>
+    <select id="filtroSelect">
+      <option value="masCaros">Más caro</option>
+      <option value="masBarato">Más barato</option>
+      <option value="masRapido">Más rápido</option>
+      <option value="masLento">Más lento</option>
+    </select>
+  </div>
+
+  <div id="catalogoCoches" class="cards"></div>
+</section>
+
+<footer>
+    <p>&copy; 2025 CARZONE. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

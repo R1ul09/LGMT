@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  opacity: 95%;
+}
+
+header .logo {
+  width: clamp(100px, 2.5vw, 180px);
+}
+
+nav a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #bbb;
+}
+
+/* FOOTER */
+footer {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* FORMULARIO */
+.contacto {
+  padding: 4rem 2rem;
+}
+
+.contenido-contacto {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+  flex-wrap: wrap;
+}
+
+.formulario {
+  flex: 1 1 500px;
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+.formulario h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.formulario .intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+input, select, textarea {
+  padding: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #444;
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+  outline: none;
+  background: #fff;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* --- ESTILOS DEL BOTÓN DE ENVIAR Y SPINNER (ACTUALIZADOS PARA FONT AWESOME) --- */
+.enviar-button {
+  background-color: #222;
+  color: white; /* Color del texto del botón */
+  padding: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el texto/spinner */
+  align-items: center;   /* Centra verticalmente el texto/spinner */
+  gap: 10px; /* Espacio entre texto y spinner si ambos fueran visibles */
+  position: relative; /* Base para posicionamiento de hijos si fuera necesario */
+}
+
+.enviar-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.enviar-button .button-text {
+  display: block;
+}
+
+/* Contenedor para el spinner (span.button-spinner) */
+.enviar-button .button-spinner {
+  display: flex; /* Para que el icono dentro se centre */
+  justify-content: center;
+  align-items: center;
+  height: 25px; /* Dale espacio para el icono */
+  width: 25px;
+}
+
+.enviar-button .button-spinner .fas {
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+.info-contacto {
+  flex: 1 1 300px;
+  background: #f7f7f7;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.info-contacto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #222;
+}
+
+.info-contacto p {
+  font-size: 1rem;
+  margin: 0.8rem 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+.mapa-incrustado {
+  width: 100%;
+  height: 370px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: auto;
+}
+
+.mapa-incrustado iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  header .logo {
+    margin-bottom: 0.5rem;
+    width: clamp(80px, 15vw, 120px);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .contenido-contacto {
+    flex-direction: column;
+  }
+
+  .formulario, .info-contacto {
+    flex: 1 1 100%;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .formulario {
+    margin-bottom: 2rem;
+  }
+
+  .mapa-incrustado {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    margin: 0 0.3rem;
+    font-size: 0.8rem;
+  }
+}

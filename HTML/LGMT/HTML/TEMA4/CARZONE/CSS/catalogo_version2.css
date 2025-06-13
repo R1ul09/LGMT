@@ -1,0 +1,281 @@
+/* RESET / BASE */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  opacity: 95%;
+}
+
+header .logo {
+  width: clamp(100px, 2.5vw, 180px);
+}
+
+nav a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  color: #bbb;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* CATALOGO */
+.catalogo h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+
+/* Estilos para el filtro con animación */
+.filtros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  /* Espacio entre el label y el select */
+  gap: 1rem;
+  /* Animación de entrada */
+  animation-duration: 1s; /* Duración de la animación */
+  animation-fill-mode: both; /* Mantiene el estilo final de la animación */
+}
+
+.filtros label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.filtros select {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  outline: none; /* Elimina el contorno al enfocar */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.filtros select:hover {
+  border-color: #999;
+}
+
+.filtros select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Flip card */
+.card-flip {
+  width: 420px;
+  height: 520px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.card-front {
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card-front img:hover {
+  transform: scale(1.03);
+}
+
+.card-front h3 {
+  font-size: 1.3rem;
+  margin: 0.2rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.card-front .precio {
+  font-weight: bold;
+  color: #000;
+  font-size: 1.4rem;
+  margin: 0.2rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.card-back h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.card-back p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.3rem 0;
+  text-align: left;
+}
+
+.comprar-button {
+  padding: 0.7rem 1.5rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  align-self: center;
+}
+
+.comprar-button:hover {
+  background-color: #515151;
+}
+
+/* Estado de la carta girada */
+.card-flip.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Animaciones de entrada con Animate.css */
+.card-flip.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* --- Media Queries para móviles --- */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  header .logo {
+    margin-bottom: 0.5rem;
+    width: clamp(80px, 15vw, 120px);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    margin: 0 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .filtros {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  header .logo {
+    margin-bottom: 0.5rem;
+    width: clamp(80px, 15vw, 120px);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    margin: 0 0.3rem;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .filtros {
+    /* Apila el label y el select en móviles */
+    flex-direction: column; 
+    gap: 0.5rem;
+  }
+}
