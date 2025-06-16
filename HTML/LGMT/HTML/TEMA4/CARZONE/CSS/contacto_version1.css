@@ -52,7 +52,7 @@ footer {
   display: flex;
   gap: 3rem;
   justify-content: center;
-  align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -107,22 +107,20 @@ textarea {
   resize: vertical;
 }
 
-/* --- ESTILOS DEL BOTÓN DE ENVIAR Y SPINNER (ACTUALIZADOS PARA FONT AWESOME) --- */
 .enviar-button {
   background-color: #222;
-  color: white; /* Color del texto del botón */
+  color: white;
   padding: 1.1rem;
   border: none;
   border-radius: 50px;
   font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-
   display: flex;
-  justify-content: center; /* Centra horizontalmente el texto/spinner */
-  align-items: center;   /* Centra verticalmente el texto/spinner */
-  gap: 10px; /* Espacio entre texto y spinner si ambos fueran visibles */
-  position: relative; /* Base para posicionamiento de hijos si fuera necesario */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
 }
 
 .enviar-button:hover {
@@ -134,12 +132,11 @@ textarea {
   display: block;
 }
 
-/* Contenedor para el spinner (span.button-spinner) */
 .enviar-button .button-spinner {
-  display: flex; /* Para que el icono dentro se centre */
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 25px; /* Dale espacio para el icono */
+  height: 25px;
   width: 25px;
 }
 

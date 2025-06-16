@@ -1,7 +1,4 @@
-/* ======================== */
-/* ===== PRELOADER CSS ==== */
-/* ======================== */
-
+/* ====== PRELOADER ======= */
 #preloader {
     position: fixed;
     top: 0;
@@ -50,7 +47,6 @@
     animation-delay: 0.5s;
 }
 
-/* Opcional: Spinner de carga CSS puro */
 .spinner {
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-top: 4px solid #fff;
@@ -129,7 +125,7 @@ body {
     flex-direction: column;
     /* ponemos vh (Viewport Height) en vez de px para que se ajuste a la ventana del navegador */
     min-height: 100vh;
-    overflow-x: hidden; /* ¡Importante para evitar scroll horizontal inesperado! */
+    overflow-x: hidden;
 }
 
 section {
@@ -137,7 +133,6 @@ section {
     margin-bottom: 3rem;
 }
 
-/* ======= NAVBAR ======= */
 header {
     /* Ponemos flex para que todo se ponga en linea */
     display: flex; 
@@ -173,7 +168,6 @@ nav a:hover {
     color: #bbb;
 }
 
-/* ======= BANNER CON VIDEO ======= */
 .banner {
     /* Relative lo que hace es que el elemento se posicione relativamente al elemento padre,
     es decir, lo que esté dentro de la clase .banner se posicione dentro del elemento padre */
@@ -245,7 +239,6 @@ nav a:hover {
     box-sizing: border-box;
 }
 
-/* ======= NUESTROS MODELOS (SWIPER CARRUSEL) ======= */
 .modelos h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 2rem;
@@ -258,9 +251,7 @@ nav a:hover {
 
 .swiper-slide {
     display: flex;
-    /* Con esto ponemos el contenido en columna */
     flex-direction: column;
-    /* Con esto le decimos que los coche se apilen al principio */
     justify-content: flex-start;
     background: #fff;
     border-radius: 1rem;
@@ -269,7 +260,6 @@ nav a:hover {
     transition: transform 0.6s ease;
     height: auto;
     min-height: 500px;
-    /* Esto hace que el contenido que se desborde siga siendo visible */
     overflow: visible;
     padding-bottom: 1rem;
     box-sizing: border-box;
@@ -293,7 +283,6 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* ======= CARDS GENERALES ======= */
 .cards {
     display: flex;
     justify-content: center;
@@ -342,7 +331,6 @@ nav a:hover {
     background-color: #444;
 }
 
-/* ======= INFO EXTRA (texto desplegable de los coches) ======= */
 .info-extra {
     max-height: 0;
     opacity: 0;
@@ -358,7 +346,6 @@ nav a:hover {
     margin-top: 0.5rem;
 }
 
-/* ======= QUIÉNES SOMOS ======= */
 .quienes-somos h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 2rem;
@@ -403,7 +390,6 @@ nav a:hover {
     color: #444;
 }
 
-/* ======= DATOS CURIOSOS Y LOADER ======= */
 .loader {
     border: 6px solid #f3f3f3;
     border-top: 6px solid #f02a2a;
@@ -414,7 +400,6 @@ nav a:hover {
     margin: 1.5rem auto;
 }
 
-/* Animación del loader */
 @keyframes girar {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -455,7 +440,6 @@ nav a:hover {
     background-color: #333;
 }
 
-/* ======= FOOTER ======= */
 footer {
     background-color: black;
     color: white;
@@ -468,7 +452,6 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        /* Permite que los elementos del header (logo y nav) se envuelvan a la siguiente línea */
         flex-wrap: wrap; 
         justify-content: center;
         padding: 1rem;

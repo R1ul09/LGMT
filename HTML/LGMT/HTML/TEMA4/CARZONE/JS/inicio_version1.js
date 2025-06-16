@@ -1,6 +1,4 @@
-// ========================
-// ===== PRELOADER JS =====
-// ========================
+// ===== PRELOADER ======
 document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     // Usamos sessionStorage en lugar de localStorage

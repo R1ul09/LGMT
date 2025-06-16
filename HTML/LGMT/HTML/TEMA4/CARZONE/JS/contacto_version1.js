@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttonText = enviarButton.querySelector(".button-text");
   const buttonSpinner = enviarButton.querySelector(".button-spinner");
 
-  // esta es mi funcion para mostrar mensajitos chulos con Toastify
   function mostrarToast(mensaje, tipo = "success") {
     let backgroundColor;
     // aqui decido el color de fondo del mensajito segun el tipo (success, error, warning)
@@ -88,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // --- aqui empieza la logica para guardar la cita (lo simulamos en el navegador con localstorage)
+  // aqui empieza la logica para guardar la cita (lo simulamos en el navegador con localstorage)
   // escucho cuando se envia el formulario
   form.addEventListener("submit", async (e) => {
     // evito que el formulario se envie de la forma normal (par que no se recargue la pagina)

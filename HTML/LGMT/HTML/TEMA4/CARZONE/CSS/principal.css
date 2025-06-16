@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  /* esto hace que el padding y el borde formen parte del ancho y alto total del elemento,
+   en lugar de sumarse a ellos */
   box-sizing: border-box;
 }
 
@@ -14,6 +16,7 @@ body {
   color: #fff;
   font-family: sans-serif;
   padding: clamp(1rem, 3vw, 2rem);
+  /* ocultamos cualquier contenido que se desborde a lo ancho */
   overflow-x: hidden;
 }
 

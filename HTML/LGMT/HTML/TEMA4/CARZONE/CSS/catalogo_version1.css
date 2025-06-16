@@ -54,7 +54,6 @@ footer {
   margin: 2rem 0;
 }
 
-/* Estilos para el filtro con animación */
 .filtros {
   display: flex;
   justify-content: center;
@@ -63,8 +62,8 @@ footer {
   /* Espacio entre el label y el select */
   gap: 1rem;
   /* Animación de entrada */
-  animation-duration: 1s; /* Duración de la animación */
-  animation-fill-mode: both; /* Mantiene el estilo final de la animación */
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .filtros label {
@@ -215,7 +214,6 @@ footer {
   animation-fill-mode: both;
 }
 
-/* --- Media Queries para móviles --- */
 @media (max-width: 768px) {
   header {
     flex-wrap: wrap;
@@ -274,7 +272,6 @@ footer {
   }
 
   .filtros {
-    /* Apila el label y el select en móviles */
     flex-direction: column; 
     gap: 0.5rem;
   }
