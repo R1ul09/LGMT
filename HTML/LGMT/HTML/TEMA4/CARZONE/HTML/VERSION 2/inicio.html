@@ -1,29 +1,226 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CARZONE | Mantenimiento</title>
-  <link rel="icon" href="../../IMG/ICONO-CARZONE.ico">
-  <link rel="stylesheet" href="../../CSS/inicio_version2.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CARZONE | Inicio</title>
+    <link rel="icon" href="../../IMG/ICONO-CARZONE-2.ico">
+    <link rel="stylesheet" href="../../CSS/inicio_version2.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="../../JS/inicio_version2.js" defer></script>
 </head>
 <body>
-
-  <video autoplay muted loop id="videoFondo">
-    <source src="../../IMG/video_fondo.mp4" type="video/mp4">
-  </video>
-
-  <div class="versiones">
-    <div class="version">
-      <img src="../../IMG/LOGO CARZONE (BLANCO) VERSION2.png" alt="En construcción" style="width: clamp(120px, 20vw, 200px); border-radius: 0.5rem;">
-      <p style="margin-top: clamp(0rem, 2vw, 1.5rem); font-size: clamp(1rem, 3vw, 1.4rem);">Estamos trabajando para mejorar esta versión. Vuelve pronto.</p>
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="../../IMG/LOGO CARZONE (BLANCO) VERSION2.png" alt="Logo CARZONE" class="preloader-logo">
+            <h1>Bienvenido a CARZONE</h1>
+            <div class="spinner"></div> </div>
     </div>
-  </div>
+    <header>
+        <img src="../../IMG/LOGO CARZONE (BLANCO) VERSION2.png" alt="Logo" class="logo">
+        <nav>
+            <a href="inicio.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="#quienes-somos-section">Quiénes somos</a> <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 CARZONE</p>
-  </footer>
+    <div class="banner">
+        <video autoplay muted loop playsinline class="banner-video">
+            <source src="../../IMG/BANNER.mp4" type="video/mp4">
+        </video>
+
+        <h1>Descubre la elegancia sobre ruedas</h1>
+    </div>
+
+    <section class="modelos" data-aos="fade-up">
+        <h2>Nuestros Modelos</h2>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../../IMG/Audi-R8.jpg" alt="Audi R8">
+                    <h3>Audi R8</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>El Audi R8 combina un motor V10 atmosférico con un diseño agresivo y elegante. Es famoso por su equilibrio entre rendimiento y confort, capaz de acelerar de 0 a 100 en solo 3,1 segundos.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/lamborghini-veneno-roadster.png" alt="Lamborghini Veneno Roadster">
+                    <h3>Lamborghini Veneno Roadster</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Una joya de colección, el Veneno Roadster tiene 750 CV y solo se fabricaron 9 unidades. Su aerodinámica extrema y estética radical lo convierten en uno de los Lamborghinis más exclusivos jamás creados.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Bugatti-Chiron-Super-Sport.jpeg" alt="Bugatti Chiron">
+                    <h3>Bugatti Chiron</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Con 1.500 CV, el Chiron es un icono de lujo y velocidad. Supera los 420 km/h y su interior artesanal combina tecnología y elegancia a niveles inimaginables.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/bmw-m4-gt3.jpg" alt="BMW M4 GT3">
+                    <h3>BMW M4 GT3</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Versión de competición del M4, con motor de 590 CV y aerodinámica adaptada al circuito. Una bestia pensada para dominar campeonatos de resistencia y GT.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Lamborghini-Huracan-STO.png" alt="Lamborghini Huracán STO">
+                    <h3>Lamborghini Huracán STO</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Inspirado en los Huracán de competición, con 640 CV y carrocería de carbono. Toda una experiencia de circuito homologada para calle.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Mercedes-Benz-AMG-GT3.png" alt="Mercedes AMG GT3">
+                    <h3>Mercedes AMG GT3</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Un pura sangre de competición con motor V8 atmosférico, preparado para las 24 horas de Nürburgring y campeonatos internacionales de GT.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Lamborghini-Aventador-SVJ.jpg" alt="Lamborghini Aventador SVJ">
+                    <h3>Lamborghini Aventador SVJ</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>El Aventador más salvaje, con 770 CV y el sistema de aerodinámica activa ALA 2.0. Capaz de marcar récord en Nürburgring para coches de producción.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Mercedes-Benz-AMG-G63.jpg" alt="Mercedes AMG G63">
+                    <h3>Mercedes AMG G63</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>El todoterreno más lujoso y bruto del mercado. Con motor V8 biturbo de 585 CV y diseño de leyenda, combina prestaciones con lujo extremo.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Nissan-GTR-R35.jpeg" alt="Nissan GT-R R35">
+                    <h3>Nissan GT-R R35</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Apodado Godzilla, ofrece más de 570 CV, tracción integral y un rendimiento brutal. Famoso por su relación calidad-precio y fiabilidad en circuito.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/pagani-zonda-r.jpg" alt="Pagani Zonda R">
+                    <h3>Pagani Zonda R</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Una obra de arte de la ingeniería italiana. Motor V12 AMG y carrocería de carbono. Solo para circuito, es una de las máquinas más puras jamás fabricadas.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Porsche-911-GT3-RS.jpeg" alt="Porsche 911 GT3 RS">
+                    <h3>Porsche 911 GT3 RS</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>El GT3 RS es la versión más radical del mítico 911, con 525 CV, aerodinámica activa y ADN de circuito. Equilibrio perfecto entre tradición y tecnología pura Porsche.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/McLaren-Senna.png" alt="McLaren Senna">
+                    <h3>McLaren Senna</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Creado como homenaje al legendario Ayrton Senna, este hypercar de 800 CV y menos de 1.200 kg es una máquina despiadada pensada exclusivamente para circuito.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Koenigsegg-Agere-RS.jpg" alt="Koenigsegg Agera RS">
+                    <h3>Koenigsegg Agera RS</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Durante años, ostentó el récord mundial de velocidad con 447 km/h. Motor V8 biturbo de hasta 1.360 CV y una producción limitada a 25 unidades.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Toyota-Supra-mk4.jpeg" alt="Toyota Supra Mk4">
+                    <h3>Toyota Supra Mk4</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>Icono del JDM, famoso por su motor 2JZ-GTE capaz de alcanzar más de 1.000 CV con preparaciones. Fue protagonista en Fast & Furious y es leyenda viva.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/Bugatti-Bolide.jpeg" alt="Bugatti Bolide">
+                    <h3>Bugatti Bolide</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>El Bolide lleva el motor W16 de 1.850 CV a un chasis ultraligero de competición. Solo 40 unidades se fabricarán, diseñadas para romper récords en circuito.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="../../IMG/seat-leon-cupra-r-1.jpg" alt="Seat Cupra">
+                    <h3>Seat Cupra</h3>
+                    <button class="datos-button" onclick="mostrarInfo(this)">Ver más info</button>
+                    <div class="info-extra">
+                        <p>El Seat Cupra combina deportividad y practicidad. Con un motor potente y una puesta a punto dinámica, ofrece una experiencia de conducción emocionante para el día a día.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <section class="quienes-somos" data-aos="fade-up" id="quienes-somos-section"> <h2>Quiénes somos</h2>
+        <div class="info-cards">
+            <div class="info-card" data-aos="zoom-in">
+                <div class="icono">🚗</div>
+                <h3>Nuestra Historia</h3>
+                <p>Fundada en 2005, CARZONE nació de una pasión desmedida por los automóviles de lujo y alto rendimiento. Durante más de 15 años, hemos recorrido un camino de innovación, elegancia y tecnología al servicio de los amantes del motor.</p>
+            </div>
+            <div class="info-card" data-aos="zoom-in">
+                <div class="icono">✨</div>
+                <h3>Filosofía CARZONE</h3>
+                <p>Creemos que cada vehículo cuenta una historia. Nuestra filosofía se basa en ofrecer experiencias únicas, donde cada detalle está pensado para emocionar al conductor y cautivar a quien lo acompaña.</p>
+            </div>
+            <div class="info-card" data-aos="zoom-in">
+                <div class="icono">🔧</div>
+                <h3>Servicios Exclusivos</h3>
+                <p>Ofrecemos asesoramiento personalizado, venta de vehículos nuevos y seminuevos, mantenimiento integral, pruebas dinámicas y un área VIP para clientes premium. CARZONE es más que un concesionario: es una experiencia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="datos-curiosos" data-aos="fade-up">
+        <h2>Datos curiosos del mundo automotriz</h2>
+        <div id="datosCuriosos"></div>
+        <button class="scroll-button" onclick="scrollToTop()">⬆</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CARZONE. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
-
 </html>

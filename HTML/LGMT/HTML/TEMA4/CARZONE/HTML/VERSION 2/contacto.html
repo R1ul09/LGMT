@@ -45,8 +45,13 @@
         </div>
 
         <div class="campo">
-          <label>Teléfono</label>
-          <input type="tel" name="telefono" required>
+          <label>Teléfono (9 dígitos)</label>
+          <input type="tel" name="telefono" required minlength="9" maxlength="9" pattern="\d{9}" title="Por favor, introduce 9 dígitos numéricos">
+        </div>
+
+        <div class="campo">
+          <label>Móvil (Empieza por 6, 9 dígitos)</label>
+          <input type="tel" name="movil" required minlength="9" maxlength="9" pattern="6\d{8}" title="El número debe empezar por 6 y tener 9 dígitos numéricos">
         </div>
 
         <div class="campo">

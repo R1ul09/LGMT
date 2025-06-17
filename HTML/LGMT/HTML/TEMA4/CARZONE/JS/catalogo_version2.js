@@ -6,8 +6,12 @@ let todosLosCoches = [];
 // El DOM es como un mapa que crea el navegador de los elementos html
 // Y el js puede interactuar con ellos gracias al DOM
 document.addEventListener("DOMContentLoaded", () => {
+  // Establecer el valor por defecto del select a "masRapido"
+  document.getElementById("filtroSelect").value = "masRapido"; // <-- CAMBIO AÑADIDO
+
   // Llama a la función para cargar el catálogo de coches
-  cargarCatalogo();
+  // Pasamos "masRapido" como filtro inicial para que se muestre ordenado por defecto
+  cargarCatalogo("masRapido"); // <-- CAMBIO MODIFICADO: Pasar "masRapido" como filtro inicial
 
   // Añade un "escuchador de eventos" (event listener) al elemento select de filtro
   // Cada vez que el valor seleccionado en el filtro cambie, se ejecutará una función
@@ -24,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Función asíncrona para cargar los datos del catálogo desde un archivo JSON local
-function cargarCatalogo() {
+// Añadimos un parámetro para el filtro inicial, con "masRapido" como valor por defecto
+function cargarCatalogo(filtroActual = "masRapido") { // <-- CAMBIO MODIFICADO: Añadir parámetro con valor por defecto
   // Realiza una petición (fetch) al archivo coches.json
   fetch("../../JSON/coches.json")
     // Cuando la respuesta de la petición llega la convierte a formato JSON
@@ -32,9 +37,9 @@ function cargarCatalogo() {
     // Una vez que los datos JSON están disponibles hace lo siguiente
     .then(data => {
       // Guarda todos los datos de los coches en la variable global todosLosCoches
-      todosLosCoches = data; 
-      // Mostramos el catálogo inicial con todos los coches sin filtrar
-      mostrarCatalogo(todosLosCoches); 
+      todosLosCoches = data;
+      // Mostramos el catálogo inicial con el filtro actual (el que viene por defecto o el que se pasó)
+      filtrarYCargarCatalogo(filtroActual); // <-- CAMBIO MODIFICADO: Usar el filtroActual
     })
     // Si ocurre un error durante la carga (ej. el archivo no existe), lo captura y lo muestra en la consola
     .catch(error => {
@@ -46,7 +51,7 @@ function cargarCatalogo() {
 // Por ejemplo: "€120.000" -> 120000 o "120,50€" -> 120.50
 function extraerNumero(texto) {
   // Elimina el símbolo del euro (€), los puntos de miles (.) y reemplaza las comas (,) por puntos para los decimales
-  // Esto limpia la cadena para que solo quede el humero 
+  // Esto limpia la cadena para que solo quede el humero
   let numeroLimpio = texto.replace(/€/g, '').replace(/\./g, '').replace(/,/g, '.');
   // Intenta convertir la cadena limpia a un número decimal
   let soloNumeros = parseFloat(numeroLimpio);
@@ -77,7 +82,7 @@ function filtrarYCargarCatalogo(criterio) {
   switch (criterio) {
     case "masCaros":
       // Ordena los coches de más caros a más baratos
-      // El metodo sort() compara pares de elementos (a y b). Si (b - a) es positivo, 
+      // El metodo sort() compara pares de elementos (a y b). Si (b - a) es positivo,
       // a se mueve después de b (orden descendente); si es negativo, a permanece antes de b (orden ascendente)
       // 'b - a' ordena de forma descendente (el mayor primero)
       cochesOrdenados.sort((a, b) => extraerNumero(b.precio) - extraerNumero(a.precio));
@@ -93,7 +98,7 @@ function filtrarYCargarCatalogo(criterio) {
       // 'b - a' ordena de forma descendente
       cochesOrdenados.sort((a, b) => extraerVelocidad(b.velocidadMax) - extraerVelocidad(a.velocidadMax));
       break;
-    case "masLento":
+    case "masLento": // <-- Este caso no estaba en tu <select>, pero lo mantengo por si lo añades
       // Ordena los coches de más lentos a más rápidos
       // 'a - b' ordena de forma ascendente
       cochesOrdenados.sort((a, b) => extraerVelocidad(a.velocidadMax) - extraerVelocidad(b.velocidadMax));
@@ -149,12 +154,12 @@ function mostrarCatalogo(coches) {
     // Crea un elemento <div> para el precio
     const precio = document.createElement("div");
     // Añadimos una clase para aplicar estilos específicos al precio
-    precio.classList.add("precio"); 
+    precio.classList.add("precio");
     precio.textContent = coche.precio;
 
     // Crea un elemento <button> para el botón "Comprar"
     const botonFront = document.createElement("button");
-     // Añade la clase CSS para el botón
+    // Añade la clase CSS para el botón
     botonFront.classList.add("comprar-button");
     botonFront.textContent = "Comprar";
     botonFront.onclick = () => window.location.href = "contacto.html";
