@@ -45,7 +45,7 @@
   },
   {
     "nombre": "Lamborghini Huracán STO",
-    "imagen": "../../IMG/Lamborghini-Huracan-STO-Catalogo.png",
+    "imagen": "../../IMG/Lamborghini-Huracan-STO-Catalogo.jpg",
     "descripcion": "Inspirado en los Huracán de competición, con 640 CV y carrocería de carbono. Toda una experiencia de circuito homologada para calle.",
     "potencia": "640 CV",
     "velocidadMax": "310 km/h",
@@ -56,7 +56,7 @@
   },
   {
     "nombre": "Mercedes AMG GT3",
-    "imagen": "../../IMG/Mercedes-Benz-AMG-GT3-Catalogo.png",
+    "imagen": "../../IMG/Mercedes-Benz-AMG-GT3-Catalogo.jpg",
     "descripcion": "Un pura sangre de competición con motor V8 atmosférico, preparado para las 24 horas de Nürburgring y campeonatos internacionales de GT.",
     "potencia": "550 CV",
     "velocidadMax": "280 km/h (depende de la configuración aerodinámica)",
@@ -67,7 +67,7 @@
   },
   {
     "nombre": "Lamborghini Aventador SVJ",
-    "imagen": "../../IMG/Lamborghini-Aventador-SVJ-Catalogo.jpg",
+    "imagen": "../../IMG/Lamborghini-Aventador-SVJ-Catalogo.jpeg",
     "descripcion": "El Aventador más salvaje, con 770 CV y el sistema de aerodinámica activa ALA 2.0. Capaz de marcar récord en Nürburgring para coches de producción.",
     "potencia": "770 CV",
     "velocidadMax": "350 km/h",
@@ -100,7 +100,7 @@
   },
   {
     "nombre": "Pagani Zonda R",
-    "imagen": "../../IMG/pagani-zonda-r-Catalogo.jpg",
+    "imagen": "../../IMG/pagani-zonda-r-Catalogo.png",
     "descripcion": "Una obra de arte de la ingeniería italiana. Motor V12 AMG y carrocería de carbono. Solo para circuito, es una de las máquinas más puras jamás fabricadas.",
     "potencia": "750 CV",
     "velocidadMax": "375 km/h",
@@ -122,7 +122,7 @@
   },
   {
     "nombre": "McLaren Senna",
-    "imagen": "../../IMG/McLaren-Senna-Catalogo.png",
+    "imagen": "../../IMG/McLaren-Senna-Catalogo.jpeg",
     "descripcion": "Creado como homenaje al legendario Ayrton Senna, este hypercar de 800 CV y menos de 1.200 kg es una máquina despiadada pensada exclusivamente para circuito.",
     "potencia": "800 CV",
     "velocidadMax": "340 km/h",
