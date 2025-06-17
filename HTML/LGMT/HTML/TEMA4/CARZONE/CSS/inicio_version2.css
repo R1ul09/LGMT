@@ -126,6 +126,7 @@ body {
     /* ponemos vh (Viewport Height) en vez de px para que se ajuste a la ventana del navegador */
     min-height: 100vh;
     overflow-x: hidden;
+    padding-top: 5rem;
 }
 
 section {
@@ -147,6 +148,10 @@ header {
     opacity: 95%; 
     width: 100%; 
     box-sizing: border-box; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 header .logo {
